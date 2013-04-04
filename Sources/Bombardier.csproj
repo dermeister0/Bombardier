@@ -26,6 +26,22 @@
     <TypeScriptCompile Include="app.ts" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="module2.ts" />
+    <TypeScriptCompile Include="Entities\Game.ts" />
+    <Content Include="Entities\Game.js">
+      <DependentUpon>Game.ts</DependentUpon>
+    </Content>
+    <Content Include="module2.js">
+      <DependentUpon>module2.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="module3.ts" />
+    <Content Include="module3.js">
+      <DependentUpon>module3.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="module4.ts" />
+    <Content Include="module4.js">
+      <DependentUpon>module4.ts</DependentUpon>
+    </Content>
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -49,7 +65,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>51304</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:51882/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

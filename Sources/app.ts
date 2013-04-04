@@ -1,10 +1,17 @@
+/// <reference path="Entities/Game.ts" />
+
+import Entities = Bombardier.Entities;
+
 class Greeter {
     element: HTMLElement;
     span: HTMLElement;
     timerToken: number;
 
     constructor(element: HTMLElement) {
+        var game = new Entities.Game();
+
         this.element = element;
+        this.element.innerHTML += "<h1>" + game.getName() + "</h1>";
         this.element.innerHTML += "The time is: ";
         this.span = document.createElement('span');
         this.element.appendChild(this.span);

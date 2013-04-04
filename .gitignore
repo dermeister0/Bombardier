@@ -1,7 +1,10 @@
 /Sources/bin
 /Sources/obj
-/Sources/app.js
-/Sources/app.js.map
+/Sources/*.js
+/Sources/*.js.map
+
+/Sources/Entities/*.js
+/Sources/Entities/*.js.map
 
 *.suo
 *.user
