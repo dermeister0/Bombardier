@@ -1,0 +1,7 @@
+/Sources/bin
+/Sources/obj
+/Sources/app.js
+/Sources/app.js.map
+
+*.suo
+*.user
