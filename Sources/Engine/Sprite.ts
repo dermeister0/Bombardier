@@ -6,7 +6,7 @@ module Bombardier.Engine {
         constructor() {
         }
 
-        draw() {
+        draw(context: CanvasRenderingContext2D, x: number, y: number) {
         }
     }
 }
