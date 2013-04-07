@@ -11,7 +11,7 @@ class Greeter {
     constructor(element: HTMLElement) {
         var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
 
-        this.game = new Entities.Game(canvas);
+        this.game = Entities.Game.instance;
         this.game.loadContent();
 
         this.game.start();

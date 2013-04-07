@@ -5,16 +5,16 @@ module Bombardier.Entities {
     export class Game {
         private canvasElement: HTMLCanvasElement;
 
-        private i: number;
+        private i: number = 0;
 
         private objectManager = new Engine.ObjectManager();
 
         private map: Map;
 
-        constructor(canvas: HTMLCanvasElement) {
-            this.canvasElement = canvas;
+        private static gameInstance: Game;
 
-            this.i = 0;
+        constructor() {
+            this.reset();
         }
 
         getName(): string {
@@ -56,6 +56,21 @@ module Bombardier.Entities {
         start() {
             this.map = new Map();
             this.map.load();
+        }
+
+        static get instance() {
+            if (gameInstance == null) {
+                gameInstance = new Game();
+            }
+
+            return gameInstance;
+        }
+
+        private reset() {
+            this.canvasElement = null;
+            this.map = null;
+
+            this.canvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
         }
     }
 }

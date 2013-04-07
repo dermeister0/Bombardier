@@ -34,6 +34,10 @@
     <Content Include="Engine\IDrawable.js">
       <DependentUpon>IDrawable.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Engine\Image.ts" />
+    <Content Include="Engine\Image.js">
+      <DependentUpon>Image.ts</DependentUpon>
+    </Content>
     <Content Include="Entities\GameObject.js">
       <DependentUpon>GameObject.ts</DependentUpon>
     </Content>
@@ -86,13 +90,13 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <TypeScriptTarget>ES3</TypeScriptTarget>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptIncludeComments>true</TypeScriptIncludeComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <TypeScriptTarget>ES3</TypeScriptTarget>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptIncludeComments>false</TypeScriptIncludeComments>
     <TypeScriptSourceMap>false</TypeScriptSourceMap>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>

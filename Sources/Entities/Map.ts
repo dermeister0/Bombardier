@@ -22,6 +22,11 @@ module Bombardier.Entities {
         }
 
         draw() {
+            for (var y = 0; y < Map.HEIGHT; ++y) {
+                for (var x = 0; x < Map.WIDTH; ++x) {
+                    this.cells[y][x] = 0;
+                }
+            }
         }
     }
 }
