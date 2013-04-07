@@ -13,6 +13,8 @@ class Greeter {
 
         this.game = new Entities.Game(canvas);
         this.game.loadContent();
+
+        this.game.start();
     }
 
     start() {

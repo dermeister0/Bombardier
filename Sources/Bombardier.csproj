@@ -46,6 +46,10 @@
     <Content Include="Entities\Game.js">
       <DependentUpon>Game.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Entities\Map.ts" />
+    <Content Include="Entities\Map.js">
+      <DependentUpon>Map.ts</DependentUpon>
+    </Content>
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

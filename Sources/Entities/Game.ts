@@ -1,4 +1,5 @@
 /// <reference path="../Engine/ObjectManager.ts" />
+/// <reference path="Map.ts" />
 
 module Bombardier.Entities {
     export class Game {
@@ -7,6 +8,8 @@ module Bombardier.Entities {
         private i: number;
 
         private objectManager = new Engine.ObjectManager();
+
+        private map: Map;
 
         constructor(canvas: HTMLCanvasElement) {
             this.canvasElement = canvas;
@@ -48,6 +51,11 @@ module Bombardier.Entities {
 
         loadContent() {
             this.objectManager.loadImage('bricks00', 'Images/Bricks00.png');
+        }
+
+        start() {
+            this.map = new Map();
+            this.map.load();
         }
     }
 }
