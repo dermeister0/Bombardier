@@ -36,7 +36,11 @@ module Bombardier.Entities {
             this._cells[3][3] = 1;
             this._cells[1][1] = 1;
 
-            this._cells = jQuery.parseJSON('[[1,0,1],[0,1,0],[1,0,1]]');
+            var ajaxResponse = jQuery.ajax('../Maps/00.map', {
+                async: false
+            });
+
+            this._cells = jQuery.parseJSON(ajaxResponse.responseText);
         }
 
         draw(context: CanvasRenderingContext2D) {
