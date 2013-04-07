@@ -3,6 +3,9 @@
 /Sources/*.js
 /Sources/*.js.map
 
+/Sources/Engine/*.js
+/Sources/Engine/*.js.map
+
 /Sources/Entities/*.js
 /Sources/Entities/*.js.map
 

@@ -6,20 +6,18 @@ class Greeter {
     element: HTMLElement;
     span: HTMLElement;
     timerToken: number;
+    game: Entities.Game;
 
     constructor(element: HTMLElement) {
-        var game = new Entities.Game();
+        var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
 
-        this.element = element;
-        this.element.innerHTML += "<h1>" + game.getName() + "</h1>";
-        this.element.innerHTML += "The time is: ";
-        this.span = document.createElement('span');
-        this.element.appendChild(this.span);
-        this.span.innerText = new Date().toUTCString();
+        this.game = new Entities.Game(canvas);
+        this.game.loadContent();
     }
 
     start() {
-        this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
+        //this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
+        this.timerToken = setInterval(() => this.game.draw(), 1000 / 30);
     }
 
     stop() {
