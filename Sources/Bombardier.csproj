@@ -27,12 +27,20 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Entities\Game.ts" />
-    <TypeScriptCompile Include="Entities\Sprite.ts" />
+    <TypeScriptCompile Include="Engine\Sprite.ts" />
     <TypeScriptCompile Include="Engine\ObjectManager.ts" />
+    <TypeScriptCompile Include="Entities\GameObject.ts" />
+    <TypeScriptCompile Include="Engine\IDrawable.ts" />
+    <Content Include="Engine\IDrawable.js">
+      <DependentUpon>IDrawable.ts</DependentUpon>
+    </Content>
+    <Content Include="Entities\GameObject.js">
+      <DependentUpon>GameObject.ts</DependentUpon>
+    </Content>
     <Content Include="Engine\ObjectManager.js">
       <DependentUpon>ObjectManager.ts</DependentUpon>
     </Content>
-    <Content Include="Entities\Sprite.js">
+    <Content Include="Engine\Sprite.js">
       <DependentUpon>Sprite.ts</DependentUpon>
     </Content>
     <Content Include="Entities\Game.js">
