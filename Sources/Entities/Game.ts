@@ -3,13 +3,13 @@
 
 module Bombardier.Entities {
     export class Game {
-        private canvasElement: HTMLCanvasElement;
+        private _canvasElement: HTMLCanvasElement;
 
-        private i: number = 0;
+        private _i: number = 0;
 
         private _objectManager = new Engine.ObjectManager();
 
-        private map: Map;
+        private _map: Map;
 
         private static _instance: Game;
 
@@ -24,17 +24,17 @@ module Bombardier.Entities {
         draw() {
             var context2D: CanvasRenderingContext2D;
 
-            context2D = this.canvasElement.getContext('2d');
+            context2D = this._canvasElement.getContext('2d');
 
             context2D.fillStyle = 'rgb(0, 0, 0)';
             context2D.fillRect(0, 0, 800, 600);
 
-            this.map.draw(context2D);
+            this._map.draw(context2D);
 
             context2D.fillStyle = 'rgb(255, 0, 0)';
-            context2D.fillRect(this.i * 10, 10, 10, 20);
+            context2D.fillRect(this._i * 10, 10, 10, 20);
 
-            this.i++;
+            this._i++;
         }
 
         loadContent() {
@@ -43,8 +43,8 @@ module Bombardier.Entities {
         }
 
         start() {
-            this.map = new Map();
-            this.map.load();
+            this._map = new Map();
+            this._map.load();
         }
 
         static get instance() {
@@ -56,10 +56,10 @@ module Bombardier.Entities {
         }
 
         private reset() {
-            this.canvasElement = null;
-            this.map = null;
+            this._canvasElement = null;
+            this._map = null;
 
-            this.canvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
+            this._canvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
         }
 
         get objectManager() {

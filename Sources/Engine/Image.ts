@@ -3,14 +3,14 @@
 
 module Bombardier.Engine {
     export class Image implements IDrawable {
-        private imageElement: HTMLImageElement;
+        private _imageElement: HTMLImageElement;
 
         constructor(key: string) {
-            this.imageElement = Bombardier.Entities.Game.instance.objectManager.getImage(key);
+            this._imageElement = Bombardier.Entities.Game.instance.objectManager.getImage(key);
         }
 
         draw(context: CanvasRenderingContext2D, x: number, y: number) {
-            context.drawImage(this.imageElement, x, y);
+            context.drawImage(this._imageElement, x, y);
         }
     }
 }
