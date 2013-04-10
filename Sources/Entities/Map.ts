@@ -41,19 +41,21 @@ module Bombardier.Entities {
             });
 
             this._cells = jQuery.parseJSON(ajaxResponse.responseText);
+
+            for (var y = 0; y < Map.HEIGHT; ++y) {
+                for (var x = 0; x < Map.WIDTH; ++x) {
+                    if (this._cells[y] == undefined || this._cells[y][x] == undefined) {
+                        throw "Wrong level.";
+                    }
+                }
+            }
         }
 
         draw(context: CanvasRenderingContext2D) {
             for (var y = 0; y < Map.HEIGHT; ++y) {
                 for (var x = 0; x < Map.WIDTH; ++x) {
-                    if (this._cells[y] == undefined) {
-                        continue;
-                    }
-
                     var tile = this._mapTiles[this._cells[y][x]];
-                    if (tile != undefined) {
-                        tile.draw(context, x * Map.TILE_SIZE, y * Map.TILE_SIZE);
-                    }
+                    tile.draw(context, x * Map.TILE_SIZE, y * Map.TILE_SIZE);
                 }
             }
         }
