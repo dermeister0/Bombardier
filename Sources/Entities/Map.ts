@@ -36,11 +36,14 @@ module Bombardier.Entities {
             this._cells[3][3] = 1;
             this._cells[1][1] = 1;
 
-            var ajaxResponse = jQuery.ajax('../Maps/00.map', {
-                async: false
+            var ajaxResponse = jQuery.ajax('../MainService.svc/GetMap', {
+                async: false,
+                type: 'POST'
             });
 
-            this._cells = jQuery.parseJSON(ajaxResponse.responseText);
+            var map = jQuery.parseJSON(ajaxResponse.responseText);
+
+            this._cells = map.d.Cells;
 
             for (var y = 0; y < Map.HEIGHT; ++y) {
                 for (var x = 0; x < Map.WIDTH; ++x) {
