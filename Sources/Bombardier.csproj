@@ -68,6 +68,7 @@
     <Compile Include="MainService.svc.cs">
       <DependentUpon>MainService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Server\Map.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
