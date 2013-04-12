@@ -55,6 +55,10 @@
     <Content Include="Entities\Map.js">
       <DependentUpon>Map.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Entities\Player.ts" />
+    <Content Include="Entities\Player.js">
+      <DependentUpon>Player.ts</DependentUpon>
+    </Content>
     <Content Include="MainService.svc" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
