@@ -20,6 +20,8 @@ class Greeter {
     start() {
         //this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
         this.timerToken = setInterval(() => this.game.draw(), 1000 / 30);
+
+        setInterval(() => this.game.update(), 1000 / 30);
     }
 
     stop() {
