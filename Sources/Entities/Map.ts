@@ -62,5 +62,13 @@ module Bombardier.Entities {
                 }
             }
         }
+
+        isClear(x: number, y: number) {
+            if (x < 0 || y < 0 || x >= Map.WIDTH || y >= Map.HEIGHT) {
+                return false;
+            }
+
+            return this._cells[y][x] == Map.TILE_CLEAR;
+        }
     }
 }
