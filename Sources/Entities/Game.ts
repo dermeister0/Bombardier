@@ -1,5 +1,6 @@
 /// <reference path="../Engine/ObjectManager.ts" />
 /// <reference path="Map.ts" />
+/// <reference path="Player.ts" />
 
 module Bombardier.Entities {
     export class Game {
@@ -12,6 +13,10 @@ module Bombardier.Entities {
         private _map: Map;
 
         private static _instance: Game;
+
+        private _player: Player;
+
+        private _gameObjects: Engine.GameObject[] = [];
 
         constructor() {
             this.reset();
@@ -35,24 +40,34 @@ module Bombardier.Entities {
             context2D.fillRect(this._i * 10, 10, 10, 20);
 
             this._i++;
+
+            for (var go in this._gameObjects) {
+                var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
+                gameObject.draw(context2D);
+            }
         }
 
         loadContent() {
             this.objectManager.loadImage('tile_clear', 'Images/Clear.png');
             this.objectManager.loadImage('tile_brick', 'Images/Bricks00.png');
+
+            this.objectManager.loadImage('player', 'Images/Player00.png');
         }
 
         start() {
             this._map = new Map();
             this._map.load();
+
+            this._player = new Player;
+            this._gameObjects.push(this._player);
         }
 
         static get instance() {
-            if (_instance == null) {
-                _instance = new Game();
+            if (Game._instance == null) {
+                Game._instance = new Game();
             }
 
-            return _instance;
+            return Game._instance;
         }
 
         private reset() {

@@ -30,7 +30,7 @@
     <TypeScriptCompile Include="Entities\Game.ts" />
     <TypeScriptCompile Include="Engine\Sprite.ts" />
     <TypeScriptCompile Include="Engine\ObjectManager.ts" />
-    <TypeScriptCompile Include="Entities\GameObject.ts" />
+    <TypeScriptCompile Include="Engine\GameObject.ts" />
     <TypeScriptCompile Include="Engine\IDrawable.ts" />
     <Content Include="Engine\IDrawable.js">
       <DependentUpon>IDrawable.ts</DependentUpon>
@@ -39,7 +39,15 @@
     <Content Include="Engine\Image.js">
       <DependentUpon>Image.ts</DependentUpon>
     </Content>
-    <Content Include="Entities\GameObject.js">
+    <TypeScriptCompile Include="Engine\Vector2.ts" />
+    <TypeScriptCompile Include="Engine\Size2.ts" />
+    <Content Include="Engine\Size2.js">
+      <DependentUpon>Size2.ts</DependentUpon>
+    </Content>
+    <Content Include="Engine\Vector2.js">
+      <DependentUpon>Vector2.ts</DependentUpon>
+    </Content>
+    <Content Include="Engine\GameObject.js">
       <DependentUpon>GameObject.ts</DependentUpon>
     </Content>
     <Content Include="Engine\ObjectManager.js">
