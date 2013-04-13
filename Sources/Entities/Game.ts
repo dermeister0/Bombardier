@@ -18,7 +18,7 @@ module Bombardier.Entities {
 
         private _gameObjects: Engine.GameObject[] = [];
 
-        static GRAVITY: number = 15.0;
+        static GRAVITY: number = 0.7;
 
         constructor() {
             this.reset();
@@ -28,7 +28,7 @@ module Bombardier.Entities {
             return "Bombardier";
         }
 
-        draw() {
+        draw(gameTime: number) {
             var context2D: CanvasRenderingContext2D;
 
             context2D = this._canvasElement.getContext('2d');
@@ -83,10 +83,10 @@ module Bombardier.Entities {
             return this._objectManager;
         }
 
-        public update() {
+        public update(gameTime: number) {
             for (var go in this._gameObjects) {
                 var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
-                gameObject.position.y += Game.GRAVITY;
+                gameObject.position.y += Game.GRAVITY * gameTime;
             }
         }
     }

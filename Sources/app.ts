@@ -5,8 +5,12 @@ import Entities = Bombardier.Entities;
 class Greeter {
     element: HTMLElement;
     span: HTMLElement;
-    timerToken: number;
+    drawTimerToken: number;
+    updateTimerToken: number;
     game: Entities.Game;
+
+    lastDraw: number;
+    lastUpdate: number;
 
     constructor(element: HTMLElement) {
         var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
@@ -19,13 +23,37 @@ class Greeter {
 
     start() {
         //this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
-        this.timerToken = setInterval(() => this.game.draw(), 1000 / 30);
 
-        setInterval(() => this.game.update(), 1000 / 30);
+        var self = this;
+
+        this.drawTimerToken = setInterval(() => {
+            if (self.lastDraw == undefined) {
+                self.lastDraw = Date.now();
+            }
+
+            var diff = Date.now() - self.lastDraw;
+
+            self.game.draw(diff);
+
+            this.lastDraw = Date.now();
+        }, 1000 / 30);
+
+        this.updateTimerToken = setInterval(() => {
+            if (self.lastUpdate == undefined) {
+                self.lastUpdate = Date.now();
+            }
+
+            var diff = Date.now() - self.lastUpdate;
+
+            self.game.update(diff);
+
+            this.lastUpdate = Date.now();
+        }, 1000 / 30);
     }
 
     stop() {
-        clearTimeout(this.timerToken);
+        clearTimeout(this.drawTimerToken);
+        clearTimeout(this.updateTimerToken);
     }
 
 }
