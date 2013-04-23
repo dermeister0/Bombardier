@@ -36,7 +36,7 @@ module Bombardier.Entities {
             this._cells[3][3] = 1;
             this._cells[1][1] = 1;
 
-            var ajaxResponse = jQuery.ajax('../MainService.svc/GetMap', {
+            var ajaxResponse = jQuery.ajax('MainService.svc/GetMap', {
                 async: false,
                 type: 'POST'
             });
