@@ -28,5 +28,33 @@
     <div id="content"></div>
 
     <canvas id="mainCanvas" width="800" height="600"></canvas>
+
+    <script type="text/javascript">
+        var keys = [];
+
+        document.onkeydown = function (event) {
+            var char = String.fromCharCode(event.keyCode);
+            keys[char] = 1;
+            printKeys();
+        }
+
+        document.onkeyup = function (event) {
+            var char = String.fromCharCode(event.keyCode);
+            keys[char] = 0;
+            printKeys();
+        }
+
+        function printKeys() {
+            var result = '';
+
+            for (var key in keys) {
+                if (keys[key] === 1) {
+                    result += key;
+                }
+            }
+
+            document.getElementById("content").textContent = result;
+        }
+    </script>
 </body>
 </html>
