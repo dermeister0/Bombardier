@@ -1,4 +1,5 @@
 /// <reference path="Entities/Game.ts" />
+/// <reference path="Engine/Input.ts" />
 
 import Entities = Bombardier.Entities;
 
@@ -13,6 +14,9 @@ class Greeter {
     lastUpdate: number;
 
     constructor(element: HTMLElement) {
+        document.onkeyup = Bombardier.Engine.Input.OnKeyUp;
+        document.onkeydown = Bombardier.Engine.Input.OnKeyDown;
+
         var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
 
         this.game = Entities.Game.instance;

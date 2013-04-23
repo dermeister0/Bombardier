@@ -41,6 +41,10 @@
     </Content>
     <TypeScriptCompile Include="Engine\Vector2.ts" />
     <TypeScriptCompile Include="Engine\Size2.ts" />
+    <TypeScriptCompile Include="Engine\Input.ts" />
+    <Content Include="Engine\Input.js">
+      <DependentUpon>Input.ts</DependentUpon>
+    </Content>
     <Content Include="Engine\Size2.js">
       <DependentUpon>Size2.ts</DependentUpon>
     </Content>
