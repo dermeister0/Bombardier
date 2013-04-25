@@ -14,5 +14,8 @@ module Bombardier.Engine {
 
         public draw(context: CanvasRenderingContext2D) {
         }
+
+        public update() {
+        }
     }
 }

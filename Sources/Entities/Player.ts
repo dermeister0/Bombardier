@@ -1,6 +1,7 @@
 /// <reference path="../Engine/Sprite.ts" />
 /// <reference path="../Engine/GameObject.ts" />
 /// <reference path="Map.ts" />
+/// <reference path="../Engine/Input.ts" />
 
 module Bombardier.Entities {
     export class Player extends Bombardier.Engine.GameObject {
@@ -23,6 +24,12 @@ module Bombardier.Entities {
 
         public draw(context: CanvasRenderingContext2D) {
             this._sprite.draw(context, this.position.x - this.size.w / 2, this.position.y - this.size.h / 2);
+        }
+
+        public update() {
+            if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_W)) {
+                this.velocity.y -= 1.2; // @@
+            }
         }
     }
 }

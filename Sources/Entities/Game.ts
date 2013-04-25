@@ -103,6 +103,8 @@ module Bombardier.Entities {
                     gameObject.position.y = currentCell.y * Map.TILE_SIZE + gameObject.size.h / 2;
                     gameObject.velocity.y = 0;
                 }
+
+                gameObject.update();
             }
         }
     }
