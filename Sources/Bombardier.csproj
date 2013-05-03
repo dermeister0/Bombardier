@@ -45,6 +45,10 @@
     <Content Include="Engine\Input.js">
       <DependentUpon>Input.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Engine\Rect.ts" />
+    <Content Include="Engine\Rect.js">
+      <DependentUpon>Rect.ts</DependentUpon>
+    </Content>
     <Content Include="Engine\Size2.js">
       <DependentUpon>Size2.ts</DependentUpon>
     </Content>

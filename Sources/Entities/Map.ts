@@ -1,5 +1,6 @@
 /// <reference path="../Engine/Image.ts" />
 /// <reference path="../Libs/jquery.d.ts" />
+/// <reference path="../Engine/Rect.ts" />
 
 module Bombardier.Entities {
     import Engine = Bombardier.Engine;
@@ -69,6 +70,10 @@ module Bombardier.Entities {
             }
 
             return this._cells[y][x] == Map.TILE_CLEAR;
+        }
+
+        getCellRect(x: number, y: number): Bombardier.Engine.Rect {
+            return new Bombardier.Engine.Rect(x * Map.TILE_SIZE, y * Map.TILE_SIZE, (x + 1) * Map.TILE_SIZE, (y + 1) * Map.TILE_SIZE);
         }
     }
 }
