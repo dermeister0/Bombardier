@@ -1,16 +1,16 @@
 /Editor/bin
 /Editor/obj
 
-/Sources/bin
-/Sources/obj
-/Sources/*.js
-/Sources/*.js.map
+/Main/bin
+/Main/obj
+/Main/*.js
+/Main/*.js.map
 
-/Sources/Engine/*.js
-/Sources/Engine/*.js.map
+/Main/Engine/*.js
+/Main/Engine/*.js.map
 
-/Sources/Entities/*.js
-/Sources/Entities/*.js.map
+/Main/Entities/*.js
+/Main/Entities/*.js.map
 
 *.suo
 *.user
