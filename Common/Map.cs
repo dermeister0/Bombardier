@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace Bombardier.Server
+namespace Bombardier.Common
 {
     public enum MapCell { Clear, Brick };
 

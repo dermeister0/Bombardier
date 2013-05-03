@@ -1,4 +1,4 @@
-﻿using Bombardier.Server;
+﻿using Bombardier.Common;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 

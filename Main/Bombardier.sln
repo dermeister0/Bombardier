@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bombardier", "Bombardier.csproj", "{B6A7D232-7833-49E3-A225-E810EC916002}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{D5273442-BCC3-46BD-9233-FC5F4294A9E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{B6A7D232-7833-49E3-A225-E810EC916002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6A7D232-7833-49E3-A225-E810EC916002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6A7D232-7833-49E3-A225-E810EC916002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5273442-BCC3-46BD-9233-FC5F4294A9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5273442-BCC3-46BD-9233-FC5F4294A9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5273442-BCC3-46BD-9233-FC5F4294A9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5273442-BCC3-46BD-9233-FC5F4294A9E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
