@@ -16,7 +16,7 @@
             </MenuItem>
         </Menu>
         <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-            <cc:MapBody/>
+            <cc:MapBody DataContext="{Binding MapVM}" />
         </ScrollViewer>
     </Grid>
 </Window>

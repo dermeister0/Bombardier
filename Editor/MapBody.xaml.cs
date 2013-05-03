@@ -24,5 +24,10 @@ namespace Bombardier.Editor
         {
             InitializeComponent();
         }
+
+        private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var viewModel = e.NewValue as ViewModels.MapViewModel;
+        }
     }
 }

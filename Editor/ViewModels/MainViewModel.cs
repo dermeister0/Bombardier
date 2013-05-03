@@ -12,11 +12,15 @@ namespace Bombardier.Editor.ViewModels
     {
         public ICommand FileNewCommand { get; private set; }
 
-        public Bombardier.Common.Map Map { get; private set; }
+        private Bombardier.Common.Map map;
+
+        public MapViewModel MapVM { get; private set; }
 
         public MainViewModel()
         {
             FileNewCommand = new DelegateCommand(FileNew_Executed);
+
+            MapVM = new MapViewModel();
         }
 
         void FileNew_Executed()
