@@ -9,7 +9,7 @@
         </Grid.RowDefinitions>
         <Menu>
             <MenuItem Header="File">
-                <MenuItem Header="New..." />
+                <MenuItem Header="New..." Command="{Binding FileNewCommand}" />
                 <MenuItem Header="Load..." />
                 <MenuItem Header="Save..." />
             </MenuItem>

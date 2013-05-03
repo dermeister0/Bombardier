@@ -24,6 +24,8 @@ namespace Bombardier.Editor
         {
             InitializeComponent();
 
+            DataContext = new ViewModels.MainViewModel();
+
             MapBody body = new MapBody();
 
             for (int y = 0; y < 30; y++)
