@@ -12,6 +12,8 @@ namespace Bombardier.Editor.ViewModels
     {
         public ICommand FileNewCommand { get; private set; }
 
+        public Bombardier.Common.Map Map { get; private set; }
+
         public MainViewModel()
         {
             FileNewCommand = new DelegateCommand(FileNew_Executed);

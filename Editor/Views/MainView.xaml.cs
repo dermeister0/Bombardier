@@ -13,31 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bombardier.Editor
+namespace Bombardier.Editor.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainView : Window
     {
-        public MainWindow()
+        public MainView()
         {
             InitializeComponent();
 
             DataContext = new ViewModels.MainViewModel();
-
-            MapBody body = new MapBody();
-
-            for (int y = 0; y < 30; y++)
-            {
-                MapRow row = new MapRow();
-                for (int x = 0; x < 30; x++)
-                    row.MainPanel.Children.Add(new MapCell());
-
-                body.MainPanel.Children.Add(row);
-            }
-
-            MainScrollViewer.Content = body;
         }
     }
 }
