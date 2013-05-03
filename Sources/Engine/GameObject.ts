@@ -1,6 +1,7 @@
 /// <reference path="Vector2.ts" />
 /// <reference path="Size2.ts" />
 /// <reference path="IDrawable.ts" />
+/// <reference path="Rect.ts" />
 
 module Bombardier.Engine {
     export class GameObject implements IDrawable {
@@ -16,6 +17,10 @@ module Bombardier.Engine {
         }
 
         public update() {
+        }
+
+        public getBoundingRect(): Rect {
+            return Rect.createByCenterAndSize(this.position, this.size);
         }
     }
 }
