@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Bombardier.Editor.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:cc="clr-namespace:Bombardier.Editor"
+        xmlns:views="clr-namespace:Bombardier.Editor.Views"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
             </MenuItem>
         </Menu>
         <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-            <cc:MapBody DataContext="{Binding MapVM}" />
+            <views:MapView DataContext="{Binding MapVM}" />
         </ScrollViewer>
     </Grid>
 </Window>

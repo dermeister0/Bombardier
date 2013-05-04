@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bombardier.Editor
+namespace Bombardier.Editor.Views
 {
     /// <summary>
-    /// Interaction logic for MapCell.xaml
+    /// Interaction logic for MapRow.xaml
     /// </summary>
-    public partial class MapCell : UserControl
+    public partial class MapRowView : UserControl
     {
-        public MapCell()
+        public MapRowView()
         {
             InitializeComponent();
         }

@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bombardier.Editor
+namespace Bombardier.Editor.Views
 {
     /// <summary>
-    /// Interaction logic for MapRow.xaml
+    /// Interaction logic for MapBody.xaml
     /// </summary>
-    public partial class MapRow : UserControl
+    public partial class MapView : UserControl
     {
-        public MapRow()
+        public MapView()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var viewModel = e.NewValue as ViewModels.MapViewModel;
         }
     }
 }

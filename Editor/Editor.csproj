@@ -83,28 +83,28 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MapBody.xaml">
+    <Page Include="Views\MapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MapCell.xaml">
+    <Page Include="Views\MapCellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MapRow.xaml">
+    <Page Include="Views\MapRowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MapBody.xaml.cs">
-      <DependentUpon>MapBody.xaml</DependentUpon>
+    <Compile Include="Views\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MapCell.xaml.cs">
-      <DependentUpon>MapCell.xaml</DependentUpon>
+    <Compile Include="Views\MapCellView.xaml.cs">
+      <DependentUpon>MapCellView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MapRow.xaml.cs">
-      <DependentUpon>MapRow.xaml</DependentUpon>
+    <Compile Include="Views\MapRowView.xaml.cs">
+      <DependentUpon>MapRowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Bombardier.Editor.MapBody"
+﻿<UserControl x:Class="Bombardier.Editor.Views.MapView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
