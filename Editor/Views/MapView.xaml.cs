@@ -28,6 +28,14 @@ namespace Bombardier.Editor.Views
         private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             var viewModel = e.NewValue as ViewModels.MapViewModel;
+
+            for (int y = 0; y < viewModel.Rows.Count; ++y)
+            {
+                var rowView = new MapRowView();
+                rowView.DataContext = viewModel.Rows[y];
+
+                MainPanel.Children.Add(rowView);
+            }
         }
     }
 }

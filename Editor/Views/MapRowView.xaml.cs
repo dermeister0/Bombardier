@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bombardier.Editor.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace Bombardier.Editor.Views
         public MapRowView()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var viewModel = e.NewValue as MapRowViewModel;
+
+            for (int x = 0; x < viewModel.Cells.Count; ++x)
+            {
+                var cellView = new MapCellView();
+                cellView.DataContext = viewModel.Cells[x];
+
+                MainPanel.Children.Add(cellView);
+            }
         }
     }
 }
