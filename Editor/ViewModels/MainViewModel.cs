@@ -20,7 +20,7 @@ namespace Bombardier.Editor.ViewModels
         {
             FileNewCommand = new DelegateCommand(FileNew_Executed);
 
-            MapVM = new MapViewModel();
+            MapVM = new MapViewModel(new Bombardier.Common.Map(5, 5));
         }
 
         void FileNew_Executed()
