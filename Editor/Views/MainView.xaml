@@ -26,11 +26,13 @@
 
             <RibbonTab Header="Brushes">
                 <RibbonGroup>
-                    <RibbonButton LargeImageSource="..\Images\Clear.png" Label="Clear" />
+                    <RibbonToggleButton LargeImageSource="..\Images\Clear.png" Label="Clear" IsChecked="{Binding IsClearChecked}"
+                                        Command="{Binding ChangeTool}" CommandParameter="Clear" />
                 </RibbonGroup>
 
                 <RibbonGroup Header="Bricks">
-                    <RibbonButton LargeImageSource="..\Images\Bricks00.png" />
+                    <RibbonToggleButton LargeImageSource="..\Images\Bricks00.png"
+                                        Command="{Binding ChangeTool}" CommandParameter="Bricks00" />
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
