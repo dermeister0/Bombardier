@@ -30,6 +30,7 @@ namespace Bombardier.Editor.Views
         {
             var viewModel = e.NewValue as MapRowViewModel;
 
+            MainPanel.Children.Clear();
             for (int x = 0; x < viewModel.Cells.Count; ++x)
             {
                 var cellView = new MapCellView();

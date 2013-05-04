@@ -20,7 +20,14 @@ namespace Bombardier.Editor.ViewModels
             Rows = new ObservableCollection<MapRowViewModel>();
 
             for (int y = 0; y < map.Height; ++y)
-                Rows.Add(new MapRowViewModel());
+            {
+                var rowVM = new MapRowViewModel();
+
+                for (int x = 0; x < map.Width; ++x)
+                    rowVM.Cells.Add(new MapCellViewModel());
+
+                Rows.Add(rowVM);
+            }
         }
     }
 }

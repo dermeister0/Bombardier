@@ -29,6 +29,7 @@ namespace Bombardier.Editor.Views
         {
             var viewModel = e.NewValue as ViewModels.MapViewModel;
 
+            MainPanel.Children.Clear();
             for (int y = 0; y < viewModel.Rows.Count; ++y)
             {
                 var rowView = new MapRowView();

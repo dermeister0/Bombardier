@@ -80,6 +80,7 @@
     <Compile Include="ViewModels\MapCellViewModel.cs" />
     <Compile Include="ViewModels\MapRowViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>

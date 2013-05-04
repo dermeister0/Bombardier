@@ -14,9 +14,6 @@ namespace Bombardier.Editor.ViewModels
         public MapRowViewModel()
         {
             Cells = new ObservableCollection<MapCellViewModel>();
-
-            for (int i = 0; i < 3; i++)
-                Cells.Add(new MapCellViewModel());
         }
     }
 }

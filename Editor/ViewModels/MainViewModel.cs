@@ -8,7 +8,7 @@ using Microsoft.Practices.Prism.Commands;
 
 namespace Bombardier.Editor.ViewModels
 {
-    class MainViewModel
+    class MainViewModel : ViewModelBase
     {
         public ICommand FileNewCommand { get; private set; }
 
@@ -18,11 +18,14 @@ namespace Bombardier.Editor.ViewModels
         {
             FileNewCommand = new DelegateCommand(FileNew_Executed);
 
-            MapVM = new MapViewModel(new Bombardier.Common.Map(1, 1));
+            MapVM = new MapViewModel(new Bombardier.Common.Map(0, 0));
+            OnPropertyChanged("MapVM");
         }
 
         void FileNew_Executed()
         {
+            MapVM = new MapViewModel(new Bombardier.Common.Map(10, 10));
+            OnPropertyChanged("MapVM");
         }
     }
 }
