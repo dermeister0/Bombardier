@@ -91,6 +91,8 @@ module Bombardier.Entities {
         }
 
         public update(gameTime: number) {
+            return; // @@
+
             for (var go in this._gameObjects) {
                 var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
 
@@ -119,6 +121,10 @@ module Bombardier.Entities {
             }
 
             this._world.update(gameTime);
+        }
+
+        get world() {
+            return this._world;
         }
     }
 }

@@ -68,6 +68,10 @@
     <Content Include="Engine\World.js">
       <DependentUpon>World.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Entities\Brick.ts" />
+    <Content Include="Entities\Brick.js">
+      <DependentUpon>Brick.ts</DependentUpon>
+    </Content>
     <Content Include="Entities\Game.js">
       <DependentUpon>Game.ts</DependentUpon>
     </Content>

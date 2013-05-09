@@ -1,6 +1,7 @@
 /// <reference path="../Engine/Image.ts" />
 /// <reference path="../Libs/jquery.d.ts" />
 /// <reference path="../Engine/Rect.ts" />
+/// <reference path="Brick.ts" />
 
 module Bombardier.Entities {
     import Engine = Bombardier.Engine;
@@ -10,6 +11,7 @@ module Bombardier.Entities {
         static HEIGHT = 20;
 
         static TILE_SIZE = 64;
+        static TILE_HALF_SIZE = 32;
 
         private _cells: number[][];
 
@@ -50,6 +52,10 @@ module Bombardier.Entities {
                 for (var x = 0; x < Map.WIDTH; ++x) {
                     if (this._cells[y] == undefined || this._cells[y][x] == undefined) {
                         throw "Wrong level.";
+                    }
+
+                    if (this._cells[y][x] == Map.TILE_BRICK) {
+                        var brickObject = new Brick(x * Map.TILE_SIZE + Map.TILE_HALF_SIZE, y * Map.TILE_SIZE + Map.TILE_HALF_SIZE);
                     }
                 }
             }
