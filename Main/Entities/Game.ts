@@ -2,6 +2,7 @@
 /// <reference path="Map.ts" />
 /// <reference path="Player.ts" />
 /// <reference path="../Engine/World.ts" />
+/// <reference path="ContactListener.ts" />
 
 module Bombardier.Entities {
     export class Game {
@@ -63,6 +64,8 @@ module Bombardier.Entities {
 
         start() {
             this._world = new Engine.World();
+            this._world.addContactListener(new ContactListener);
+
             this._map = new Map();
             this._map.load();
 

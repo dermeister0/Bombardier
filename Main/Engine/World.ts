@@ -67,5 +67,9 @@ module Bombardier.Engine {
         public static pixelsToMeters(value: number) {
             return value / 32;
         }
+
+        public addContactListener(listener: b2Dynamics.b2ContactListener) {
+            this._b2dWorld.SetContactListener(listener);
+        }
     }
 }
