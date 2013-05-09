@@ -55,7 +55,8 @@ module Bombardier.Entities {
                     }
 
                     if (this._cells[y][x] == Map.TILE_BRICK) {
-                        var brickObject = new Brick(x * Map.TILE_SIZE + Map.TILE_HALF_SIZE, y * Map.TILE_SIZE + Map.TILE_HALF_SIZE);
+                        var brickObject = new Brick(Bombardier.Engine.World.pixelsToMeters(x * Map.TILE_SIZE + Map.TILE_HALF_SIZE),
+                            Bombardier.Engine.World.pixelsToMeters(y * Map.TILE_SIZE + Map.TILE_HALF_SIZE));
                     }
                 }
             }

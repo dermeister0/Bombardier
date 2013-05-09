@@ -14,7 +14,8 @@ module Bombardier.Entities {
 
             if (Brick._brickShape == null) {
                 Brick._brickShape = new b2Collision.Shapes.b2PolygonShape();
-                Brick._brickShape.SetAsBox(Bombardier.Entities.Map.TILE_SIZE / 2, Bombardier.Entities.Map.TILE_SIZE / 2);
+                Brick._brickShape.SetAsBox(Bombardier.Engine.World.pixelsToMeters(Bombardier.Entities.Map.TILE_SIZE / 2),
+                    Bombardier.Engine.World.pixelsToMeters(Bombardier.Entities.Map.TILE_SIZE / 2));
             }
 
             if (Brick._brickFixtureDef == null) {
