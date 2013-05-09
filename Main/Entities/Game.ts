@@ -91,31 +91,8 @@ module Bombardier.Entities {
         }
 
         public update(gameTime: number) {
-            return; // @@
-
             for (var go in this._gameObjects) {
                 var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
-
-                gameObject.velocity.y += Game.GRAVITY * gameTime;
-
-                gameObject.position.x += gameObject.velocity.x * gameTime;
-                gameObject.position.y += gameObject.velocity.y * gameTime;
-
-                var currentCell = { x: Math.floor(gameObject.position.x / Map.TILE_SIZE), y: Math.floor(gameObject.position.y / Map.TILE_SIZE) };
-                var boundingRect = gameObject.getBoundingRect();
-
-                // @@
-                for (var my = currentCell.y; my < currentCell.y + 2; ++my) {
-                    if (!this._map.isClear(currentCell.x, my) && this._map.getCellRect(currentCell.x, my).intersects(boundingRect)) {
-                        if (gameObject.velocity.y > 0) {
-                            gameObject.position.y = (my - 1) * Map.TILE_SIZE + gameObject.size.h / 2;
-                        }
-                        else {
-                            gameObject.position.y = (my + 1) * Map.TILE_SIZE + gameObject.size.h / 2;
-                        }
-                        gameObject.velocity.y = 0;
-                    }
-                }
 
                 gameObject.update();
             }

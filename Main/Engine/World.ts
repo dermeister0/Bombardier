@@ -20,7 +20,7 @@ module Bombardier.Engine {
             this._b2dDebugDraw.SetFillAlpha(0.3);
             this._b2dDebugDraw.SetFlags(b2Dynamics.b2DebugDraw.e_shapeBit | b2Dynamics.b2DebugDraw.e_jointBit);
 
-            this._b2dWorld = new b2Dynamics.b2World(new b2Math.b2Vec2(0, 1), true);
+            this._b2dWorld = new b2Dynamics.b2World(new b2Math.b2Vec2(0, 300), true);
             this._b2dWorld.SetDebugDraw(this._b2dDebugDraw);
 
             var bodyDef = new b2Dynamics.b2BodyDef();
@@ -49,7 +49,8 @@ module Bombardier.Engine {
         }
 
         update(timeStep) {
-            this._b2dWorld.Step(timeStep, 10, 10);
+            this._b2dWorld.Step(1 / 60, 10, 10);
+            this._b2dWorld.ClearForces();
         }
 
         public draw(context: CanvasRenderingContext2D) {

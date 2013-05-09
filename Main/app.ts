@@ -52,7 +52,7 @@ class Greeter {
             self.game.update(diff);
 
             this.lastUpdate = Date.now();
-        }, 1000 / 30);
+        }, 1000 / 60);
     }
 
     stop() {
