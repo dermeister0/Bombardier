@@ -21,7 +21,7 @@ module Bombardier.Entities {
             if (Brick._brickFixtureDef == null) {
                 Brick._brickFixtureDef = new b2Dynamics.b2FixtureDef();
                 Brick._brickFixtureDef.density = 1.0;
-                Brick._brickFixtureDef.friction = 0.5;
+                Brick._brickFixtureDef.friction = 1.0;
                 Brick._brickFixtureDef.restitution = 0.0;
                 Brick._brickFixtureDef.shape = Brick._brickShape;
             }
