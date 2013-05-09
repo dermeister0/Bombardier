@@ -66,9 +66,29 @@ module Bombardier.Entities {
         public update() {
             this._jumpTimeout--;
 
+            var vel = this._playerBody.GetLinearVelocity();
+            var desiredVel = 0;
+
+            // Jump.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_W) && this._footContacts > 0 && this._jumpTimeout <= 0) {
                 this._playerBody.ApplyImpulse(new b2Math.b2Vec2(0, -6.3 * this._playerBody.GetMass()), this._playerBody.GetWorldCenter());
                 this._jumpTimeout = 15;
+            }
+
+            // Right.
+            if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_D) && this._footContacts > 0) {
+                desiredVel = 5;
+            }
+
+            // Left.
+            if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_A) && this._footContacts > 0) {
+                desiredVel = -5;
+            }
+
+            if (desiredVel != 0) {
+                var velChange = desiredVel - vel.x;
+                var impulse = this._playerBody.GetMass() * velChange;
+                this._playerBody.ApplyImpulse(new b2Math.b2Vec2(impulse, 0), this._playerBody.GetWorldCenter());
             }
         }
 

@@ -23,20 +23,6 @@ module Bombardier.Engine {
 
             this._b2dWorld = new b2Dynamics.b2World(new b2Math.b2Vec2(0, 9.8), true);
             this._b2dWorld.SetDebugDraw(this._b2dDebugDraw);
-
-            var bodyDef = new b2Dynamics.b2BodyDef();
-            bodyDef.type = b2Dynamics.b2Body.b2_dynamicBody;
-            bodyDef.position.Set(3, 1);
-            
-            var fixtureDef = new b2Dynamics.b2FixtureDef();
-
-            fixtureDef.density = 1.0;
-            fixtureDef.friction = 0.5;
-            fixtureDef.restitution = 0;
-
-            fixtureDef.shape = new b2Collision.Shapes.b2CircleShape(0.45);
-
-            this._b2dWorld.CreateBody(bodyDef).CreateFixture(fixtureDef);
         }
 
         update(timeStep) {
