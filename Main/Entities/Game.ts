@@ -1,6 +1,7 @@
 /// <reference path="../Engine/ObjectManager.ts" />
 /// <reference path="Map.ts" />
 /// <reference path="Player.ts" />
+/// <reference path="../Engine/World.ts" />
 
 module Bombardier.Entities {
     export class Game {
@@ -19,6 +20,8 @@ module Bombardier.Entities {
         private _gameObjects: Engine.GameObject[] = [];
 
         static GRAVITY: number = 0.003;
+
+        private _world: Engine.World;
 
         constructor() {
             this.reset();
@@ -47,6 +50,8 @@ module Bombardier.Entities {
                 var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
                 gameObject.draw(context2D);
             }
+
+            this._world.draw(context2D);
         }
 
         loadContent() {
@@ -57,6 +62,7 @@ module Bombardier.Entities {
         }
 
         start() {
+            this._world = new Engine.World();
             this._map = new Map();
             this._map.load();
 
@@ -75,6 +81,7 @@ module Bombardier.Entities {
         private reset() {
             this._canvasElement = null;
             this._map = null;
+            this._world = null;
 
             this._canvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
         }
@@ -110,6 +117,8 @@ module Bombardier.Entities {
 
                 gameObject.update();
             }
+
+            this._world.update(gameTime);
         }
     }
 }
