@@ -72,6 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\IToolbar.cs" />
+    <Compile Include="Services\ServiceLocator.cs" />
+    <Compile Include="Services\ToolbarService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Practices.Prism.Commands;
+using Bombardier.Editor.Services;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -16,8 +17,12 @@ namespace Bombardier.Editor.ViewModels
 
         public ICommand ChangeTool { get; private set; }
 
+        IToolbar toolbarService;
+
         public MainViewModel()
         {
+            toolbarService = ServiceLocator.GetToolbar();
+
             FileNewCommand = new DelegateCommand(FileNew_Executed);
             ChangeTool = new DelegateCommand<string>(ChangeTool_Executed);
 
@@ -47,7 +52,10 @@ namespace Bombardier.Editor.ViewModels
 
         void ChangeTool_Executed(string tool)
         {
-            IsClearChecked = true; // @@
+            Tool toolCode = (Tool)Enum.Parse(typeof(Tool), tool);
+            toolbarService.CurrentTool = toolCode;
+
+            IsClearChecked = toolCode == Tool.Clear;
         }
     }
 }
