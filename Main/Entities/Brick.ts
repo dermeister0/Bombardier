@@ -6,8 +6,8 @@ module Bombardier.Entities {
     import b2Dynamics = Box2D.Dynamics;
 
     export class Brick extends Bombardier.Engine.GameObject {
-        static private _brickShape: b2Collision.Shapes.b2PolygonShape;
-        static private _brickFixtureDef: b2Dynamics.b2FixtureDef;
+        private static _brickShape: b2Collision.Shapes.b2PolygonShape;
+        private static _brickFixtureDef: b2Dynamics.b2FixtureDef;
 
         constructor(x: number, y: number) {
             super();
