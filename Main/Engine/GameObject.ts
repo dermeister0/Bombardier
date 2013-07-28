@@ -2,7 +2,7 @@
 /// <reference path="Size2.ts" />
 /// <reference path="IDrawable.ts" />
 /// <reference path="Rect.ts" />
-/// <reference path="../Libs/box2dweb-min.d.ts" />
+/// <reference path="../Libs/box2dweb.d.ts" />
 
 module Bombardier.Engine {
     export class GameObject implements IDrawable {

@@ -1,4 +1,4 @@
-/// <reference path="../Libs/box2dweb-min.d.ts" />
+/// <reference path="../Libs/box2dweb.d.ts" />
 /// <reference path="FixtureUserData.ts" />
 
 module Bombardier.Entities {
