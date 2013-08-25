@@ -46,7 +46,7 @@ namespace Bombardier.Editor.ViewModels
 
         void FileNew_Executed()
         {
-            MapVM = new MapViewModel(new Bombardier.Common.Map(10, 10));
+            MapVM = new MapViewModel(new Bombardier.Common.Map(30, 30));
             OnPropertyChanged("MapVM");
         }
 
