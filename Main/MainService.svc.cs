@@ -1,6 +1,7 @@
 ﻿using Bombardier.Common;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
+using System.Web.Hosting;
 
 namespace Bombardier
 {
@@ -11,8 +12,7 @@ namespace Bombardier
         [OperationContract]
         public Map GetMap()
         {
-            var map = new Map(20, 20);
-            map.Randomize();
+            var map = MapSerialization.LoadMap(HostingEnvironment.MapPath("~/Maps/00.bin"));
 
             return map;
         }

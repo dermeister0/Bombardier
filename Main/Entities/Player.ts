@@ -21,8 +21,8 @@ module Bombardier.Entities {
         constructor() {
             super();
 
-            this.position.x = Map.TILE_SIZE / 2;
-            this.position.y = Map.TILE_SIZE / 2;
+            this.position.x = Bombardier.Engine.World.pixelsToMeters(Map.TILE_SIZE + Map.TILE_SIZE / 2);
+            this.position.y = Bombardier.Engine.World.pixelsToMeters(Map.TILE_SIZE + Map.TILE_SIZE / 2);
             
             this.size.w = Map.TILE_SIZE;
             this.size.h = Map.TILE_SIZE;
@@ -34,7 +34,7 @@ module Bombardier.Entities {
 
             var bodyDef = new b2Dynamics.b2BodyDef();
             bodyDef.type = b2Dynamics.b2Body.b2_dynamicBody;
-            bodyDef.position.Set(1, 1);
+            bodyDef.position.Set(this.position.x, this.position.y);
 
             var fixtureDef = new b2Dynamics.b2FixtureDef();
 
