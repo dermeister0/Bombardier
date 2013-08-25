@@ -24,7 +24,11 @@ namespace Bombardier.Editor.ViewModels
                 var rowVM = new MapRowViewModel();
 
                 for (int x = 0; x < map.Width; ++x)
-                    rowVM.Cells.Add(new MapCellViewModel());
+                {
+                    var cell = new MapCellViewModel();
+                    cell.SetCell(map.Cells[y][x]);
+                    rowVM.Cells.Add(cell);
+                }
 
                 Rows.Add(rowVM);
             }
@@ -32,6 +36,18 @@ namespace Bombardier.Editor.ViewModels
 
         public Bombardier.Common.Map GetMap()
         {
+            int y = 0;
+            foreach (var row in Rows)
+            {
+                int x = 0;
+                foreach (var cell in row.Cells)
+                {
+                    map.Cells[y][x] = cell.GetCell();
+                    ++x;
+                }
+                ++y;
+            }
+
             return map;
         }
     }

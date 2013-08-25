@@ -48,5 +48,15 @@ namespace Bombardier.Editor.ViewModels
 
             OnPropertyChanged("CellBrush");
         }
+
+        public MapCell GetCell()
+        {
+            return cell;
+        }
+
+        public void SetCell(MapCell cell)
+        {
+            this.cell = cell;
+        }
     }
 }
