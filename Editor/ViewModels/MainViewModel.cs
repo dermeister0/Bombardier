@@ -15,6 +15,8 @@ namespace Bombardier.Editor.ViewModels
 
         public ICommand FileNewCommand { get; private set; }
 
+        public ICommand FileOpenCommand { get; private set; }
+
         public ICommand FileSaveCommand { get; private set; }
 
         public ICommand ChangeTool { get; private set; }
@@ -26,6 +28,7 @@ namespace Bombardier.Editor.ViewModels
             toolbarService = ServiceLocator.GetToolbar();
 
             FileNewCommand = new DelegateCommand(FileNew_Executed);
+            FileOpenCommand = new DelegateCommand<string>(FileOpen_Executed);
             FileSaveCommand = new DelegateCommand<string>(FileSave_Executed);
             ChangeTool = new DelegateCommand<string>(ChangeTool_Executed);
 
@@ -64,6 +67,13 @@ namespace Bombardier.Editor.ViewModels
         void FileSave_Executed(string fileName)
         {
             Bombardier.Common.MapSerialization.SaveMap(MapVM.GetMap(), fileName);
+        }
+
+        void FileOpen_Executed(string fileName)
+        {
+            Bombardier.Common.Map map = Bombardier.Common.MapSerialization.LoadMap(fileName);
+            MapVM = new MapViewModel(map);
+            OnPropertyChanged("MapVM");
         }
     }
 }

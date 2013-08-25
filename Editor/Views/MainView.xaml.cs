@@ -23,6 +23,8 @@ namespace Bombardier.Editor.Views
     /// </summary>
     public partial class MainView : RibbonWindow
     {
+        const string FileDialogFilter = "Bombardier maps|*.bin";
+
         public MainView()
         {
             InitializeComponent();
@@ -33,12 +35,24 @@ namespace Bombardier.Editor.Views
         private void FileSave_Click(object sender, RoutedEventArgs e)
         {
             var sfd = new SaveFileDialog();
-            sfd.Filter = "Bombardier maps|*.bin";
+            sfd.Filter = FileDialogFilter;
 
             if (sfd.ShowDialog() == true)
             {
                 var viewModel = DataContext as MainViewModel;
                 viewModel.FileSaveCommand.Execute(sfd.FileName);
+            }
+        }
+
+        private void FileOpen_Click(object sender, RoutedEventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = FileDialogFilter;
+
+            if (ofd.ShowDialog() == true)
+            {
+                var viewModel = DataContext as MainViewModel;
+                viewModel.FileOpenCommand.Execute(ofd.FileName);
             }
         }
     }
