@@ -5,6 +5,7 @@ module Bombardier.Entities {
         static TYPE_UNDEFINED = 0;
         static TYPE_BRICK = 1;
         static TYPE_FOOT = 2;
+        static TYPE_BODY_LEFT = 3;
 
         type: number = FixtureUserData.TYPE_UNDEFINED;
 

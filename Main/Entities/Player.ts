@@ -16,6 +16,8 @@ module Bombardier.Entities {
 
         private _footContacts: number = 0;
 
+        private _bodyLeftContacts: number = 0;
+
         private _jumpTimeout: number = 0;
 
         constructor() {
@@ -60,6 +62,16 @@ module Bombardier.Entities {
             footFixtureDef.userData.player = this;
 
             this._playerBody.CreateFixture(footFixtureDef);
+
+            var leftFixtureDef = new b2Dynamics.b2FixtureDef();
+            shape.SetAsOrientedBox(0.1, 0.1, new b2Math.b2Vec2(-0.13 - 0.1, 0.42));
+            leftFixtureDef.shape = shape;
+            leftFixtureDef.isSensor = true;
+            leftFixtureDef.userData = new FixtureUserData;
+            leftFixtureDef.userData.type = FixtureUserData.TYPE_BODY_LEFT;
+            leftFixtureDef.userData.player = this;
+
+            this._playerBody.CreateFixture(leftFixtureDef);
         }
 
         public draw(context: CanvasRenderingContext2D) {
@@ -85,7 +97,7 @@ module Bombardier.Entities {
             }
 
             // Left.
-            if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_A)) {
+            if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_A) && this._bodyLeftContacts == 0) {
                 desiredVel = -2;
             }
 
@@ -102,6 +114,14 @@ module Bombardier.Entities {
 
         public decreaseFootContacts() {
             this._footContacts--;
+        }
+
+        public increaseBodyWallContacts(bodyFixtureType: number) {
+            this._bodyLeftContacts++;
+        }
+
+        public decreaseBodyWallContacts(bodyFixtureType: number) {
+            this._bodyLeftContacts--;
         }
     }
 }

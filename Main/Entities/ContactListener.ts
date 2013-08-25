@@ -11,13 +11,22 @@ module Bombardier.Entities {
 		**/
         public BeginContact(contact: b2Dynamics.Contacts.b2Contact): void {
             var userDataA = <FixtureUserData> contact.GetFixtureA().GetUserData();
-            if (userDataA != null && userDataA.type == FixtureUserData.TYPE_FOOT) {
-                userDataA.player.increaseFootContacts();
+            if (userDataA != null) {
+                this.processContactBegin(userDataA);
             }
 
             var userDataB = <FixtureUserData> contact.GetFixtureB().GetUserData();
-            if (userDataB != null && userDataB.type == FixtureUserData.TYPE_FOOT) {
-                userDataB.player.increaseFootContacts();
+            if (userDataB != null) {
+                this.processContactBegin(userDataB);
+            }
+        }
+
+        processContactBegin(userData: FixtureUserData) {
+            if (userData.type == FixtureUserData.TYPE_FOOT) {
+                userData.player.increaseFootContacts();
+            }
+            else if (userData.type == FixtureUserData.TYPE_BODY_LEFT) {
+                userData.player.increaseBodyWallContacts(userData.type);
             }
         }
 
@@ -27,13 +36,22 @@ module Bombardier.Entities {
 		**/
         public EndContact(contact: b2Dynamics.Contacts.b2Contact): void {
             var userDataA = <FixtureUserData> contact.GetFixtureA().GetUserData();
-            if (userDataA != null && userDataA.type == FixtureUserData.TYPE_FOOT) {
-                userDataA.player.decreaseFootContacts();
+            if (userDataA != null) {
+                this.processContactEnd(userDataA);
             }
 
             var userDataB = <FixtureUserData> contact.GetFixtureB().GetUserData();
-            if (userDataB != null && userDataB.type == FixtureUserData.TYPE_FOOT) {
-                userDataB.player.decreaseFootContacts();
+            if (userDataB != null) {
+                this.processContactEnd(userDataB);
+            }
+        }
+
+        processContactEnd(userData: FixtureUserData) {
+            if (userData.type == FixtureUserData.TYPE_FOOT) {
+                userData.player.decreaseFootContacts();
+            }
+            else if (userData.type == FixtureUserData.TYPE_BODY_LEFT) {
+                userData.player.decreaseBodyWallContacts(userData.type);
             }
         }
     }
