@@ -9,6 +9,7 @@ namespace Bombardier.Common
     public enum MapCell { Clear, Brick };
 
     [DataContract]
+    [Serializable]
     public class Map
     {
         [DataMember]

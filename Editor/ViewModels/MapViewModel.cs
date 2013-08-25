@@ -29,5 +29,10 @@ namespace Bombardier.Editor.ViewModels
                 Rows.Add(rowVM);
             }
         }
+
+        public Bombardier.Common.Map GetMap()
+        {
+            return map;
+        }
     }
 }

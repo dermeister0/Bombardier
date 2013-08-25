@@ -13,7 +13,7 @@
                 <RibbonApplicationMenu SmallImageSource="..\Images\Icon16.png">
                     <RibbonApplicationMenuItem Header="New" Command="{Binding FileNewCommand}" />
                     <RibbonApplicationMenuItem Header="Open" />
-                    <RibbonApplicationMenuItem Header="Save" />
+                    <RibbonApplicationMenuItem Header="Save" Click="FileSave_Click" />
 
                     <RibbonApplicationMenu.FooterPaneContent>
                         <DockPanel LastChildFill="False">

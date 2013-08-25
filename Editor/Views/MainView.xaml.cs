@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bombardier.Editor.ViewModels;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +27,19 @@ namespace Bombardier.Editor.Views
         {
             InitializeComponent();
 
-            DataContext = new ViewModels.MainViewModel();
+            DataContext = new MainViewModel();
+        }
+
+        private void FileSave_Click(object sender, RoutedEventArgs e)
+        {
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "Bombardier maps|*.bin";
+
+            if (sfd.ShowDialog() == true)
+            {
+                var viewModel = DataContext as MainViewModel;
+                viewModel.FileSaveCommand.Execute(sfd.FileName);
+            }
         }
     }
 }

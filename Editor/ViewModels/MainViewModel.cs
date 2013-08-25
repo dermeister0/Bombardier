@@ -15,6 +15,8 @@ namespace Bombardier.Editor.ViewModels
 
         public ICommand FileNewCommand { get; private set; }
 
+        public ICommand FileSaveCommand { get; private set; }
+
         public ICommand ChangeTool { get; private set; }
 
         IToolbar toolbarService;
@@ -24,6 +26,7 @@ namespace Bombardier.Editor.ViewModels
             toolbarService = ServiceLocator.GetToolbar();
 
             FileNewCommand = new DelegateCommand(FileNew_Executed);
+            FileSaveCommand = new DelegateCommand<string>(FileSave_Executed);
             ChangeTool = new DelegateCommand<string>(ChangeTool_Executed);
 
             MapVM = new MapViewModel(new Bombardier.Common.Map(0, 0));
@@ -56,6 +59,11 @@ namespace Bombardier.Editor.ViewModels
             toolbarService.CurrentTool = toolCode;
 
             IsClearChecked = toolCode == Tool.Clear;
+        }
+
+        void FileSave_Executed(string fileName)
+        {
+            Bombardier.Common.MapSerialization.SaveMap(MapVM.GetMap(), fileName);
         }
     }
 }
