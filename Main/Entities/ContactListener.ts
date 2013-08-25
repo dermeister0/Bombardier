@@ -25,7 +25,7 @@ module Bombardier.Entities {
             if (userData.type == FixtureUserData.TYPE_FOOT) {
                 userData.player.increaseFootContacts();
             }
-            else if (userData.type == FixtureUserData.TYPE_BODY_LEFT) {
+            else if (userData.type == FixtureUserData.TYPE_BODY_LEFT || userData.type == FixtureUserData.TYPE_BODY_RIGHT) {
                 userData.player.increaseBodyWallContacts(userData.type);
             }
         }
@@ -50,7 +50,7 @@ module Bombardier.Entities {
             if (userData.type == FixtureUserData.TYPE_FOOT) {
                 userData.player.decreaseFootContacts();
             }
-            else if (userData.type == FixtureUserData.TYPE_BODY_LEFT) {
+            else if (userData.type == FixtureUserData.TYPE_BODY_LEFT || userData.type == FixtureUserData.TYPE_BODY_RIGHT) {
                 userData.player.decreaseBodyWallContacts(userData.type);
             }
         }
