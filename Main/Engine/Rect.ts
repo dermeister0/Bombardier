@@ -9,7 +9,7 @@ module Bombardier.Engine {
             return new Rect(center.x - size.w / 2, center.y - size.h / 2, center.x + size.w / 2, center.y + size.h / 2);
         }
 
-        intersects(otherRect: Rect): bool {
+        intersects(otherRect: Rect): boolean {
             return (otherRect.left >= this.left && otherRect.left <= this.right && otherRect.top >= this.top && otherRect.top <= this.bottom) ||
                 (otherRect.right >= this.left && otherRect.right <= this.right && otherRect.top >= this.top && otherRect.top <= this.bottom) ||
                 (otherRect.right >= this.left && otherRect.right <= this.right && otherRect.bottom >= this.top && otherRect.bottom <= this.bottom) ||

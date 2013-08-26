@@ -1,6 +1,6 @@
 module Bombardier.Engine {
     export class Input {
-        static _keys: bool[] = [];
+        static _keys: boolean[] = [];
 
         static KEY_W: number = 87;
         static KEY_A: number = 65;
@@ -15,7 +15,7 @@ module Bombardier.Engine {
             Input._keys[event.keyCode] = true;
         }
 
-        static IsKeyDown(keyCode: number): bool {
+        static IsKeyDown(keyCode: number): boolean {
             return Input._keys[keyCode];
         }
     }
