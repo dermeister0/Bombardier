@@ -3,6 +3,7 @@
 /// <reference path="Player.ts" />
 /// <reference path="../Engine/World.ts" />
 /// <reference path="ContactListener.ts" />
+/// <reference path="../Engine/Viewport.ts" />
 
 module Bombardier.Entities {
     export class Game {
@@ -23,6 +24,8 @@ module Bombardier.Entities {
         static GRAVITY: number = 0.003;
 
         private _world: Engine.World;
+
+        private _viewport: Engine.Viewport;
 
         constructor() {
             this.reset();
@@ -71,6 +74,8 @@ module Bombardier.Entities {
 
             this._player = new Player;
             this._gameObjects.push(this._player);
+
+            this._viewport = new Engine.Viewport();
         }
 
         static get instance() {
@@ -85,6 +90,7 @@ module Bombardier.Entities {
             this._canvasElement = null;
             this._map = null;
             this._world = null;
+            this._viewport = null;
 
             this._canvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
         }
