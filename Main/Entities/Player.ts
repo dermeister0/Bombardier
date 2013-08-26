@@ -90,6 +90,8 @@ module Bombardier.Entities {
                 var impulse = this._playerBody.GetMass() * velChange;
                 this._playerBody.ApplyImpulse(new b2Math.b2Vec2(impulse, 0), this._playerBody.GetWorldCenter());
             }
+
+            this.position = this._playerBody.GetPosition();
         }
 
         public increaseFootContacts() {

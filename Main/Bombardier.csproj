@@ -101,6 +101,9 @@
     <Content Include="Entities\Player.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
+    <Content Include="Entities\Player.min.js">
+      <DependentUpon>Player.ts</DependentUpon>
+    </Content>
     <Content Include="MainService.svc" />
     <Content Include="web.config" />
     <Content Include="Entities\Game.js.map">
@@ -108,6 +111,9 @@
     </Content>
     <Content Include="Engine\Viewport.js.map">
       <DependentUpon>Viewport.ts</DependentUpon>
+    </Content>
+    <Content Include="Entities\Player.js.map">
+      <DependentUpon>Player.ts</DependentUpon>
     </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

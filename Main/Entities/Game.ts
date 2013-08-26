@@ -106,6 +106,8 @@ module Bombardier.Entities {
                 gameObject.update();
             }
 
+            this._viewport.targetPosition = this._player.position;
+
             this._world.update(gameTime);
         }
 
