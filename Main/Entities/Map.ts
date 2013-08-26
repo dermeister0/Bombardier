@@ -2,6 +2,7 @@
 /// <reference path="../Libs/jquery.d.ts" />
 /// <reference path="../Engine/Rect.ts" />
 /// <reference path="Brick.ts" />
+/// <reference path="../Engine/Viewport.ts" />
 
 module Bombardier.Entities {
     import Engine = Bombardier.Engine;
@@ -62,11 +63,21 @@ module Bombardier.Entities {
             }
         }
 
-        draw(context: CanvasRenderingContext2D) {
-            for (var y = 0; y < Map.HEIGHT; ++y) {
-                for (var x = 0; x < Map.WIDTH; ++x) {
+        draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
+            var mapBegin: Engine.Vector2 = { x: Math.floor(viewport.topLeft.x / Map.TILE_SIZE), y: Math.floor(viewport.topLeft.y / Map.TILE_SIZE) };
+
+            for (var y = mapBegin.y; y < mapBegin.y + Map.HEIGHT; ++y) {
+                if (y < 0) {
+                    continue;
+                }
+
+                for (var x = mapBegin.x; x < mapBegin.x + Map.WIDTH; ++x) {
+                    if (x < 0) {
+                        continue;
+                    }
+
                     var tile = this._mapTiles[this._cells[y][x]];
-                    tile.draw(context, x * Map.TILE_SIZE, y * Map.TILE_SIZE);
+                    tile.draw(context, viewport.topLeft.x + x * Map.TILE_SIZE, viewport.topLeft.y + y * Map.TILE_SIZE);
                 }
             }
         }

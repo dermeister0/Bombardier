@@ -43,7 +43,7 @@ module Bombardier.Entities {
             context2D.fillStyle = 'rgb(0, 0, 0)';
             context2D.fillRect(0, 0, 800, 600);
 
-            this._map.draw(context2D);
+            this._map.draw(context2D, this._viewport);
 
             context2D.fillStyle = 'rgb(255, 0, 0)';
             context2D.fillRect(this._i * 10, 10, 10, 20);
@@ -106,9 +106,10 @@ module Bombardier.Entities {
                 gameObject.update();
             }
 
-            this._viewport.targetPosition = this._player.position;
-
             this._world.update(gameTime);
+
+            this._viewport.targetPosition = this._player.position;
+            this._viewport.update();
         }
 
         get world() {
