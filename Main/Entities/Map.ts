@@ -66,16 +66,16 @@ module Bombardier.Entities {
         draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
             var mapBegin: Engine.Vector2 = { x: Math.floor(viewport.topLeft.x / Map.TILE_SIZE), y: Math.floor(viewport.topLeft.y / Map.TILE_SIZE) };
             var canvasBegin: Engine.Vector2 = {
-                x: Engine.World.metersToPixels(-viewport._position.x),
+                x: mapBegin.x * Map.TILE_SIZE - viewport.topLeft.x,
                 y: -viewport.topLeft.y
             };
 
-            for (var y = mapBegin.y; y < mapBegin.y + Map.HEIGHT; ++y) {
+            for (var y = mapBegin.y; y < Map.HEIGHT; ++y) {
                 if (y < 0) {
                     continue;
                 }
 
-                for (var x = mapBegin.x; x < mapBegin.x + Map.WIDTH; ++x) {
+                for (var x = mapBegin.x; x < Map.WIDTH; ++x) {
                     if (x < 0) {
                         continue;
                     }
