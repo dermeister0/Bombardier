@@ -34,6 +34,13 @@
     <TypeScriptCompile Include="Engine\IDrawable.ts" />
     <TypeScriptCompile Include="Entities\FixtureUserData.ts" />
     <TypeScriptCompile Include="Entities\ContactListener.ts" />
+    <TypeScriptCompile Include="Engine\Viewport.ts" />
+    <Content Include="Engine\Viewport.js">
+      <DependentUpon>Viewport.ts</DependentUpon>
+    </Content>
+    <Content Include="Engine\Viewport.min.js">
+      <DependentUpon>Viewport.ts</DependentUpon>
+    </Content>
     <Content Include="Entities\ContactListener.js">
       <DependentUpon>ContactListener.ts</DependentUpon>
     </Content>
