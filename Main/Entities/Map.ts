@@ -65,6 +65,10 @@ module Bombardier.Entities {
 
         draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
             var mapBegin: Engine.Vector2 = { x: Math.floor(viewport.topLeft.x / Map.TILE_SIZE), y: Math.floor(viewport.topLeft.y / Map.TILE_SIZE) };
+            var canvasBegin: Engine.Vector2 = {
+                x: Engine.World.metersToPixels(-viewport._position.x),
+                y: -viewport.topLeft.y
+            };
 
             for (var y = mapBegin.y; y < mapBegin.y + Map.HEIGHT; ++y) {
                 if (y < 0) {
@@ -77,7 +81,8 @@ module Bombardier.Entities {
                     }
 
                     var tile = this._mapTiles[this._cells[y][x]];
-                    tile.draw(context, viewport.topLeft.x + x * Map.TILE_SIZE, viewport.topLeft.y + y * Map.TILE_SIZE);
+                    tile.draw(context, canvasBegin.x + (x - mapBegin.x) * Map.TILE_SIZE,
+                         canvasBegin.y + (y - mapBegin.y) * Map.TILE_SIZE);
                 }
             }
         }

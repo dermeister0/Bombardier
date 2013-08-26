@@ -17,7 +17,10 @@ module Bombardier.Engine {
         }
 
         public get topLeft(): Vector2 {
-            return { x: World.metersToPixels(this._position.x) - this._halfSize.w, y: World.metersToPixels(this._position.y) - this._halfSize.h };
+            return {
+                x: World.metersToPixels(this._position.x) - this._halfSize.w,
+                y: World.metersToPixels(this._position.y) - this._halfSize.h
+            };
         }
 
         public set targetPosition(value: Vector2) {
@@ -25,7 +28,10 @@ module Bombardier.Engine {
         }
 
         public update() {
-            this._position = { x: this._targetPosition.x, y: this._targetPosition.y };
+            this._position = {
+                x: this._position.x + (this._targetPosition.x - this._position.x) / 10,
+                y: 10
+            };
         }
     }
 }
