@@ -14,9 +14,12 @@ module Bombardier.Engine {
 
         _internalHalfSize: Size2;
 
+        _lookForward: number;
+
         constructor() {
             this._halfSize = { w: Viewport.VIEWPORT_WIDTH / 2, h: Viewport.VIEWPORT_HEIGHT / 2 };
             this._internalHalfSize = { w: this._halfSize.w * 0.7, h: this._halfSize.h * 0.7 };
+            this._lookForward = this._internalHalfSize.w * 0.75;
         }
 
         public get topLeft(): Vector2 {
@@ -30,16 +33,24 @@ module Bombardier.Engine {
             this._targetPosition = value;
         }
 
-        public update(newTargetPosition: Vector2) {
+        public update(newTargetPosition: Vector2, newTargetVelocity: Vector2) {
             var newTargetPosition2 = { x: World.metersToPixels(newTargetPosition.x), y: World.metersToPixels(newTargetPosition.y) };
+
+            if (newTargetVelocity.x > 0) {
+                newTargetPosition2.x += this._lookForward;
+            }
+            else if (newTargetVelocity.x < 0) {
+                newTargetPosition2.x -= this._lookForward;
+            }
+
             var internalRect = this.internalRect;
 
             if (!internalRect.pointInRect(newTargetPosition2)) {
                 if (newTargetPosition2.x < internalRect.left) {
-                    this._targetPosition.x = World.pixelsToMeters(newTargetPosition2.x + this._internalHalfSize.w - 1);
+                    this._targetPosition.x = World.pixelsToMeters(newTargetPosition2.x + this._internalHalfSize.w);
                 }
                 else if (newTargetPosition2.x > internalRect.right) {
-                    this._targetPosition.x = World.pixelsToMeters(newTargetPosition2.x - this._internalHalfSize.w + 1);
+                    this._targetPosition.x = World.pixelsToMeters(newTargetPosition2.x - this._internalHalfSize.w);
                 }
 
                 if (newTargetPosition2.y < internalRect.top) {

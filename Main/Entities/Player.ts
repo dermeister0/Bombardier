@@ -92,7 +92,7 @@ module Bombardier.Entities {
                 this._playerBody.ApplyImpulse(new b2Math.b2Vec2(impulse, 0), this._playerBody.GetWorldCenter());
             }
 
-            this.position = this._playerBody.GetPosition();
+            this.position = { x: this._playerBody.GetPosition().x, y: this._playerBody.GetPosition().y };
         }
 
         public increaseFootContacts() {
@@ -150,6 +150,10 @@ module Bombardier.Entities {
 
         public get isOnGround(): boolean {
             return this._footContacts > 0;
+        }
+
+        public get velocity(): Engine.Vector2 {
+            return this._playerBody.GetLinearVelocity();
         }
     }
 }
