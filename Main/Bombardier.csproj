@@ -38,6 +38,15 @@
     <TypeScriptCompile Include="Entities\FixtureUserData.ts" />
     <TypeScriptCompile Include="Entities\ContactListener.ts" />
     <TypeScriptCompile Include="Engine\Viewport.ts" />
+    <Content Include="Engine\IDrawable.min.js">
+      <DependentUpon>IDrawable.ts</DependentUpon>
+    </Content>
+    <Content Include="Engine\Image.min.js">
+      <DependentUpon>Image.ts</DependentUpon>
+    </Content>
+    <Content Include="Engine\Sprite.min.js">
+      <DependentUpon>Sprite.ts</DependentUpon>
+    </Content>
     <Content Include="Engine\Viewport.js">
       <DependentUpon>Viewport.ts</DependentUpon>
     </Content>
@@ -127,6 +136,15 @@
     <Content Include="app.js.map">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
+    <Content Include="Engine\IDrawable.js.map">
+      <DependentUpon>IDrawable.ts</DependentUpon>
+    </Content>
+    <Content Include="Engine\Sprite.js.map">
+      <DependentUpon>Sprite.ts</DependentUpon>
+    </Content>
+    <Content Include="Engine\Image.js.map">
+      <DependentUpon>Image.ts</DependentUpon>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -168,7 +186,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51304</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

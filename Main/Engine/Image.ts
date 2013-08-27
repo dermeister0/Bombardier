@@ -9,7 +9,7 @@ module Bombardier.Engine {
             this._imageElement = Bombardier.Entities.Game.instance.objectManager.getImage(key);
         }
 
-        draw(context: CanvasRenderingContext2D, x: number, y: number) {
+        draw(context: CanvasRenderingContext2D, x: number, y: number): void {
             context.drawImage(this._imageElement, x, y);
         }
     }

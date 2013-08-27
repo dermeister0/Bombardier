@@ -3,9 +3,10 @@
 /// <reference path="IDrawable.ts" />
 /// <reference path="Rect.ts" />
 /// <reference path="../Libs/box2dweb.d.ts" />
+/// <reference path="Viewport.ts" />
 
 module Bombardier.Engine {
-    export class GameObject implements IDrawable {
+    export class GameObject {
         public mass: number = 0;
         public position: Vector2 = new Vector2;
         public velocity: Vector2 = new Vector2;
@@ -16,7 +17,7 @@ module Bombardier.Engine {
         constructor() {
         }
 
-        public draw(context: CanvasRenderingContext2D) {
+        public draw(context: CanvasRenderingContext2D, viewport: Viewport) {
         }
 
         public update() {

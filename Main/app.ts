@@ -22,7 +22,7 @@ class Main {
     start() {
         var self = this;
 
-        this.updateTimerToken = setInterval(() => {
+        function updateAndDraw() {
             if (self.lastUpdate == undefined) {
                 self.lastUpdate = Date.now();
             }
@@ -30,22 +30,12 @@ class Main {
             var diff = Date.now() - self.lastUpdate;
 
             self.game.update(diff);
+            self.game.draw(diff);
 
-            this.lastUpdate = Date.now();
-        }, 1000 / 60);
-
-        function draw() {
-            self.game.draw(0);
-
-            requestAnimationFrame(draw);
+            requestAnimationFrame(updateAndDraw);
         }
-        draw();
+        updateAndDraw();
     }
-
-    stop() {
-        clearTimeout(this.updateTimerToken);
-    }
-
 }
 
 window.onload = () => {

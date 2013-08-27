@@ -58,8 +58,9 @@ module Bombardier.Entities {
             this.createSensors();
         }
 
-        public draw(context: CanvasRenderingContext2D) {
-            this._sprite.draw(context, this.position.x - this.size.w / 2, this.position.y - this.size.h / 2);
+        public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
+            this._sprite.draw(context, Engine.World.metersToPixels(this.position.x) - this.size.w / 2 - viewport.topLeft.x,
+                Engine.World.metersToPixels(this.position.y) - this.size.h / 2 - viewport.topLeft.y);
         }
 
         public update() {

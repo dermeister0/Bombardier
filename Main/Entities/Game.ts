@@ -9,8 +9,6 @@ module Bombardier.Entities {
     export class Game {
         private _canvasElement: HTMLCanvasElement;
 
-        private _i: number = 0;
-
         private _objectManager = new Engine.ObjectManager();
 
         private _map: Map;
@@ -45,16 +43,9 @@ module Bombardier.Entities {
 
             this._map.draw(context2D, this._viewport);
 
-            context2D.fillStyle = 'rgb(255, 0, 0)';
-            context2D.fillRect(Engine.World.metersToPixels(this._player.position.x) - this._viewport.topLeft.x - Engine.World.metersToPixels(0.26),
-                Engine.World.metersToPixels(this._player.position.y) - this._viewport.topLeft.y - Engine.World.metersToPixels(0.84),
-                Engine.World.metersToPixels(0.26 * 2), Engine.World.metersToPixels(0.84) * 2);
-
-            this._i++;
-
             for (var go in this._gameObjects) {
                 var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
-                gameObject.draw(context2D);
+                gameObject.draw(context2D, this._viewport);
             }
 
             this._world.draw(context2D);

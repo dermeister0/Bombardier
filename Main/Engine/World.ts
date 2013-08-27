@@ -39,7 +39,7 @@ module Bombardier.Engine {
                 body = body.GetNext();
             }
 
-            this._b2dWorld.DrawDebugData();
+            //this._b2dWorld.DrawDebugData();
         }
 
         public addRigidBody(bodyDef: b2Dynamics.b2BodyDef): Box2D.Dynamics.b2Body {

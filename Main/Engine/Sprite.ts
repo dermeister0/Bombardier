@@ -17,7 +17,7 @@ module Bombardier.Engine {
         constructor() {
         }
 
-        draw(context: CanvasRenderingContext2D, x: number, y: number) {
+        draw(context: CanvasRenderingContext2D, x: number, y: number): void {
             var currentFrame = 0;
             this._frames[currentFrame].image.draw(context, x, y);
         }
