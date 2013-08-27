@@ -119,6 +119,10 @@
     <Content Include="Entities\Player.min.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Global.ts" />
+    <Content Include="Global.js">
+      <DependentUpon>Global.ts</DependentUpon>
+    </Content>
     <Content Include="Images\Bricks00.png" />
     <Content Include="Images\Clear.png" />
     <Content Include="Images\Player00.png" />

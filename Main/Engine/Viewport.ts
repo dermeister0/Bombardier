@@ -35,24 +35,24 @@ module Bombardier.Engine {
             var internalRect = this.internalRect;
 
             if (!internalRect.pointInRect(newTargetPosition2)) {
-                if (Math.abs(internalRect.left - newTargetPosition2.x) < Math.abs(internalRect.right - newTargetPosition2.x)) {
+                if (newTargetPosition2.x < internalRect.left) {
                     this._targetPosition.x = World.pixelsToMeters(newTargetPosition2.x + this._internalHalfSize.w - 1);
                 }
-                else {
+                else if (newTargetPosition2.x > internalRect.right) {
                     this._targetPosition.x = World.pixelsToMeters(newTargetPosition2.x - this._internalHalfSize.w + 1);
                 }
 
-                if (Math.abs(internalRect.top - newTargetPosition2.y) < Math.abs(internalRect.bottom - newTargetPosition2.y)) {
-                    this._targetPosition.y = World.pixelsToMeters(newTargetPosition2.y + this._internalHalfSize.h - 1);
+                if (newTargetPosition2.y < internalRect.top) {
+                    this._targetPosition.y = World.pixelsToMeters(newTargetPosition2.y);
                 }
-                else {
-                    this._targetPosition.y = World.pixelsToMeters(newTargetPosition2.y - this._internalHalfSize.h + 1);
+                else if (newTargetPosition2.y > internalRect.bottom) {
+                    this._targetPosition.y = World.pixelsToMeters(newTargetPosition2.y);
                 }
             }
 
             this._position = {
                 x: this._position.x + (this._targetPosition.x - this._position.x) / 10,
-                y: this._position.y + (this._targetPosition.y - this._position.y) / 50
+                y: this._position.y + (this._targetPosition.y - this._position.y) / 30
             };
         }
 

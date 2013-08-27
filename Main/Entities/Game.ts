@@ -4,6 +4,7 @@
 /// <reference path="../Engine/World.ts" />
 /// <reference path="ContactListener.ts" />
 /// <reference path="../Engine/Viewport.ts" />
+/// <reference path="../Global.ts" />
 
 module Bombardier.Entities {
     export class Game {
@@ -50,10 +51,12 @@ module Bombardier.Entities {
 
             this._world.draw(context2D);
 
-            context2D.strokeStyle = "#ff0000";
-            context2D.strokeRect(this._viewport.internalRect.left - this._viewport.topLeft.x,
-                this._viewport.internalRect.top - this._viewport.topLeft.y,
-                this._viewport._internalHalfSize.w * 2, this._viewport._internalHalfSize.h * 2);
+            if (Global.DEBUG_VIEWPORT_DRAW_INTERNAL_RECT) {
+                context2D.strokeStyle = "#ff0000";
+                context2D.strokeRect(this._viewport.internalRect.left - this._viewport.topLeft.x,
+                    this._viewport.internalRect.top - this._viewport.topLeft.y,
+                    this._viewport._internalHalfSize.w * 2, this._viewport._internalHalfSize.h * 2);
+            }
         }
 
         loadContent() {
