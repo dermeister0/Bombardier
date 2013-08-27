@@ -22,6 +22,8 @@ module Bombardier.Entities {
 
         private _jumpTimeout: number = 0;
 
+        private _maxVelocity: number = Global.UNIT_INITIAL_VELOCITY;
+
         constructor() {
             super();
 
@@ -78,12 +80,12 @@ module Bombardier.Entities {
 
             // Right.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_D) && this._bodyWallContacts[FixtureUserData.TYPE_BODY_RIGHT] == 0) {
-                desiredVel = 2;
+                desiredVel = this._maxVelocity;
             }
 
             // Left.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_A) && this._bodyWallContacts[FixtureUserData.TYPE_BODY_LEFT] == 0) {
-                desiredVel = -2;
+                desiredVel = -this._maxVelocity;
             }
 
             if (desiredVel != 0) {
