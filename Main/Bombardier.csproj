@@ -145,6 +145,7 @@
     <Content Include="Engine\Image.js.map">
       <DependentUpon>Image.ts</DependentUpon>
     </Content>
+    <None Include="Heavysoft.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
