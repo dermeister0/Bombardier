@@ -147,5 +147,9 @@ module Bombardier.Entities {
             this._bodyWallContacts[FixtureUserData.TYPE_BODY_LEFT] = 0;
             this._bodyWallContacts[FixtureUserData.TYPE_BODY_RIGHT] = 0;
         }
+
+        public get isOnGround(): boolean {
+            return this._footContacts > 0;
+        }
     }
 }

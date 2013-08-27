@@ -49,6 +49,11 @@ module Bombardier.Entities {
             }
 
             this._world.draw(context2D);
+
+            context2D.strokeStyle = "#ff0000";
+            context2D.strokeRect(this._viewport.internalRect.left - this._viewport.topLeft.x,
+                this._viewport.internalRect.top - this._viewport.topLeft.y,
+                this._viewport._internalHalfSize.w * 2, this._viewport._internalHalfSize.h * 2);
         }
 
         loadContent() {
@@ -101,8 +106,7 @@ module Bombardier.Entities {
 
             this._world.update(gameTime);
 
-            this._viewport.targetPosition = this._player.position;
-            this._viewport.update();
+            this._viewport.update(this._player.position);
         }
 
         get world() {
