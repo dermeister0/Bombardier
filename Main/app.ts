@@ -3,21 +3,15 @@
 
 import Entities = Bombardier.Entities;
 
-class Greeter {
-    element: HTMLElement;
-    span: HTMLElement;
-    drawTimerToken: number;
+class Main {
     updateTimerToken: number;
     game: Entities.Game;
 
-    lastDraw: number;
     lastUpdate: number;
 
-    constructor(element: HTMLElement) {
+    constructor() {
         document.onkeyup = Bombardier.Engine.Input.OnKeyUp;
         document.onkeydown = Bombardier.Engine.Input.OnKeyDown;
-
-        var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
 
         this.game = Entities.Game.instance;
         this.game.loadContent();
@@ -26,21 +20,7 @@ class Greeter {
     }
 
     start() {
-        //this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
-
         var self = this;
-
-        this.drawTimerToken = setInterval(() => {
-            if (self.lastDraw == undefined) {
-                self.lastDraw = Date.now();
-            }
-
-            var diff = Date.now() - self.lastDraw;
-
-            self.game.draw(diff);
-
-            this.lastDraw = Date.now();
-        }, 1000 / 30);
 
         this.updateTimerToken = setInterval(() => {
             if (self.lastUpdate == undefined) {
@@ -53,17 +33,22 @@ class Greeter {
 
             this.lastUpdate = Date.now();
         }, 1000 / 60);
+
+        function draw() {
+            self.game.draw(0);
+
+            requestAnimationFrame(draw);
+        }
+        draw();
     }
 
     stop() {
-        clearTimeout(this.drawTimerToken);
         clearTimeout(this.updateTimerToken);
     }
 
 }
 
 window.onload = () => {
-    var el = document.getElementById('content');
-    var greeter = new Greeter(el);
-    greeter.start();
+    var main = new Main();
+    main.start();
 };

@@ -61,13 +61,17 @@ module Bombardier.Entities {
                 x: mapBegin.x * Map.TILE_SIZE - viewport.topLeft.x,
                 y: mapBegin.y * Map.TILE_SIZE - viewport.topLeft.y
             };
+            var lastCell: Engine.Vector2 = {
+                x: mapBegin.x + Engine.Viewport.VIEWPORT_WIDTH / Map.TILE_SIZE + 1,
+                y: mapBegin.y + Engine.Viewport.VIEWPORT_HEIGHT / Map.TILE_SIZE + 1
+            };
 
-            for (var y = mapBegin.y; y < this._height; ++y) {
+            for (var y = mapBegin.y; y < this._height && y < lastCell.y; ++y) {
                 if (y < 0) {
                     continue;
                 }
 
-                for (var x = mapBegin.x; x < this._width; ++x) {
+                for (var x = mapBegin.x; x < this._width && x < lastCell.x; ++x) {
                     if (x < 0) {
                         continue;
                     }
