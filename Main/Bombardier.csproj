@@ -18,9 +18,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <Content Include="app.min.js">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
     <Content Include="default.htm" />
     <Content Include="app.js">
       <DependentUpon>app.ts</DependentUpon>
@@ -38,19 +35,7 @@
     <TypeScriptCompile Include="Entities\FixtureUserData.ts" />
     <TypeScriptCompile Include="Entities\ContactListener.ts" />
     <TypeScriptCompile Include="Engine\Viewport.ts" />
-    <Content Include="Engine\IDrawable.min.js">
-      <DependentUpon>IDrawable.ts</DependentUpon>
-    </Content>
-    <Content Include="Engine\Image.min.js">
-      <DependentUpon>Image.ts</DependentUpon>
-    </Content>
-    <Content Include="Engine\Sprite.min.js">
-      <DependentUpon>Sprite.ts</DependentUpon>
-    </Content>
     <Content Include="Engine\Viewport.js">
-      <DependentUpon>Viewport.ts</DependentUpon>
-    </Content>
-    <Content Include="Engine\Viewport.min.js">
       <DependentUpon>Viewport.ts</DependentUpon>
     </Content>
     <Content Include="Entities\ContactListener.js">
@@ -103,20 +88,11 @@
       <DependentUpon>Game.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Entities\Map.ts" />
-    <Content Include="Entities\Game.min.js">
-      <DependentUpon>Game.ts</DependentUpon>
-    </Content>
     <Content Include="Entities\Map.js">
       <DependentUpon>Map.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Entities\Player.ts" />
-    <Content Include="Entities\Map.min.js">
-      <DependentUpon>Map.ts</DependentUpon>
-    </Content>
     <Content Include="Entities\Player.js">
-      <DependentUpon>Player.ts</DependentUpon>
-    </Content>
-    <Content Include="Entities\Player.min.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Global.ts" />
