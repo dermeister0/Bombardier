@@ -108,7 +108,7 @@
     <Content Include="Libs\jquery-1.9.1.js" />
     <Content Include="Libs\jquery.d.ts" />
     <Content Include="MainService.svc" />
-    <Content Include="Default.html" />
+    <Content Include="Index.html" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
