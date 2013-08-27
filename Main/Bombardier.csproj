@@ -18,7 +18,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <Content Include="default.htm" />
+    <Content Include="Bombardier.min.js" />
+    <Content Include="Debug.html" />
     <Content Include="app.js">
       <DependentUpon>app.ts</DependentUpon>
     </Content>
@@ -107,6 +108,7 @@
     <Content Include="Libs\jquery-1.9.1.js" />
     <Content Include="Libs\jquery.d.ts" />
     <Content Include="MainService.svc" />
+    <Content Include="Default.html" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -205,4 +207,8 @@
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(ProjectDir)..\Minify.cmd"
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>
