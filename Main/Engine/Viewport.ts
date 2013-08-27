@@ -30,7 +30,7 @@ module Bombardier.Engine {
         public update() {
             this._position = {
                 x: this._position.x + (this._targetPosition.x - this._position.x) / 10,
-                y: 9.375
+                y: this._position.y + (this._targetPosition.y - this._position.y) / 10
             };
         }
     }

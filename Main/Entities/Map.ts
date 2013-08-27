@@ -8,9 +8,6 @@ module Bombardier.Entities {
     import Engine = Bombardier.Engine;
 
     export class Map {
-        static WIDTH = 20;
-        static HEIGHT = 20;
-
         static TILE_SIZE = 64;
         static TILE_HALF_SIZE = 32;
 
@@ -21,6 +18,10 @@ module Bombardier.Entities {
 
         private _mapTiles: Engine.Image[] = [];
 
+        private _width: number;
+
+        private _height: number;
+
         constructor() {
             this._cells = [];
 
@@ -29,17 +30,6 @@ module Bombardier.Entities {
         }
 
         load() {
-            for (var y = 0; y < Map.HEIGHT; ++y) {
-                this._cells[y] = [];
-
-                for (var x = 0; x < Map.WIDTH; ++x) {
-                    this._cells[y][x] = 0;
-                }
-            }
-
-            this._cells[3][3] = 1;
-            this._cells[1][1] = 1;
-
             var ajaxResponse = jQuery.ajax('MainService.svc/GetMap', {
                 async: false,
                 type: 'POST'
@@ -47,10 +37,12 @@ module Bombardier.Entities {
 
             var map = jQuery.parseJSON(ajaxResponse.responseText);
 
+            this._width = map.d.Width;
+            this._height = map.d.Height;
             this._cells = map.d.Cells;
 
-            for (var y = 0; y < Map.HEIGHT; ++y) {
-                for (var x = 0; x < Map.WIDTH; ++x) {
+            for (var y = 0; y < this._height; ++y) {
+                for (var x = 0; x < this._width; ++x) {
                     if (this._cells[y] == undefined || this._cells[y][x] == undefined) {
                         throw "Wrong level.";
                     }
@@ -67,15 +59,15 @@ module Bombardier.Entities {
             var mapBegin: Engine.Vector2 = { x: Math.floor(viewport.topLeft.x / Map.TILE_SIZE), y: Math.floor(viewport.topLeft.y / Map.TILE_SIZE) };
             var canvasBegin: Engine.Vector2 = {
                 x: mapBegin.x * Map.TILE_SIZE - viewport.topLeft.x,
-                y: -viewport.topLeft.y
+                y: mapBegin.y * Map.TILE_SIZE - viewport.topLeft.y
             };
 
-            for (var y = mapBegin.y; y < Map.HEIGHT; ++y) {
+            for (var y = mapBegin.y; y < this._height; ++y) {
                 if (y < 0) {
                     continue;
                 }
 
-                for (var x = mapBegin.x; x < Map.WIDTH; ++x) {
+                for (var x = mapBegin.x; x < this._width; ++x) {
                     if (x < 0) {
                         continue;
                     }
@@ -88,7 +80,7 @@ module Bombardier.Entities {
         }
 
         isClear(x: number, y: number) {
-            if (x < 0 || y < 0 || x >= Map.WIDTH || y >= Map.HEIGHT) {
+            if (x < 0 || y < 0 || x >= this._width || y >= this._height) {
                 return false;
             }
 
