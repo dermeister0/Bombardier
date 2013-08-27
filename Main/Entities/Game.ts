@@ -46,8 +46,9 @@ module Bombardier.Entities {
             this._map.draw(context2D, this._viewport);
 
             context2D.fillStyle = 'rgb(255, 0, 0)';
-            context2D.fillRect(Engine.World.metersToPixels(this._player.position.x) - this._viewport.topLeft.x,
-                Engine.World.metersToPixels(this._player.position.y) - this._viewport.topLeft.y, 10, 20);
+            context2D.fillRect(Engine.World.metersToPixels(this._player.position.x) - this._viewport.topLeft.x - Engine.World.metersToPixels(0.26),
+                Engine.World.metersToPixels(this._player.position.y) - this._viewport.topLeft.y - Engine.World.metersToPixels(0.84),
+                Engine.World.metersToPixels(0.26 * 2), Engine.World.metersToPixels(0.84) * 2);
 
             this._i++;
 
