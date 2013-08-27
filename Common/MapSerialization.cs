@@ -15,7 +15,7 @@ namespace Bombardier.Common
             Map result = null;
 
             var bf = new BinaryFormatter();
-            using (var stream = new FileStream(fileName, FileMode.Open))
+            using (var stream = File.OpenRead(fileName))
             {
                 result = bf.Deserialize(stream) as Map;
             }

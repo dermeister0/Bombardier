@@ -119,8 +119,17 @@
     <Content Include="Entities\Player.min.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
+    <Content Include="Images\Bricks00.png" />
+    <Content Include="Images\Clear.png" />
+    <Content Include="Images\Player00.png" />
+    <Content Include="Libs\Box2dWeb-2.1.a.3.js" />
+    <Content Include="Libs\box2dweb.d.ts" />
+    <Content Include="Libs\jquery-1.9.1.js" />
+    <Content Include="Libs\jquery.d.ts" />
     <Content Include="MainService.svc" />
-    <Content Include="web.config" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Entities\Game.js.map">
       <DependentUpon>Game.ts</DependentUpon>
     </Content>
@@ -146,6 +155,8 @@
       <DependentUpon>Image.ts</DependentUpon>
     </Content>
     <None Include="Heavysoft.pubxml" />
+    <Content Include="Maps\00.bin" />
+    <Content Include="Maps\web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
