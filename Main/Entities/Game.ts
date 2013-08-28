@@ -62,6 +62,7 @@ module Bombardier.Entities {
         loadContent() {
             this.objectManager.loadImage('tile_clear', 'Images/Clear.png');
             this.objectManager.loadImage('tile_brick', 'Images/Bricks00.png');
+            this.objectManager.loadImage('tile_stone', 'Images/Stones00.png');
 
             this.objectManager.loadImage('player', 'Images/Player00.png');
         }

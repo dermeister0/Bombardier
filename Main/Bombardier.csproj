@@ -89,10 +89,16 @@
       <DependentUpon>Game.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Entities\Map.ts" />
+    <Content Include="Entities\Game.min.js">
+      <DependentUpon>Game.ts</DependentUpon>
+    </Content>
     <Content Include="Entities\Map.js">
       <DependentUpon>Map.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Entities\Player.ts" />
+    <Content Include="Entities\Map.min.js">
+      <DependentUpon>Map.ts</DependentUpon>
+    </Content>
     <Content Include="Entities\Player.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
@@ -103,6 +109,7 @@
     <Content Include="Images\Bricks00.png" />
     <Content Include="Images\Clear.png" />
     <Content Include="Images\Player00.png" />
+    <Content Include="Images\Stones00.png" />
     <Content Include="Libs\Box2dWeb-2.1.a.3.js" />
     <Content Include="Libs\box2dweb.d.ts" />
     <Content Include="Libs\jquery-1.9.1.js" />

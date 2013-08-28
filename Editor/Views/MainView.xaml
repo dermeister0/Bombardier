@@ -36,6 +36,12 @@
                                         IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Bricks00}"
                                         Command="{Binding ChangeTool}" CommandParameter="Bricks00" />
                 </RibbonGroup>
+
+                <RibbonGroup Header="Stones">
+                    <RibbonToggleButton LargeImageSource="..\Images\Stones00.png"
+                                        IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Stones00}"
+                                        Command="{Binding ChangeTool}" CommandParameter="Stones00" />
+                </RibbonGroup>
             </RibbonTab>
         </Ribbon>
 

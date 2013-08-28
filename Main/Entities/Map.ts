@@ -15,6 +15,7 @@ module Bombardier.Entities {
 
         static TILE_CLEAR = 0;
         static TILE_BRICK = 1;
+        static TILE_STONE = 2;
 
         private _mapTiles: Engine.Image[] = [];
 
@@ -27,6 +28,7 @@ module Bombardier.Entities {
 
             this._mapTiles[Map.TILE_CLEAR] = new Engine.Image('tile_clear');
             this._mapTiles[Map.TILE_BRICK] = new Engine.Image('tile_brick');
+            this._mapTiles[Map.TILE_STONE] = new Engine.Image('tile_stone');
         }
 
         load() {
@@ -49,6 +51,11 @@ module Bombardier.Entities {
 
                     if (this._cells[y][x] == Map.TILE_BRICK) {
                         var brickObject = new Brick(Bombardier.Engine.World.pixelsToMeters(x * Map.TILE_SIZE + Map.TILE_HALF_SIZE),
+                            Bombardier.Engine.World.pixelsToMeters(y * Map.TILE_SIZE + Map.TILE_HALF_SIZE));
+                    }
+                    else if (this._cells[y][x] == Map.TILE_STONE) {
+                        // @@
+                        var stoneObject = new Brick(Bombardier.Engine.World.pixelsToMeters(x * Map.TILE_SIZE + Map.TILE_HALF_SIZE),
                             Bombardier.Engine.World.pixelsToMeters(y * Map.TILE_SIZE + Map.TILE_HALF_SIZE));
                     }
                 }

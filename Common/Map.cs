@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Bombardier.Common
 {
-    public enum MapCell { Clear, Brick };
+    public enum MapCell { Clear, Brick, Stone };
 
     [DataContract]
     [Serializable]

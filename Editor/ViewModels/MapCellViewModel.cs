@@ -25,6 +25,8 @@ namespace Bombardier.Editor.ViewModels
                     return new SolidColorBrush(Colors.Black);
                 else if (cell == MapCell.Brick)
                     return new SolidColorBrush(Colors.DarkRed);
+                else if (cell == MapCell.Stone)
+                    return new SolidColorBrush(Colors.DarkGray);
 
                 return new SolidColorBrush(Colors.White);
             }
@@ -45,6 +47,8 @@ namespace Bombardier.Editor.ViewModels
                 cell = MapCell.Brick;
             else if (toolbar.CurrentTool == Tool.Clear)
                 cell = MapCell.Clear;
+            else if (toolbar.CurrentTool == Tool.Stones00)
+                cell = MapCell.Stone;
 
             OnPropertyChanged("CellBrush");
         }
