@@ -39,7 +39,7 @@ class Main {
 
             var fpsDiff = Date.now() - self._fpsLastTime;
             if (fpsDiff > 1000) {
-                document.getElementById('fpsLabel').innerText = self._fps.toString();
+                document.getElementById('fpsLabel').textContent = self._fps.toString();
                 self._fps = 0;
                 self._fpsLastTime = Date.now();
             }

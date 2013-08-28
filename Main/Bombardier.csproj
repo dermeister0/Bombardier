@@ -93,16 +93,10 @@
       <DependentUpon>Game.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Entities\Map.ts" />
-    <Content Include="Entities\Game.min.js">
-      <DependentUpon>Game.ts</DependentUpon>
-    </Content>
     <Content Include="Entities\Map.js">
       <DependentUpon>Map.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Entities\Player.ts" />
-    <Content Include="Entities\Map.min.js">
-      <DependentUpon>Map.ts</DependentUpon>
-    </Content>
     <Content Include="Entities\Player.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
