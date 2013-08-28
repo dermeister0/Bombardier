@@ -9,6 +9,10 @@ class Main {
 
     lastUpdate: number;
 
+    private _fpsLastTime: number = 0;
+
+    private _fps: number = 0;
+
     constructor() {
         document.onkeyup = Bombardier.Engine.Input.OnKeyUp;
         document.onkeydown = Bombardier.Engine.Input.OnKeyDown;
@@ -31,6 +35,14 @@ class Main {
 
             self.game.update(diff);
             self.game.draw(diff);
+            self._fps++;
+
+            var fpsDiff = Date.now() - self._fpsLastTime;
+            if (fpsDiff > 1000) {
+                document.getElementById('fpsLabel').innerText = self._fps.toString();
+                self._fps = 0;
+                self._fpsLastTime = Date.now();
+            }
 
             requestAnimationFrame(updateAndDraw);
         }

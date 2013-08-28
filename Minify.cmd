@@ -7,3 +7,5 @@ type "%root%\Main\app.js" > "%root%\Main\Bombardier2.js"
 type "%root%\Main\Global.js" > "%root%\Main\Bombardier3.js"
 
 type "%root%\Main\Bombardier*.js" | "%root%\Tools\jsmin" > "%root%\Main\Bombardier.min.js"
+
+del "%root%\Main\Bombardier?.js"
