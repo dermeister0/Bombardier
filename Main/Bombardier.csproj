@@ -39,6 +39,10 @@
     <Content Include="Engine\Viewport.js">
       <DependentUpon>Viewport.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Entities\Bomb.ts" />
+    <Content Include="Entities\Bomb.js">
+      <DependentUpon>Bomb.ts</DependentUpon>
+    </Content>
     <Content Include="Entities\ContactListener.js">
       <DependentUpon>ContactListener.ts</DependentUpon>
     </Content>
