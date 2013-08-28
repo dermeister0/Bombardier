@@ -17,7 +17,7 @@
 
                     <RibbonApplicationMenu.FooterPaneContent>
                         <DockPanel LastChildFill="False">
-                            <RibbonButton Label="Exit" DockPanel.Dock="Right" />
+                            <RibbonButton Label="Exit" DockPanel.Dock="Right" Command="{Binding FileExitCommand}" />
                         </DockPanel>
                     </RibbonApplicationMenu.FooterPaneContent>
 
@@ -26,12 +26,14 @@
 
             <RibbonTab Header="Brushes">
                 <RibbonGroup>
-                    <RibbonToggleButton LargeImageSource="..\Images\Clear.png" Label="Clear" IsChecked="{Binding IsClearChecked}"
+                    <RibbonToggleButton LargeImageSource="..\Images\Clear.png" Label="Clear"
+                                        IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Clear}"
                                         Command="{Binding ChangeTool}" CommandParameter="Clear" />
                 </RibbonGroup>
 
                 <RibbonGroup Header="Bricks">
                     <RibbonToggleButton LargeImageSource="..\Images\Bricks00.png"
+                                        IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Bricks00}"
                                         Command="{Binding ChangeTool}" CommandParameter="Bricks00" />
                 </RibbonGroup>
             </RibbonTab>

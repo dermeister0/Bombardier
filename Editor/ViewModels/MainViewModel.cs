@@ -19,9 +19,13 @@ namespace Bombardier.Editor.ViewModels
 
         public ICommand FileSaveCommand { get; private set; }
 
+        public ICommand FileExitCommand { get; private set; }
+
         public ICommand ChangeTool { get; private set; }
 
         IToolbar toolbarService;
+
+        public Tool CurrentTool { get; private set; }
 
         public MainViewModel()
         {
@@ -30,24 +34,14 @@ namespace Bombardier.Editor.ViewModels
             FileNewCommand = new DelegateCommand(FileNew_Executed);
             FileOpenCommand = new DelegateCommand<string>(FileOpen_Executed);
             FileSaveCommand = new DelegateCommand<string>(FileSave_Executed);
+            FileExitCommand = new DelegateCommand(FileExit_Executed);
+
             ChangeTool = new DelegateCommand<string>(ChangeTool_Executed);
 
             MapVM = new MapViewModel(new Bombardier.Common.Map(0, 0));
             OnPropertyChanged("MapVM");
-        }
 
-        bool isClearChecked;
-        public bool IsClearChecked
-        {
-            get { return isClearChecked; }
-            set
-            {
-                if (value != isClearChecked)
-                {
-                    isClearChecked = value;
-                    OnPropertyChanged("IsClearChecked");
-                }
-            }
+            ChangeTool.Execute("Clear");
         }
 
         void FileNew_Executed()
@@ -61,7 +55,8 @@ namespace Bombardier.Editor.ViewModels
             Tool toolCode = (Tool)Enum.Parse(typeof(Tool), tool);
             toolbarService.CurrentTool = toolCode;
 
-            IsClearChecked = toolCode == Tool.Clear;
+            CurrentTool = toolCode;
+            OnPropertyChanged("CurrentTool");
         }
 
         void FileSave_Executed(string fileName)
@@ -74,6 +69,11 @@ namespace Bombardier.Editor.ViewModels
             Bombardier.Common.Map map = Bombardier.Common.MapSerialization.LoadMap(fileName);
             MapVM = new MapViewModel(map);
             OnPropertyChanged("MapVM");
+        }
+
+        void FileExit_Executed()
+        {
+            App.Current.MainWindow.Close();
         }
     }
 }
