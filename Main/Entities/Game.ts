@@ -65,6 +65,11 @@ module Bombardier.Entities {
             this.objectManager.loadImage('tile_stone', 'Images/Stones00.png');
 
             this.objectManager.loadImage('player', 'Images/Player00.png');
+
+            this.objectManager.loadImage('bomb_left', 'Images/BombLeft.png');
+            this.objectManager.loadImage('bomb_right', 'Images/BombRight.png');
+
+            Bomb.loadContent();
         }
 
         start() {

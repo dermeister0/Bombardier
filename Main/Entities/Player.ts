@@ -172,11 +172,11 @@ module Bombardier.Entities {
             var bomb: Bomb;
             if (this._bodyWallContacts[FixtureUserData.TYPE_BODY_RIGHT] > 0) {
                 bomb = new Bomb((Math.floor(this.position.x / Map.TILE_SIZE_IN_METERS) + 1) * Map.TILE_SIZE_IN_METERS - Bomb.BOMB_HALF_SIZE,
-                    this.position.y);
+                    this.position.y, Bomb.DIRECTION_RIGHT);
             }
             else if (this._bodyWallContacts[FixtureUserData.TYPE_BODY_LEFT] > 0) {
                 bomb = new Bomb((Math.floor(this.position.x / Map.TILE_SIZE_IN_METERS)) * Map.TILE_SIZE_IN_METERS + Bomb.BOMB_HALF_SIZE,
-                    this.position.y);
+                    this.position.y, Bomb.DIRECTION_LEFT);
             }
             else {
                 return;
