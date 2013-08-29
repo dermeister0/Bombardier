@@ -116,5 +116,9 @@ module Bombardier.Entities {
         get world() {
             return this._world;
         }
+
+        public addGameObject(gameObject: Engine.GameObject): void {
+            this._gameObjects.push(gameObject);
+        }
     }
 }

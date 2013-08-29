@@ -6,6 +6,7 @@ module Bombardier.Engine {
         static KEY_A: number = 65;
         static KEY_S: number = 83;
         static KEY_D: number = 68;
+        static KEY_SHIFT: number = 16;
 
         static OnKeyUp(event: any) {
             Input._keys[event.keyCode] = false;

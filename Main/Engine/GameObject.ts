@@ -12,7 +12,7 @@ module Bombardier.Engine {
         public velocity: Vector2 = new Vector2;
         public size: Size2 = new Size2;
 
-        private _body: Box2D.Dynamics.b2Body;
+        public body: Box2D.Dynamics.b2Body;
 
         constructor() {
         }

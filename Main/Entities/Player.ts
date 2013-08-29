@@ -3,6 +3,7 @@
 /// <reference path="Map.ts" />
 /// <reference path="../Engine/Input.ts" />
 /// <reference path="FixtureUserData.ts" />
+/// <reference path="Bomb.ts" />
 
 module Bombardier.Entities {
     import b2Collision = Box2D.Collision;
@@ -86,6 +87,12 @@ module Bombardier.Entities {
             // Left.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_A) && this._bodyWallContacts[FixtureUserData.TYPE_BODY_LEFT] == 0) {
                 desiredVel = -this._maxVelocity;
+            }
+
+            // Put bomb.
+            if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_SHIFT)) {
+                var bomb = new Bomb(this.position.x, this.position.y);
+                Game.instance.addGameObject(bomb);
             }
 
             if (desiredVel != 0) {

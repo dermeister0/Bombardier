@@ -9,8 +9,6 @@ module Bombardier.Engine {
     export class World {
         private _b2dWorld: b2Dynamics.b2World;
 
-        private _gameObjects: Engine.GameObject[] = [];
-
         private _b2dDebugDraw: b2Dynamics.b2DebugDraw;
 
         constructor() {

@@ -1,4 +1,5 @@
 /// <reference path="../Engine/GameObject.ts" />
+/// <reference path="../Engine/Viewport.ts" />
 
 module Bombardier.Entities {
     import b2Collision = Box2D.Collision;
@@ -30,7 +31,21 @@ module Bombardier.Entities {
             bodyDef.type = b2Dynamics.b2Body.b2_staticBody;
             bodyDef.position.Set(x, y);
 
-            Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef).CreateFixture(Bomb._bombFixtureDef);
+            this.body = Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef);
+            this.body.CreateFixture(Bomb._bombFixtureDef);
+
+            this.size = { w: Engine.World.metersToPixels(Bomb.BOMB_SIZE), h: Engine.World.metersToPixels(Bomb.BOMB_SIZE) };
+        }
+
+        public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
+            context.strokeStyle = '#cccccc';
+            context.strokeRect(Engine.World.metersToPixels(this.position.x) - this.size.w / 2 - viewport.topLeft.x,
+                Engine.World.metersToPixels(this.position.y) - this.size.h / 2 - viewport.topLeft.y,
+                this.size.w, this.size.h);
+        }
+
+        public update() {
+            this.position = this.body.GetPosition();
         }
     }
 }
