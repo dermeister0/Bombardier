@@ -118,6 +118,8 @@ module Bombardier.Entities {
             this._world.update(gameTime);
 
             this._viewport.update(this._player.position, this._player.velocity);
+
+            Engine.Input.update();
         }
 
         public get world(): Engine.World {

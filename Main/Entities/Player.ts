@@ -94,7 +94,7 @@ module Bombardier.Entities {
             }
 
             // Put bomb.
-            if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_SHIFT)) {
+            if (Bombardier.Engine.Input.IsKeyPressed(Bombardier.Engine.Input.KEY_SHIFT)) {
                 this.tryToPutBomb();
             }
 
