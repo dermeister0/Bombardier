@@ -104,6 +104,8 @@
     <Content Include="Global.js">
       <DependentUpon>Global.ts</DependentUpon>
     </Content>
+    <Content Include="Images\BombLeft.png" />
+    <Content Include="Images\BombRight.png" />
     <Content Include="Images\Bricks00.png" />
     <Content Include="Images\Clear.png" />
     <Content Include="Images\Player00.png" />
