@@ -25,6 +25,8 @@ module Bombardier.Entities {
 
         private _maxVelocity: number = Global.UNIT_INITIAL_VELOCITY;
 
+        private _bombsCount: number = 0;
+
         constructor() {
             super();
 
@@ -59,6 +61,8 @@ module Bombardier.Entities {
             this._playerBody.CreateFixture(fixtureDef);
 
             this.createSensors();
+
+            this._bombsCount = 10;
         }
 
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
@@ -165,7 +169,7 @@ module Bombardier.Entities {
         }
 
         private tryToPutBomb(): void {
-            if (!this.isOnGround) {
+            if (this._bombsCount == 0 || !this.isOnGround) {
                 return;
             }
 
@@ -182,7 +186,12 @@ module Bombardier.Entities {
                 return;
             }
 
+            this._bombsCount--;
             Game.instance.addGameObject(bomb);
+        }
+
+        public get bombsCount(): number {
+            return this._bombsCount;
         }
     }
 }

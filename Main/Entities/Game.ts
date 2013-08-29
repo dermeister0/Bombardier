@@ -57,6 +57,8 @@ module Bombardier.Entities {
                     this._viewport.internalRect.top - this._viewport.topLeft.y,
                     this._viewport._internalHalfSize.w * 2, this._viewport._internalHalfSize.h * 2);
             }
+
+            this.drawHud(context2D);
         }
 
         public loadContent(): void {
@@ -124,6 +126,12 @@ module Bombardier.Entities {
 
         public addGameObject(gameObject: Engine.GameObject): void {
             this._gameObjects.push(gameObject);
+        }
+
+        private drawHud(context: CanvasRenderingContext2D): void {
+            context.fillStyle = '#ffffff';
+            context.font = '12pt monospace';
+            context.fillText('Bombs: ' + this._player.bombsCount.toString(), 10, 20);
         }
     }
 }
