@@ -8,7 +8,8 @@ module Bombardier.Entities {
     import Engine = Bombardier.Engine;
 
     export class Map {
-        static TILE_SIZE = 64;
+        static TILE_SIZE = 64; // In pixels.
+        static TILE_SIZE_IN_METERS = 2;
         static TILE_HALF_SIZE = 32;
 
         private _cells: number[][];

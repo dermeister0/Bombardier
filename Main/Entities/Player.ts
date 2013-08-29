@@ -91,8 +91,7 @@ module Bombardier.Entities {
 
             // Put bomb.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_SHIFT)) {
-                var bomb = new Bomb(this.position.x, this.position.y);
-                Game.instance.addGameObject(bomb);
+                this.tryToPutBomb();
             }
 
             if (desiredVel != 0) {
@@ -163,6 +162,27 @@ module Bombardier.Entities {
 
         public get velocity(): Engine.Vector2 {
             return this._playerBody.GetLinearVelocity();
+        }
+
+        private tryToPutBomb(): void {
+            if (!this.isOnGround) {
+                return;
+            }
+
+            var bomb: Bomb;
+            if (this._bodyWallContacts[FixtureUserData.TYPE_BODY_RIGHT] > 0) {
+                bomb = new Bomb((Math.floor(this.position.x / Map.TILE_SIZE_IN_METERS) + 1) * Map.TILE_SIZE_IN_METERS - Bomb.BOMB_HALF_SIZE,
+                    this.position.y);
+            }
+            else if (this._bodyWallContacts[FixtureUserData.TYPE_BODY_LEFT] > 0) {
+                bomb = new Bomb((Math.floor(this.position.x / Map.TILE_SIZE_IN_METERS)) * Map.TILE_SIZE_IN_METERS + Bomb.BOMB_HALF_SIZE,
+                    this.position.y);
+            }
+            else {
+                return;
+            }
+
+            Game.instance.addGameObject(bomb);
         }
     }
 }

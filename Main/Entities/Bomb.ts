@@ -9,7 +9,8 @@ module Bombardier.Entities {
         private static _bombShape: b2Collision.Shapes.b2CircleShape;
         private static _bombFixtureDef: b2Dynamics.b2FixtureDef;
 
-        static BOMB_SIZE: number = 1;
+        static BOMB_SIZE: number = 0.5;
+        static BOMB_HALF_SIZE: number = Bomb.BOMB_SIZE / 2;
 
         constructor(x: number, y: number) {
             super();
