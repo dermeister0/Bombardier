@@ -30,11 +30,11 @@ module Bombardier.Entities {
             this.reset();
         }
 
-        getName(): string {
+        public getName(): string {
             return "Bombardier";
         }
 
-        draw(gameTime: number) {
+        public draw(gameTime: number): void {
             var context2D: CanvasRenderingContext2D;
 
             context2D = this._canvasElement.getContext('2d');
@@ -59,7 +59,7 @@ module Bombardier.Entities {
             }
         }
 
-        loadContent() {
+        public loadContent(): void {
             this.objectManager.loadImage('tile_clear', 'Images/Clear.png');
             this.objectManager.loadImage('tile_brick', 'Images/Bricks00.png');
             this.objectManager.loadImage('tile_stone', 'Images/Stones00.png');
@@ -72,7 +72,7 @@ module Bombardier.Entities {
             Bomb.loadContent();
         }
 
-        start() {
+        public start(): void {
             this._world = new Engine.World();
             this._world.addContactListener(new ContactListener);
 
@@ -85,7 +85,7 @@ module Bombardier.Entities {
             this._viewport = new Engine.Viewport();
         }
 
-        static get instance() {
+        public static get instance(): Game {
             if (Game._instance == null) {
                 Game._instance = new Game();
             }
@@ -93,7 +93,7 @@ module Bombardier.Entities {
             return Game._instance;
         }
 
-        private reset() {
+        private reset(): void {
             this._canvasElement = null;
             this._map = null;
             this._world = null;
@@ -102,11 +102,11 @@ module Bombardier.Entities {
             this._canvasElement = <HTMLCanvasElement> document.getElementById("mainCanvas");
         }
 
-        get objectManager() {
+        public get objectManager(): Engine.ObjectManager {
             return this._objectManager;
         }
 
-        public update(gameTime: number) {
+        public update(gameTime: number): void {
             for (var go in this._gameObjects) {
                 var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
 
@@ -118,7 +118,7 @@ module Bombardier.Entities {
             this._viewport.update(this._player.position, this._player.velocity);
         }
 
-        get world() {
+        public get world(): Engine.World {
             return this._world;
         }
 
