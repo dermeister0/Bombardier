@@ -32,6 +32,7 @@ class Main {
             }
 
             var diff = Date.now() - self.lastUpdate;
+            self.lastUpdate = Date.now();
 
             self.game.update(diff);
             self.game.draw(diff);

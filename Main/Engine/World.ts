@@ -24,7 +24,7 @@ module Bombardier.Engine {
         }
 
         update(timeStep) {
-            this._b2dWorld.Step(1 / 60, 10, 10);
+            this._b2dWorld.Step(timeStep / 1000, 10, 10);
             this._b2dWorld.ClearForces();
         }
 
