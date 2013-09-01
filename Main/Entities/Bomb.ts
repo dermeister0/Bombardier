@@ -12,9 +12,13 @@ module Bombardier.Entities {
         static DIRECTION_LEFT: number = 0;
         static DIRECTION_RIGHT: number = 1;
 
+        static BOMB_LIFE_TIME: number = 3000;
+
         private static _images: Engine.Image[] = [];
 
         private _direction: number;
+
+        private _startTime: number;
 
         constructor(x: number, y: number, direction) {
             super();
@@ -22,6 +26,7 @@ module Bombardier.Entities {
             this.position = { x: x, y: y };
             this.size = { w: Engine.World.metersToPixels(Bomb.BOMB_SIZE), h: Engine.World.metersToPixels(Bomb.BOMB_SIZE) };
             this._direction = direction;
+            this._startTime = Date.now();
         }
 
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
@@ -33,6 +38,16 @@ module Bombardier.Entities {
         public static loadContent(): void {
             Bomb._images[Bomb.DIRECTION_LEFT] = new Engine.Image('bomb_left');
             Bomb._images[Bomb.DIRECTION_RIGHT] = new Engine.Image('bomb_right');
+        }
+
+        public update() {
+            if (Date.now() - Bomb.BOMB_LIFE_TIME >= this._startTime) {
+                this.die();
+            }
+        }
+
+        private die(): void {
+            Game.instance.removeGameObject(this);
         }
     }
 }

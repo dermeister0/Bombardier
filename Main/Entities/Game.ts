@@ -135,5 +135,13 @@ module Bombardier.Entities {
             context.font = '12pt monospace';
             context.fillText('Bombs: ' + this._player.bombsCount.toString(), 10, 20);
         }
+
+        public removeGameObject(gameObject: Engine.GameObject): void {
+            var index: number = this._gameObjects.indexOf(gameObject);
+
+            if (index != -1) {
+                this._gameObjects.splice(index, 1);
+            }
+        }
     }
 }
