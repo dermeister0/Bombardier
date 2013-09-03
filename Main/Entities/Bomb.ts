@@ -85,6 +85,18 @@ module Bombardier.Entities {
 
         private die(): void {
             Game.instance.removeGameObject(this);
+
+            var bodiesToDestroy: b2Dynamics.b2Body[] = [];
+
+            Game.instance.world.physicsWorld.QueryShape((f: b2Dynamics.b2Fixture) => {
+                bodiesToDestroy.push(f.GetBody());
+                return true;
+            }, Bomb._bombShape, this.body.GetTransform());
+
+            // @@
+            for (var i in bodiesToDestroy) {
+                Game.instance.world.destroyBody(bodiesToDestroy[i]);
+            }
         }
     }
 }

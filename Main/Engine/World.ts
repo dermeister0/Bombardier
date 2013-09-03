@@ -55,5 +55,13 @@ module Bombardier.Engine {
         public addContactListener(listener: b2Dynamics.b2ContactListener) {
             this._b2dWorld.SetContactListener(listener);
         }
+
+        public get physicsWorld(): b2Dynamics.b2World {
+            return this._b2dWorld;
+        }
+
+        public destroyBody(body: b2Dynamics.b2Body): void {
+            this._b2dWorld.DestroyBody(body);
+        }
     }
 }
