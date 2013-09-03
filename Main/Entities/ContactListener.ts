@@ -11,12 +11,10 @@ module Bombardier.Entities {
 		**/
         public BeginContact(contact: b2Dynamics.Contacts.b2Contact): void {
             var userDataA = <FixtureUserData> contact.GetFixtureA().GetUserData();
-            if (userDataA != null) {
-                this.processContactBegin(userDataA);
-            }
-
             var userDataB = <FixtureUserData> contact.GetFixtureB().GetUserData();
-            if (userDataB != null) {
+
+            if (userDataA != null && userDataB != null) {
+                this.processContactBegin(userDataA);
                 this.processContactBegin(userDataB);
             }
         }
@@ -36,12 +34,9 @@ module Bombardier.Entities {
 		**/
         public EndContact(contact: b2Dynamics.Contacts.b2Contact): void {
             var userDataA = <FixtureUserData> contact.GetFixtureA().GetUserData();
-            if (userDataA != null) {
-                this.processContactEnd(userDataA);
-            }
-
             var userDataB = <FixtureUserData> contact.GetFixtureB().GetUserData();
-            if (userDataB != null) {
+            if (userDataA != null && userDataB != null) {
+                this.processContactEnd(userDataA);
                 this.processContactEnd(userDataB);
             }
         }
