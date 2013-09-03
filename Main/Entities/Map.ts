@@ -52,11 +52,11 @@ module Bombardier.Entities {
                     }
 
                     if (this._cells[y][x] == Map.TILE_BRICK) {
-                        var brickObject = new Brick(x, y);
+                        var brickObject = new Brick(x, y, FixtureUserData.TYPE_BRICK);
                     }
                     else if (this._cells[y][x] == Map.TILE_STONE) {
                         // @@
-                        var stoneObject = new Brick(x, y);
+                        var stoneObject = new Brick(x, y, FixtureUserData.TYPE_STONE);
                     }
                 }
             }

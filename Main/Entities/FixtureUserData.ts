@@ -7,6 +7,7 @@ module Bombardier.Entities {
         static TYPE_FOOT = 2;
         static TYPE_BODY_LEFT = 3;
         static TYPE_BODY_RIGHT = 4;
+        static TYPE_STONE = 5;
 
         type: number = FixtureUserData.TYPE_UNDEFINED;
 

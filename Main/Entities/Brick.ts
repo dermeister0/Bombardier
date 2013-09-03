@@ -13,7 +13,7 @@ module Bombardier.Entities {
 
         private _y: number;
 
-        constructor(x: number, y: number) {
+        constructor(x: number, y: number, fixtureType: number) {
             super();
 
             this._x = x;
@@ -31,8 +31,6 @@ module Bombardier.Entities {
                 Brick._brickFixtureDef.friction = 1.0;
                 Brick._brickFixtureDef.restitution = 0.0;
                 Brick._brickFixtureDef.shape = Brick._brickShape;
-                Brick._brickFixtureDef.userData = new FixtureUserData();
-                Brick._brickFixtureDef.userData.type = FixtureUserData.TYPE_BRICK;
             }
 
             var bodyDef = new b2Dynamics.b2BodyDef();
@@ -41,8 +39,12 @@ module Bombardier.Entities {
                 y * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS);
 
             this.body = Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef);
-            this.body.CreateFixture(Brick._brickFixtureDef);
             this.body.SetUserData(this);
+
+            var fixture = this.body.CreateFixture(Brick._brickFixtureDef);
+            var fixtureUserData = new FixtureUserData();
+            fixtureUserData.type = fixtureType;
+            fixture.SetUserData(fixtureUserData);
         }
 
         public destroy(): void {
