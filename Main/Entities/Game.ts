@@ -140,6 +140,7 @@ module Bombardier.Entities {
             var index: number = this._gameObjects.indexOf(gameObject);
 
             if (index != -1) {
+                gameObject.destroy();
                 this._gameObjects.splice(index, 1);
             }
         }

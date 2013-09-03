@@ -34,5 +34,9 @@ module Bombardier.Entities {
 
             Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef).CreateFixture(Brick._brickFixtureDef);
         }
+
+        public destroy(): void {
+            // @@
+        }
     }
 }

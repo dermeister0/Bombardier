@@ -198,5 +198,9 @@ module Bombardier.Entities {
         public get bombsCount(): number {
             return this._bombsCount;
         }
+
+        public destroy(): void {
+            Game.instance.world.destroyBody(this._playerBody);
+        }
     }
 }

@@ -17,10 +17,14 @@ module Bombardier.Engine {
         constructor() {
         }
 
-        public draw(context: CanvasRenderingContext2D, viewport: Viewport) {
+        public destroy(): void {
+            throw new Error("Need to override.");
         }
 
-        public update() {
+        public draw(context: CanvasRenderingContext2D, viewport: Viewport): void {
+        }
+
+        public update(): void {
         }
 
         public getBoundingRect(): Rect {
