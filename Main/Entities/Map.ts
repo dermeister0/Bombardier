@@ -11,6 +11,7 @@ module Bombardier.Entities {
         static TILE_SIZE = 64; // In pixels.
         static TILE_SIZE_IN_METERS = 2;
         static TILE_HALF_SIZE = 32;
+        static TILE_HALF_SIZE_IN_METERS = 1;
 
         private _cells: number[][];
 
@@ -51,13 +52,11 @@ module Bombardier.Entities {
                     }
 
                     if (this._cells[y][x] == Map.TILE_BRICK) {
-                        var brickObject = new Brick(Bombardier.Engine.World.pixelsToMeters(x * Map.TILE_SIZE + Map.TILE_HALF_SIZE),
-                            Bombardier.Engine.World.pixelsToMeters(y * Map.TILE_SIZE + Map.TILE_HALF_SIZE));
+                        var brickObject = new Brick(x, y);
                     }
                     else if (this._cells[y][x] == Map.TILE_STONE) {
                         // @@
-                        var stoneObject = new Brick(Bombardier.Engine.World.pixelsToMeters(x * Map.TILE_SIZE + Map.TILE_HALF_SIZE),
-                            Bombardier.Engine.World.pixelsToMeters(y * Map.TILE_SIZE + Map.TILE_HALF_SIZE));
+                        var stoneObject = new Brick(x, y);
                     }
                 }
             }
@@ -101,6 +100,10 @@ module Bombardier.Entities {
 
         getCellRect(x: number, y: number): Bombardier.Engine.Rect {
             return new Bombardier.Engine.Rect(x * Map.TILE_SIZE, y * Map.TILE_SIZE, (x + 1) * Map.TILE_SIZE, (y + 1) * Map.TILE_SIZE);
+        }
+
+        public clearCell(x: number, y: number): void {
+            this._cells[y][x] = Map.TILE_CLEAR;
         }
     }
 }

@@ -89,7 +89,8 @@ module Bombardier.Entities {
             Game.instance.world.physicsWorld.QueryShape((f: b2Dynamics.b2Fixture) => {
                 var userData = <FixtureUserData> f.GetUserData();
                 if (userData != null && userData.type == FixtureUserData.TYPE_BRICK) {
-                    Game.instance.world.destroyBody(f.GetBody());
+                    var brick = <Brick> f.GetBody().GetUserData();
+                    Game.instance.destroyBrick(brick);
                 }
                 return true;
             }, Bomb._bombShape, this.body.GetTransform());

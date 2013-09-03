@@ -144,5 +144,10 @@ module Bombardier.Entities {
                 this._gameObjects.splice(index, 1);
             }
         }
+
+        public destroyBrick(brick: Brick): void {
+            this._map.clearCell(brick.x, brick.y);
+            brick.destroy();
+        }
     }
 }

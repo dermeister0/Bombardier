@@ -9,8 +9,15 @@ module Bombardier.Entities {
         private static _brickShape: b2Collision.Shapes.b2PolygonShape;
         private static _brickFixtureDef: b2Dynamics.b2FixtureDef;
 
+        private _x: number;
+
+        private _y: number;
+
         constructor(x: number, y: number) {
             super();
+
+            this._x = x;
+            this._y = y;
 
             if (Brick._brickShape == null) {
                 Brick._brickShape = new b2Collision.Shapes.b2PolygonShape();
@@ -30,13 +37,24 @@ module Bombardier.Entities {
 
             var bodyDef = new b2Dynamics.b2BodyDef();
             bodyDef.type = b2Dynamics.b2Body.b2_staticBody;
-            bodyDef.position.Set(x, y);
+            bodyDef.position.Set(x * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS,
+                y * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS);
 
-            Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef).CreateFixture(Brick._brickFixtureDef);
+            this.body = Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef);
+            this.body.CreateFixture(Brick._brickFixtureDef);
+            this.body.SetUserData(this);
         }
 
         public destroy(): void {
-            // @@
+            Game.instance.world.destroyBody(this.body);
+        }
+
+        public get x(): number {
+            return this._x;
+        }
+
+        public get y(): number {
+            return this._y;
         }
     }
 }
