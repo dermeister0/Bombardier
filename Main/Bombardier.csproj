@@ -28,6 +28,7 @@
     <TypeScriptCompile Include="app.ts" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Engine\Debug.ts" />
     <TypeScriptCompile Include="Entities\Game.ts" />
     <TypeScriptCompile Include="Engine\Sprite.ts" />
     <TypeScriptCompile Include="Engine\ObjectManager.ts" />
@@ -36,6 +37,9 @@
     <TypeScriptCompile Include="Entities\FixtureUserData.ts" />
     <TypeScriptCompile Include="Entities\ContactListener.ts" />
     <TypeScriptCompile Include="Engine\Viewport.ts" />
+    <Content Include="Engine\Debug.js">
+      <DependentUpon>Debug.ts</DependentUpon>
+    </Content>
     <Content Include="Engine\Viewport.js">
       <DependentUpon>Viewport.ts</DependentUpon>
     </Content>

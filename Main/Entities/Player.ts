@@ -4,6 +4,7 @@
 /// <reference path="../Engine/Input.ts" />
 /// <reference path="FixtureUserData.ts" />
 /// <reference path="Bomb.ts" />
+/// <reference path="../Engine/Debug.ts" />
 
 module Bombardier.Entities {
     import b2Collision = Box2D.Collision;
@@ -68,6 +69,10 @@ module Bombardier.Entities {
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
             this._sprite.draw(context, Engine.World.metersToPixels(this.position.x) - this.size.w / 2 - viewport.topLeft.x,
                 Engine.World.metersToPixels(this.position.y) - this.size.h / 2 - viewport.topLeft.y);
+
+            if (Global.DEBUG_PLAYER_DRAW_CONTACTS) {
+                Engine.Debug.drawContacts(this._playerBody.GetContactList(), context, viewport);
+            }
         }
 
         public update() {
