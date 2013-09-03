@@ -64,12 +64,12 @@ module Bombardier.Entities {
 
             Bomb._images[this._direction].draw(context, center.x - this.size.w / 2, center.y - this.size.h / 2);
 
-            context.strokeStyle = '#ff0000';
-            context.beginPath();
-            context.arc(center.x, center.y, Engine.World.metersToPixels(Bomb.BOMB_SENSOR_RADIUS), 0, 2 * Math.PI);
-            context.stroke();
-
-            Engine.Debug.drawContacts(this.body.GetContactList(), context, viewport);
+            if (Global.DEBUG_BOMB_DRAW_SENSOR) {
+                context.strokeStyle = '#ff0000';
+                context.beginPath();
+                context.arc(center.x, center.y, Engine.World.metersToPixels(Bomb.BOMB_SENSOR_RADIUS), 0, 2 * Math.PI);
+                context.stroke();
+            }
         }
 
         public static loadContent(): void {
