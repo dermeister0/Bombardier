@@ -11,6 +11,8 @@ module Bombardier.Engine {
 
         private _b2dDebugDraw: b2Dynamics.b2DebugDraw;
 
+        private _bodiesToDestroy: b2Dynamics.b2Body[] = [];
+
         constructor() {
             var debugCanvas = <HTMLCanvasElement> document.getElementById('debugCanvas');
             this._b2dDebugDraw = new b2Dynamics.b2DebugDraw();          
@@ -26,6 +28,11 @@ module Bombardier.Engine {
         update(timeStep) {
             this._b2dWorld.Step(timeStep / 1000, 10, 10);
             this._b2dWorld.ClearForces();
+
+            for (var i in this._bodiesToDestroy) {
+                this._b2dWorld.DestroyBody(this._bodiesToDestroy[i]);
+            }
+            this._bodiesToDestroy = [];
         }
 
         public draw(context: CanvasRenderingContext2D) {
@@ -61,7 +68,7 @@ module Bombardier.Engine {
         }
 
         public destroyBody(body: b2Dynamics.b2Body): void {
-            this._b2dWorld.DestroyBody(body);
+            this._bodiesToDestroy.push(body);
         }
     }
 }

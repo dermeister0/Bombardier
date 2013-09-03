@@ -24,6 +24,8 @@ module Bombardier.Entities {
                 Brick._brickFixtureDef.friction = 1.0;
                 Brick._brickFixtureDef.restitution = 0.0;
                 Brick._brickFixtureDef.shape = Brick._brickShape;
+                Brick._brickFixtureDef.userData = new FixtureUserData();
+                Brick._brickFixtureDef.userData.type = FixtureUserData.TYPE_BRICK;
             }
 
             var bodyDef = new b2Dynamics.b2BodyDef();
