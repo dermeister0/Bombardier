@@ -32,8 +32,15 @@ namespace Bombardier.Editor.ViewModels
             }
         }
 
-        public MapCellViewModel()
+        int x;
+
+        int y;
+
+        public MapCellViewModel(int x, int y)
         {
+            this.x = x;
+            this.y = y;
+
             CellClickCommand = new DelegateCommand(CellClick_Executed);
         }
 
@@ -55,7 +62,7 @@ namespace Bombardier.Editor.ViewModels
             if (toolbar.CurrentTool == Tool.Start)
             {
                 var map = ServiceLocator.GetMap();
-                map.SetSingleObjectPosition(MapObjectType.Start, 3, 3); // @@
+                map.SetSingleObjectPosition(MapObjectType.Start, x, y);
             }
         }
 

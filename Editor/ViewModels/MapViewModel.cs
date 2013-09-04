@@ -30,7 +30,7 @@ namespace Bombardier.Editor.ViewModels
 
                 for (int x = 0; x < map.Width; ++x)
                 {
-                    var cell = new MapCellViewModel();
+                    var cell = new MapCellViewModel(x, y);
                     cell.SetCell(map.Cells[y][x]);
                     rowVM.Cells.Add(cell);
                 }

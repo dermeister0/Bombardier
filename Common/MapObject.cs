@@ -8,6 +8,7 @@ namespace Bombardier.Common
 {
     public enum MapObjectType { Start };
 
+    [Serializable]
     public class MapObject
     {
         public int X { get; set; }

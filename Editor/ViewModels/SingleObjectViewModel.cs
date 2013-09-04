@@ -14,8 +14,6 @@ namespace Bombardier.Editor.ViewModels
         public SingleObjectViewModel(MapObject mapObject)
             : base(mapObject)
         {
-            mapObject.X = -1;
-            mapObject.Y = -1;
         }
 
         public UserControl CreateView()

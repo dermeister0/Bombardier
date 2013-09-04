@@ -12,6 +12,11 @@ namespace Bombardier.Common
     [Serializable]
     public class Map
     {
+        public const int CurrentFormat = 1;
+
+        [DataMember]
+        public int Format { get; private set; }
+
         [DataMember]
         public readonly int Width;
 
@@ -22,10 +27,12 @@ namespace Bombardier.Common
         public readonly MapCell[][] Cells;
 
         [DataMember]
-        public readonly List<MapObject> Objects;
+        public List<MapObject> Objects { get; private set; }
         
         public Map(int width, int height)
         {
+            Format = CurrentFormat;
+
             Width = width;
             Height = height;
 
@@ -33,8 +40,7 @@ namespace Bombardier.Common
             for (int i = 0; i < Height; ++i)
                 Cells[i] = new MapCell[Width];
 
-            Objects = new List<MapObject>();
-            Objects.Add(new MapObject { ObjectType = MapObjectType.Start });
+            CreateObjects();
         }
 
         public void Randomize()
@@ -44,6 +50,23 @@ namespace Bombardier.Common
             for (int y = 0; y < Height; ++y)
                 for (int x = 0; x < Width; ++x)
                     Cells[y][x] = (MapCell)random.Next(2);
+        }
+
+        private void CreateObjects()
+        {
+            Objects = new List<MapObject>();
+            Objects.Add(new MapObject { ObjectType = MapObjectType.Start, X = -1, Y = -1 });
+        }
+
+        public void Upgrade()
+        {
+            if (Format == 0)
+            {
+                if (Objects == null)
+                    CreateObjects();
+            }
+
+            Format = CurrentFormat;
         }
     }
 }

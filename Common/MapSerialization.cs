@@ -20,6 +20,9 @@ namespace Bombardier.Common
                 result = bf.Deserialize(stream) as Map;
             }
 
+            if (result.Format != Map.CurrentFormat)
+                result.Upgrade();
+
             return result;
         }
 
