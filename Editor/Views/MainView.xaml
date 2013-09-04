@@ -43,6 +43,14 @@
                                         Command="{Binding ChangeTool}" CommandParameter="Stones00" />
                 </RibbonGroup>
             </RibbonTab>
+            
+            <RibbonTab Header="Misc">
+                <RibbonGroup>
+                    <RibbonToggleButton LargeImageSource="..\Images\Start.png"
+                                        IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Start}"
+                                        Command="{Binding ChangeTool}" CommandParameter="Start" />
+                </RibbonGroup>
+            </RibbonTab>
         </Ribbon>
 
         <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
