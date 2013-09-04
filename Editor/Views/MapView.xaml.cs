@@ -38,9 +38,10 @@ namespace Bombardier.Editor.Views
                 MainPanel.Children.Add(rowView);
             }
 
+            SecondGrid.Children.Clear();
             foreach (var soVM in viewModel.SingleObjects)
             {
-                MainGrid.Children.Add(soVM.CreateView());
+                SecondGrid.Children.Add(soVM.CreateView());
             }
         }
     }

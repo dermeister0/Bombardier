@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bombardier.Editor.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Editor.ViewModels
 {
-    class MapViewModel
+    class MapViewModel : IMap
     {
         Bombardier.Common.Map map;
 
@@ -17,6 +18,8 @@ namespace Bombardier.Editor.ViewModels
 
         public MapViewModel(Bombardier.Common.Map map)
         {
+            ServiceLocator.InitializeMap(this);
+
             this.map = map;
 
             Rows = new ObservableCollection<MapRowViewModel>();
@@ -59,6 +62,12 @@ namespace Bombardier.Editor.ViewModels
             }
 
             return map;
+        }
+
+        public void SetSingleObjectPosition(Common.MapObjectType objectType, int x, int y)
+        {
+            var mapObject = SingleObjects.First(o => o.ObjectType == objectType);
+            mapObject.UpdatePosition(x, y);
         }
     }
 }

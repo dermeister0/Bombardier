@@ -6,7 +6,7 @@
              mc:Ignorable="d" Margin="{Binding Margin}" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Canvas>
-        <Grid Canvas.Left="{Binding X}" Canvas.Right="{Binding Y}">
+        <Grid Canvas.Left="{Binding LocalX}" Canvas.Top="{Binding LocalY}">
             <Rectangle Width="50" Height="50" Stroke="YellowGreen" />
             <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="GreenYellow">START</TextBlock>
         </Grid>

@@ -73,6 +73,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="IsCheckedToolConverter.cs" />
+    <Compile Include="Services\IMap.cs" />
     <Compile Include="Services\IToolbar.cs" />
     <Compile Include="Services\ServiceLocator.cs" />
     <Compile Include="Services\ToolbarService.cs" />

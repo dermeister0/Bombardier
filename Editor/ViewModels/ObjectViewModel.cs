@@ -16,10 +16,11 @@ namespace Bombardier.Editor.ViewModels
 
         public int Y { get { return mapObject.Y; } }
 
-        public Thickness Margin
-        {
-            get { return new Thickness(X * 20, Y * 20, 0, 0); } // @@
-        }
+        public MapObjectType ObjectType { get { return mapObject.ObjectType; } }
+
+        public int LocalX { get { return mapObject.X * 50; } }
+
+        public int LocalY { get { return mapObject.Y * 50; } }
 
         public ObjectViewModel(MapObject mapObject)
         {

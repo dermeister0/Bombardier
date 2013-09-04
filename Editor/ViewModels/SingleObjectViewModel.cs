@@ -14,6 +14,8 @@ namespace Bombardier.Editor.ViewModels
         public SingleObjectViewModel(MapObject mapObject)
             : base(mapObject)
         {
+            mapObject.X = -1;
+            mapObject.Y = -1;
         }
 
         public UserControl CreateView()
@@ -27,6 +29,15 @@ namespace Bombardier.Editor.ViewModels
                 result.DataContext = this;
 
             return result;
+        }
+
+        public void UpdatePosition(int x, int y)
+        {
+            mapObject.X = x;
+            mapObject.Y = y;
+
+            OnPropertyChanged("LocalX");
+            OnPropertyChanged("LocalY");
         }
     }
 }

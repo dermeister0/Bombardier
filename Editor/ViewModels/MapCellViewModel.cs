@@ -51,6 +51,12 @@ namespace Bombardier.Editor.ViewModels
                 cell = MapCell.Stone;
 
             OnPropertyChanged("CellBrush");
+
+            if (toolbar.CurrentTool == Tool.Start)
+            {
+                var map = ServiceLocator.GetMap();
+                map.SetSingleObjectPosition(MapObjectType.Start, 3, 3); // @@
+            }
         }
 
         public MapCell GetCell()
