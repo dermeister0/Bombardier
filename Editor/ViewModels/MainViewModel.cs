@@ -27,18 +27,6 @@ namespace Bombardier.Editor.ViewModels
 
         public Tool CurrentTool { get; private set; }
 
-        double zoom;
-
-        public double Zoom
-        {
-            get { return zoom; }
-            set
-            {
-                zoom = value;
-                OnPropertyChanged("Zoom");
-            }
-        }
-
         public MainViewModel()
         {
             toolbarService = ServiceLocator.GetToolbar();
@@ -54,7 +42,6 @@ namespace Bombardier.Editor.ViewModels
             OnPropertyChanged("MapVM");
 
             ChangeTool.Execute("Clear");
-            Zoom = 0.4;
         }
 
         void FileNew_Executed()

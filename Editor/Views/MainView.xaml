@@ -42,14 +42,24 @@
                     <RibbonToggleButton LargeImageSource="..\Images\Stones00.png"
                                         IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Stones00}"
                                         Command="{Binding ChangeTool}" CommandParameter="Stones00" />
-                </RibbonGroup>
+                </RibbonGroup>              
             </RibbonTab>
             
-            <RibbonTab Header="Misc">
+            <RibbonTab Header="Objects">
                 <RibbonGroup>
                     <RibbonToggleButton LargeImageSource="..\Images\Start.png"
                                         IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Start}"
                                         Command="{Binding ChangeTool}" CommandParameter="Start" />
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab Header="View">
+                <RibbonGroup Header="Zoom">
+                    <Slider Name="ZoomSlider" Value="0.5"
+                            Minimum="0.2" Maximum="1.0"
+                            SmallChange="0.05" LargeChange="0.1"
+                            TickFrequency="0.1" TickPlacement="TopLeft"
+                            Orientation="Vertical" Height="65" />
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
@@ -57,12 +67,9 @@
         <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
             <views:MapView DataContext="{Binding MapVM}">
                 <views:MapView.LayoutTransform>
-                    <ScaleTransform ScaleX="{Binding Zoom}" ScaleY="{Binding Zoom}" />
+                    <ScaleTransform ScaleX="{Binding Value, ElementName=ZoomSlider}" ScaleY="{Binding  Value, ElementName=ZoomSlider}" />
                 </views:MapView.LayoutTransform>
             </views:MapView>
         </ScrollViewer>
-
-        <Slider Value="{Binding Zoom}" Grid.Row="2" Minimum="0.2" Maximum="1.0" SmallChange="0.05" LargeChange="0.1"
-                TickFrequency="0.1" TickPlacement="BottomRight" />
     </Grid>
 </RibbonWindow>
