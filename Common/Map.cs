@@ -20,6 +20,9 @@ namespace Bombardier.Common
 
         [DataMember]
         public readonly MapCell[][] Cells;
+
+        [DataMember]
+        public readonly List<MapObject> Objects;
         
         public Map(int width, int height)
         {
@@ -29,6 +32,9 @@ namespace Bombardier.Common
             Cells = new MapCell[height][];
             for (int i = 0; i < Height; ++i)
                 Cells[i] = new MapCell[Width];
+
+            Objects = new List<MapObject>();
+            Objects.Add(new MapObject { ObjectType = MapObjectType.Start });
         }
 
         public void Randomize()

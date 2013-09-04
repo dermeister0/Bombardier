@@ -13,6 +13,8 @@ namespace Bombardier.Editor.ViewModels
 
         public ObservableCollection<MapRowViewModel> Rows { get; private set; }
 
+        public List<SingleObjectViewModel> SingleObjects { get; private set; }
+
         public MapViewModel(Bombardier.Common.Map map)
         {
             this.map = map;
@@ -31,6 +33,14 @@ namespace Bombardier.Editor.ViewModels
                 }
 
                 Rows.Add(rowVM);
+            }
+
+            SingleObjects = new List<SingleObjectViewModel>();
+
+            foreach (var o in map.Objects)
+            {
+                if (o.ObjectType == Common.MapObjectType.Start)
+                    SingleObjects.Add(new SingleObjectViewModel(o));
             }
         }
 

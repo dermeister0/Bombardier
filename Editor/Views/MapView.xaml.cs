@@ -37,6 +37,11 @@ namespace Bombardier.Editor.Views
 
                 MainPanel.Children.Add(rowView);
             }
+
+            foreach (var soVM in viewModel.SingleObjects)
+            {
+                MainGrid.Children.Add(soVM.CreateView());
+            }
         }
     }
 }
