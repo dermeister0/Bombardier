@@ -7,7 +7,6 @@
              d:DesignHeight="300" d:DesignWidth="300" DataContextChanged="UserControl_DataContextChanged">
     <Grid Name="MainGrid">
         <StackPanel Name="MainPanel" Background="Black">
-
         </StackPanel>
     </Grid>
 </UserControl>

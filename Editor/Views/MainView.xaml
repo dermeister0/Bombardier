@@ -7,6 +7,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Ribbon Grid.Row="0">
             <Ribbon.ApplicationMenu>
@@ -54,7 +55,14 @@
         </Ribbon>
 
         <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-            <views:MapView DataContext="{Binding MapVM}" />
+            <views:MapView DataContext="{Binding MapVM}">
+                <views:MapView.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding Zoom}" ScaleY="{Binding Zoom}" />
+                </views:MapView.LayoutTransform>
+            </views:MapView>
         </ScrollViewer>
+
+        <Slider Value="{Binding Zoom}" Grid.Row="2" Minimum="0.2" Maximum="1.0" SmallChange="0.05" LargeChange="0.1"
+                TickFrequency="0.1" TickPlacement="BottomRight" />
     </Grid>
 </RibbonWindow>

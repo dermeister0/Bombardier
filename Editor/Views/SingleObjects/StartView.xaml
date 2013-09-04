@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Margin="{Binding Margin}" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Rectangle Width="50" Height="50" Stroke="YellowGreen" />
-        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="GreenYellow">START</TextBlock>
-    </Grid>
+    <Canvas>
+        <Grid Canvas.Left="{Binding X}" Canvas.Right="{Binding Y}">
+            <Rectangle Width="50" Height="50" Stroke="YellowGreen" />
+            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="GreenYellow">START</TextBlock>
+        </Grid>
+    </Canvas>
 </UserControl>

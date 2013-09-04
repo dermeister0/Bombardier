@@ -9,7 +9,7 @@
         <Grid.InputBindings>
             <MouseBinding MouseAction="LeftClick" Command="{Binding CellClickCommand}" />
         </Grid.InputBindings>
-        <Rectangle Width="20" Height="20" Stroke="GreenYellow" Fill="{Binding CellBrush}">
+        <Rectangle Width="50" Height="50" Stroke="GreenYellow" Fill="{Binding CellBrush}">
         </Rectangle>
     </Grid>
 </UserControl>
