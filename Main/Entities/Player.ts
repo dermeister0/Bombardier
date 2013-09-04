@@ -28,11 +28,10 @@ module Bombardier.Entities {
 
         private _bombsCount: number = 0;
 
-        constructor() {
+        constructor(startPosition: Engine.Vector2) {
             super();
 
-            this.position.x = Bombardier.Engine.World.pixelsToMeters(Map.TILE_SIZE + Map.TILE_SIZE / 2);
-            this.position.y = Bombardier.Engine.World.pixelsToMeters(Map.TILE_SIZE + Map.TILE_SIZE / 2);
+            this.position = startPosition.clone();
             
             this.size.w = Map.TILE_SIZE;
             this.size.h = Map.TILE_SIZE;
@@ -109,7 +108,7 @@ module Bombardier.Entities {
                 this._playerBody.ApplyImpulse(new b2Math.b2Vec2(impulse, 0), this._playerBody.GetWorldCenter());
             }
 
-            this.position = { x: this._playerBody.GetPosition().x, y: this._playerBody.GetPosition().y };
+            this.position = new Engine.Vector2(this._playerBody.GetPosition().x, this._playerBody.GetPosition().y);
         }
 
         public increaseFootContacts() {
@@ -170,7 +169,7 @@ module Bombardier.Entities {
         }
 
         public get velocity(): Engine.Vector2 {
-            return this._playerBody.GetLinearVelocity();
+            return new Engine.Vector2(this._playerBody.GetLinearVelocity().x, this._playerBody.GetLinearVelocity().y);
         }
 
         private tryToPutBomb(): void {

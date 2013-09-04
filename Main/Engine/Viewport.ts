@@ -2,7 +2,7 @@
 
 module Bombardier.Engine {
     export class Viewport {
-        _position: Vector2 = new Vector2();
+        _position: Vector2;
 
         _targetPosition: Vector2 = new Vector2();
 
@@ -16,17 +16,18 @@ module Bombardier.Engine {
 
         _lookForward: number;
 
-        constructor() {
+        constructor(startPosition: Vector2) {
+            this._position = startPosition.clone();
+            this._targetPosition = startPosition.clone();
+
             this._halfSize = { w: Viewport.VIEWPORT_WIDTH / 2, h: Viewport.VIEWPORT_HEIGHT / 2 };
             this._internalHalfSize = { w: this._halfSize.w * 0.7, h: this._halfSize.h * 0.7 };
             this._lookForward = this._internalHalfSize.w * 0.75;
         }
 
         public get topLeft(): Vector2 {
-            return {
-                x: World.metersToPixels(this._position.x) - this._halfSize.w,
-                y: World.metersToPixels(this._position.y) - this._halfSize.h
-            };
+            return new Vector2(World.metersToPixels(this._position.x) - this._halfSize.w,
+                World.metersToPixels(this._position.y) - this._halfSize.h);
         }
 
         public set targetPosition(value: Vector2) {
@@ -34,7 +35,8 @@ module Bombardier.Engine {
         }
 
         public update(newTargetPosition: Vector2, newTargetVelocity: Vector2) {
-            var newTargetPosition2 = { x: World.metersToPixels(newTargetPosition.x), y: World.metersToPixels(newTargetPosition.y) };
+            var newTargetPosition2 = new Vector2(World.metersToPixels(newTargetPosition.x),
+                World.metersToPixels(newTargetPosition.y));
 
             if (newTargetVelocity.x > 0) {
                 newTargetPosition2.x += this._lookForward;
@@ -61,17 +63,13 @@ module Bombardier.Engine {
                 }
             }
 
-            this._position = {
-                x: this._position.x + (this._targetPosition.x - this._position.x) / 10,
-                y: this._position.y + (this._targetPosition.y - this._position.y) / 30
-            };
+            this._position.x += (this._targetPosition.x - this._position.x) / 10;
+            this._position.y += (this._targetPosition.y - this._position.y) / 30;
         }
 
         public get center(): Vector2 {
-            return {
-                x: World.metersToPixels(this._position.x),
-                y: World.metersToPixels(this._position.y)
-            };
+            return new Vector2(World.metersToPixels(this._position.x),
+                World.metersToPixels(this._position.y));
         }
 
         public get internalRect(): Rect {

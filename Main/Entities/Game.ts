@@ -81,10 +81,11 @@ module Bombardier.Entities {
             this._map = new Map();
             this._map.load();
 
-            this._player = new Player;
+            var startPosition: Engine.Vector2 = this._map.getStartPosition();
+            this._player = new Player(startPosition);
             this._gameObjects.push(this._player);
 
-            this._viewport = new Engine.Viewport();
+            this._viewport = new Engine.Viewport(startPosition);
         }
 
         public static get instance(): Game {

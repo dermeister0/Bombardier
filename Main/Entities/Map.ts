@@ -25,6 +25,8 @@ module Bombardier.Entities {
 
         private _height: number;
 
+        private _objects: any[];
+
         constructor() {
             this._cells = [];
 
@@ -60,18 +62,18 @@ module Bombardier.Entities {
                     }
                 }
             }
+
+            this._objects = map.d.Objects;
         }
 
         draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
-            var mapBegin: Engine.Vector2 = { x: Math.floor(viewport.topLeft.x / Map.TILE_SIZE), y: Math.floor(viewport.topLeft.y / Map.TILE_SIZE) };
-            var canvasBegin: Engine.Vector2 = {
-                x: mapBegin.x * Map.TILE_SIZE - viewport.topLeft.x,
-                y: mapBegin.y * Map.TILE_SIZE - viewport.topLeft.y
-            };
-            var lastCell: Engine.Vector2 = {
-                x: mapBegin.x + Engine.Viewport.VIEWPORT_WIDTH / Map.TILE_SIZE + 1,
-                y: mapBegin.y + Engine.Viewport.VIEWPORT_HEIGHT / Map.TILE_SIZE + 1
-            };
+            var mapBegin: Engine.Vector2 = new Engine.Vector2(Math.floor(viewport.topLeft.x / Map.TILE_SIZE),
+                Math.floor(viewport.topLeft.y / Map.TILE_SIZE));
+            var canvasBegin: Engine.Vector2 = new Engine.Vector2(mapBegin.x * Map.TILE_SIZE - viewport.topLeft.x,
+                mapBegin.y * Map.TILE_SIZE - viewport.topLeft.y);
+
+            var lastCell: Engine.Vector2 = new Engine.Vector2(mapBegin.x + Engine.Viewport.VIEWPORT_WIDTH / Map.TILE_SIZE + 1,
+                mapBegin.y + Engine.Viewport.VIEWPORT_HEIGHT / Map.TILE_SIZE + 1);
 
             for (var y = mapBegin.y; y < this._height && y < lastCell.y; ++y) {
                 if (y < 0) {
@@ -104,6 +106,17 @@ module Bombardier.Entities {
 
         public clearCell(x: number, y: number): void {
             this._cells[y][x] = Map.TILE_CLEAR;
+        }
+
+        public getStartPosition(): Engine.Vector2 {
+            for (var i in this._objects) {
+                if (this._objects[i].ObjectType == 0) { // @@
+                    return new Engine.Vector2(this._objects[i].X * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS,
+                        this._objects[i].Y * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS);
+                }
+            }
+
+            return new Engine.Vector2(1, 1);
         }
     }
 }
