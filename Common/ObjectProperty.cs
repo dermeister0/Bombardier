@@ -79,5 +79,29 @@ namespace Bombardier.Common
         {
             return new ObjectProperty(value);
         }
+
+        public static implicit operator int(ObjectProperty property)
+        {
+            CheckType(property, PropertyType.Integer);
+            return property.integerValue;
+        }
+
+        public static implicit operator float(ObjectProperty property)
+        {
+            CheckType(property, PropertyType.Float);
+            return property.floatValue;
+        }
+
+        public static implicit operator string(ObjectProperty property)
+        {
+            CheckType(property, PropertyType.String);
+            return property.stringValue;
+        }
+
+        static void CheckType(ObjectProperty property, PropertyType type)
+        {
+            if (property.type != type)
+                throw new InvalidOperationException("Wrong property type.");
+        }
     }
 }

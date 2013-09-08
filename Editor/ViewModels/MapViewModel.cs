@@ -47,7 +47,7 @@ namespace Bombardier.Editor.ViewModels
 
             foreach (var o in map.Objects)
             {
-                Objects.Add(new ObjectViewModel(o));
+                Objects.Add(ObjectViewModel.Create(o));
             }
         }
 
@@ -74,16 +74,18 @@ namespace Bombardier.Editor.ViewModels
             mapObject.UpdatePosition(x, y);
         }
 
-        public void AddObject(Common.MapObjectType objectType, int x, int y)
+        public MapObject AddObject(Common.MapObjectType objectType, int x, int y)
         {
             var mapObject = new MapObject { ObjectType = objectType, X = x, Y = y };
-            ObjectViewModel vm = new ObjectViewModel(mapObject);
+            ObjectViewModel vm = ObjectViewModel.Create(mapObject);
             Objects.Add(vm);
 
             OnPropertyChanged("Objects");
 
             if (ObjectAdded != null)
                 ObjectAdded(vm);
+
+            return mapObject;
         }
     }
 }

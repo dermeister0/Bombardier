@@ -15,5 +15,8 @@
             </Path.RenderTransform>
         </Path>
         <Rectangle Stroke="BlueViolet" StrokeThickness="5" Width="50" Height="50" />
+        <Grid.RenderTransform>
+            <RotateTransform Angle="{Binding Rotation}" CenterX="25" CenterY="25" />
+        </Grid.RenderTransform>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using Bombardier.Common;
+using Bombardier.Editor.ViewModels.Gears;
 using Bombardier.Editor.Views.MultipleObjects;
 using Bombardier.Editor.Views.SingleObjects;
 using System;
@@ -25,7 +26,7 @@ namespace Bombardier.Editor.ViewModels
 
         public int LocalY { get { return mapObject.Y * 50; } }
 
-        public ObjectViewModel(MapObject mapObject)
+        protected ObjectViewModel(MapObject mapObject)
         {
             this.mapObject = mapObject;
         }
@@ -59,6 +60,17 @@ namespace Bombardier.Editor.ViewModels
 
             OnPropertyChanged("LocalX");
             OnPropertyChanged("LocalY");
+        }
+
+        public static ObjectViewModel Create(MapObject mapObject)
+        {
+            switch (mapObject.ObjectType)
+            {
+                case MapObjectType.Turret:
+                    return new TurretViewModel(mapObject);
+                default:
+                    return new ObjectViewModel(mapObject);
+            }
         }
     }
 }
