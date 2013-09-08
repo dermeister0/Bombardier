@@ -1,4 +1,5 @@
-﻿using Bombardier.Editor.Services;
+﻿using Bombardier.Common;
+using Bombardier.Editor.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,13 +9,17 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Editor.ViewModels
 {
-    class MapViewModel : IMap
+    class MapViewModel : ViewModelBase, IMap
     {
         Bombardier.Common.Map map;
 
         public ObservableCollection<MapRowViewModel> Rows { get; private set; }
 
-        public List<SingleObjectViewModel> SingleObjects { get; private set; }
+        public List<ObjectViewModel> Objects { get; private set; }
+
+        public delegate void ObjectAddedEventHandler(ObjectViewModel objectVM);
+
+        public event ObjectAddedEventHandler ObjectAdded;
 
         public MapViewModel(Bombardier.Common.Map map)
         {
@@ -38,12 +43,14 @@ namespace Bombardier.Editor.ViewModels
                 Rows.Add(rowVM);
             }
 
-            SingleObjects = new List<SingleObjectViewModel>();
+            Objects = new List<ObjectViewModel>();
 
             foreach (var o in map.Objects)
             {
                 if (o.ObjectType == Common.MapObjectType.Start)
-                    SingleObjects.Add(new SingleObjectViewModel(o));
+                    Objects.Add(new SingleObjectViewModel(o));
+                else
+                    Objects.Add(new MultipleObjectViewModel(o));
             }
         }
 
@@ -66,8 +73,22 @@ namespace Bombardier.Editor.ViewModels
 
         public void SetSingleObjectPosition(Common.MapObjectType objectType, int x, int y)
         {
-            var mapObject = SingleObjects.First(o => o.ObjectType == objectType);
-            mapObject.UpdatePosition(x, y);
+            var mapObject = Objects.First(o => o.ObjectType == objectType);
+            SingleObjectViewModel singleObject = mapObject as SingleObjectViewModel;
+
+            singleObject.UpdatePosition(x, y);
+        }
+
+        public void AddObject(Common.MapObjectType objectType, int x, int y)
+        {
+            var mapObject = new MapObject { ObjectType = objectType, X = x, Y = y };
+            MultipleObjectViewModel vm = new MultipleObjectViewModel(mapObject);
+            Objects.Add(vm);
+
+            OnPropertyChanged("Objects");
+
+            if (ObjectAdded != null)
+                ObjectAdded(vm);
         }
     }
 }

@@ -78,6 +78,10 @@
     <Compile Include="Services\ServiceLocator.cs" />
     <Compile Include="Services\ToolbarService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MultipleObjectViewModel.cs" />
+    <Compile Include="Views\MultipleObjects\TurretView.xaml.cs">
+      <DependentUpon>TurretView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SingleObjects\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
@@ -108,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MapRowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultipleObjects\TurretView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +183,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TurretLeft.png" />
+    <Resource Include="Images\TurretRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

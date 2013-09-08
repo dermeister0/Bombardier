@@ -16,7 +16,7 @@ namespace Bombardier.Editor.ViewModels
         {
         }
 
-        public UserControl CreateView()
+        public override UserControl CreateView()
         {
             UserControl result = null;
 

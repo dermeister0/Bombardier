@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Bombardier.Editor.ViewModels
 {
-    class ObjectViewModel : ViewModelBase
+    abstract class ObjectViewModel : ViewModelBase
     {
         protected MapObject mapObject;
 
@@ -26,5 +27,7 @@ namespace Bombardier.Editor.ViewModels
         {
             this.mapObject = mapObject;
         }
+
+        public abstract UserControl CreateView();
     }
 }

@@ -28,6 +28,7 @@ namespace Bombardier.Editor.Views
         private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             var viewModel = e.NewValue as ViewModels.MapViewModel;
+            viewModel.ObjectAdded += viewModel_ObjectAdded;
 
             MainPanel.Children.Clear();
             for (int y = 0; y < viewModel.Rows.Count; ++y)
@@ -39,10 +40,16 @@ namespace Bombardier.Editor.Views
             }
 
             SecondGrid.Children.Clear();
-            foreach (var soVM in viewModel.SingleObjects)
+            foreach (var oVM in viewModel.Objects)
             {
-                SecondGrid.Children.Add(soVM.CreateView());
+                SecondGrid.Children.Add(oVM.CreateView());
             }
+        }
+
+        void viewModel_ObjectAdded(ViewModels.ObjectViewModel objectVM)
+        {
+            var view = objectVM.CreateView();
+            SecondGrid.Children.Add(view);
         }
     }
 }

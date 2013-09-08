@@ -64,6 +64,11 @@ namespace Bombardier.Editor.ViewModels
                 var map = ServiceLocator.GetMap();
                 map.SetSingleObjectPosition(MapObjectType.Start, x, y);
             }
+            else if (toolbar.CurrentTool == Tool.TurretLeft)
+            {
+                var map = ServiceLocator.GetMap();
+                map.AddObject(MapObjectType.Turret, x, y);
+            }
         }
 
         public MapCell GetCell()
