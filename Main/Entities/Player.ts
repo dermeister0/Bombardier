@@ -5,6 +5,7 @@
 /// <reference path="FixtureUserData.ts" />
 /// <reference path="Bomb.ts" />
 /// <reference path="../Engine/Debug.ts" />
+/// <reference path="ActorSprite.ts" />
 
 module Bombardier.Entities {
     import b2Collision = Box2D.Collision;
@@ -12,7 +13,7 @@ module Bombardier.Entities {
     import b2Math = Box2D.Common.Math;
 
     export class Player extends Bombardier.Engine.GameObject {
-        private _sprite: Bombardier.Engine.Sprite;
+        private _playerSprite: ActorSprite;
 
         private _playerBody: b2Dynamics.b2Body;
 
@@ -38,8 +39,7 @@ module Bombardier.Entities {
 
             this.mass = 69;
 
-            this._sprite = new Bombardier.Engine.Sprite('player', new Engine.Size2(64, 64)); // @@
-            this._sprite.addFrame(0, 0);
+            this._playerSprite = new ActorSprite('player');
 
             var bodyDef = new b2Dynamics.b2BodyDef();
             bodyDef.type = b2Dynamics.b2Body.b2_dynamicBody;
@@ -66,7 +66,7 @@ module Bombardier.Entities {
         }
 
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
-            this._sprite.draw(context, Engine.World.metersToPixels(this.position.x) - this.size.w / 2 - viewport.topLeft.x,
+            this._playerSprite.draw(context, Engine.World.metersToPixels(this.position.x) - this.size.w / 2 - viewport.topLeft.x,
                 Engine.World.metersToPixels(this.position.y) - this.size.h / 2 - viewport.topLeft.y);
 
             if (Global.DEBUG_PLAYER_DRAW_CONTACTS) {
@@ -90,11 +90,13 @@ module Bombardier.Entities {
             // Right.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_D) && this._bodyWallContacts[FixtureUserData.TYPE_BODY_RIGHT] == 0) {
                 desiredVel = this._maxVelocity;
+                this._playerSprite.goRight();
             }
 
             // Left.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_A) && this._bodyWallContacts[FixtureUserData.TYPE_BODY_LEFT] == 0) {
                 desiredVel = -this._maxVelocity;
+                this._playerSprite.goLeft();
             }
 
             // Put bomb.

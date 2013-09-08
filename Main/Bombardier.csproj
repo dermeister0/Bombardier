@@ -101,7 +101,11 @@
     <Content Include="Entities\Player.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Entities\ActorSprite.ts" />
     <TypeScriptCompile Include="Global.ts" />
+    <Content Include="Entities\PlayerSprite.js">
+      <DependentUpon>ActorSprite.ts</DependentUpon>
+    </Content>
     <Content Include="Global.js">
       <DependentUpon>Global.ts</DependentUpon>
     </Content>
