@@ -17,27 +17,13 @@ namespace Bombardier.Common
 
         public PropertyType Type { get { return type; } }
 
-        int integerValue;
-
-        float floatValue;
-
-        string stringValue;
+        object value;
 
         public string Value
         {
             get
             {
-                switch (Type)
-                {
-                    case PropertyType.Integer:
-                        return integerValue.ToString();
-                    case PropertyType.Float:
-                        return floatValue.ToString();
-                    case PropertyType.String:
-                        return stringValue.ToString();
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                return Convert.ToString(this.value);
             }
         }
         
@@ -50,19 +36,19 @@ namespace Bombardier.Common
         public ObjectProperty(int value)
             : this(PropertyType.Integer)
         {
-            integerValue = value;
+            this.value = value;
         }
         
         public ObjectProperty(float value)
             : this(PropertyType.Float)
         {
-            floatValue = value;
+            this.value = value;
         }
 
         public ObjectProperty(string value)
             : this(PropertyType.String)
         {
-            stringValue = value;
+            this.value = value;
         }
 
         public static implicit operator ObjectProperty(int value)
@@ -83,19 +69,19 @@ namespace Bombardier.Common
         public static implicit operator int(ObjectProperty property)
         {
             CheckType(property, PropertyType.Integer);
-            return property.integerValue;
+            return Convert.ToInt32(property.value);
         }
 
         public static implicit operator float(ObjectProperty property)
         {
             CheckType(property, PropertyType.Float);
-            return property.floatValue;
+            return Convert.ToSingle(property.value);
         }
 
         public static implicit operator string(ObjectProperty property)
         {
             CheckType(property, PropertyType.String);
-            return property.stringValue;
+            return Convert.ToString(property.value);
         }
 
         static void CheckType(ObjectProperty property, PropertyType type)
