@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Common
 {
-    public enum PropertyType { Undefined, Integer, Float, String };
+    public enum PropertyType { Undefined, Integer, Float, String, Boolean };
 
     [Serializable]
     [DataContract]
@@ -51,6 +51,12 @@ namespace Bombardier.Common
             this.value = value;
         }
 
+        public ObjectProperty(bool value)
+            : this(PropertyType.Boolean)
+        {
+            this.value = value;
+        }
+
         public static implicit operator ObjectProperty(int value)
         {
             return new ObjectProperty(value);
@@ -62,6 +68,11 @@ namespace Bombardier.Common
         }
 
         public static implicit operator ObjectProperty(string value)
+        {
+            return new ObjectProperty(value);
+        }
+
+        public static implicit operator ObjectProperty(bool value)
         {
             return new ObjectProperty(value);
         }
@@ -82,6 +93,12 @@ namespace Bombardier.Common
         {
             CheckType(property, PropertyType.String);
             return Convert.ToString(property.value);
+        }
+
+        public static implicit operator bool(ObjectProperty property)
+        {
+            CheckType(property, PropertyType.String);
+            return Convert.ToBoolean(property.value);
         }
 
         static void CheckType(ObjectProperty property, PropertyType type)
