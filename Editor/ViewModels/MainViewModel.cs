@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Practices.Prism.Commands;
 using Bombardier.Editor.Services;
+using System.Windows;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -26,6 +27,8 @@ namespace Bombardier.Editor.ViewModels
         IToolbar toolbarService;
 
         public Tool CurrentTool { get; private set; }
+
+        public Visibility ObjectToolsVisible { get; private set; }
 
         public MainViewModel()
         {

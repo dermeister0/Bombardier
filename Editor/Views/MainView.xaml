@@ -72,6 +72,16 @@
                             Orientation="Vertical" Height="65" />
                 </RibbonGroup>
             </RibbonTab>
+
+            <RibbonTab Header="Properties" ContextualTabGroupHeader="Object Tools">
+                <RibbonGroup>
+                    <CheckBox Content="Enabled" />
+                </RibbonGroup>
+            </RibbonTab>
+            
+            <Ribbon.ContextualTabGroups>
+                <RibbonContextualTabGroup Header="Object Tools" Visibility="{Binding ObjectToolsVisible}" Background="BlueViolet" />
+            </Ribbon.ContextualTabGroups>
         </Ribbon>
 
         <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
