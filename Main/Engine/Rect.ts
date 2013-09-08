@@ -19,5 +19,13 @@ module Bombardier.Engine {
         public pointInRect(point: Vector2): boolean {
             return (point.x >= this.left && point.x <= this.right && point.y >= this.top && point.y <= this.bottom);
         }
+
+        public get width(): number {
+            return this.right - this.left;
+        }
+
+        public get height(): number {
+            return this.bottom - this.top;
+        }
     }
 }

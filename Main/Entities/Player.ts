@@ -38,8 +38,8 @@ module Bombardier.Entities {
 
             this.mass = 69;
 
-            this._sprite = new Bombardier.Engine.Sprite();
-            this._sprite.addFrame('player');
+            this._sprite = new Bombardier.Engine.Sprite('player', new Engine.Size2(64, 64)); // @@
+            this._sprite.addFrame(0, 0);
 
             var bodyDef = new b2Dynamics.b2BodyDef();
             bodyDef.type = b2Dynamics.b2Body.b2_dynamicBody;

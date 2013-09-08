@@ -4,26 +4,27 @@
 
 module Bombardier.Engine {
     export class Frame {
-        public image: Image;
-
-        constructor(public imageKey: string) {
-            this.image = new Image(imageKey);
+        constructor(public rect: Rect) {
         }
     }
 
     export class Sprite implements IDrawable {
+        private _image: Image;
         private _frames: Frame[] = [];
+        private _size: Size2;
 
-        constructor() {
+        constructor(imageKey: string, size: Size2) {
+            this._image = new Image(imageKey);
+            this._size = new Size2(size.w, size.h);
         }
 
         draw(context: CanvasRenderingContext2D, x: number, y: number): void {
             var currentFrame = 0;
-            this._frames[currentFrame].image.draw(context, x, y);
+            this._image.draw(context, x, y, this._frames[currentFrame].rect);
         }
 
-        public addFrame(imageKey: string) {
-            this._frames.push(new Frame(imageKey));
+        public addFrame(left: number, top: number) {
+            this._frames.push(new Frame(new Rect(left, top, left + this._size.w, top + this._size.h)));
         }
     }
 }
