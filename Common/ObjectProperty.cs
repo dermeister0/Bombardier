@@ -19,12 +19,14 @@ namespace Bombardier.Common
 
         object value;
 
+        [DataMember]
         public string Value
         {
             get
             {
                 return Convert.ToString(this.value);
             }
+            private set { } // For WCF.
         }
         
         public ObjectProperty(PropertyType type)
