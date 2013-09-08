@@ -43,6 +43,7 @@
     <Compile Include="Map.cs" />
     <Compile Include="MapObject.cs" />
     <Compile Include="MapSerialization.cs" />
+    <Compile Include="ObjectProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

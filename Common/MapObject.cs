@@ -21,5 +21,8 @@ namespace Bombardier.Common
 
         [DataMember]
         public MapObjectType ObjectType { get; set; }
+
+        [DataMember]
+        public Dictionary<string, ObjectProperty> Properties = new Dictionary<string,ObjectProperty>();
     }
 }
