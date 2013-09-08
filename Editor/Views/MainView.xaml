@@ -12,13 +12,14 @@
         <Ribbon Grid.Row="0">
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu SmallImageSource="..\Images\Icon16.png">
-                    <RibbonApplicationMenuItem Header="New" Command="{Binding FileNewCommand}" />
-                    <RibbonApplicationMenuItem Header="Open" Click="FileOpen_Click" />
-                    <RibbonApplicationMenuItem Header="Save" Click="FileSave_Click" />
+                    <RibbonApplicationMenuItem Header="New" Command="{Binding FileNewCommand}" ImageSource="{StaticResource NewIcon}" />
+                    <RibbonApplicationMenuItem Header="Open" Click="FileOpen_Click" ImageSource="{StaticResource OpenIcon}" />
+                    <RibbonApplicationMenuItem Header="Save" Click="FileSave_Click" ImageSource="{StaticResource SaveIcon}" />
 
                     <RibbonApplicationMenu.FooterPaneContent>
                         <DockPanel LastChildFill="False">
-                            <RibbonButton Label="Exit" DockPanel.Dock="Right" Command="{Binding FileExitCommand}" />
+                            <RibbonButton Label="Exit" DockPanel.Dock="Right" Command="{Binding FileExitCommand}"
+                                          SmallImageSource="{StaticResource CloseIcon}"/>
                         </DockPanel>
                     </RibbonApplicationMenu.FooterPaneContent>
 
