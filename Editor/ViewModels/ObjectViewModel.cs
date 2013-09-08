@@ -29,5 +29,14 @@ namespace Bombardier.Editor.ViewModels
         }
 
         public abstract UserControl CreateView();
+
+        public void UpdatePosition(int x, int y)
+        {
+            mapObject.X = x;
+            mapObject.Y = y;
+
+            OnPropertyChanged("LocalX");
+            OnPropertyChanged("LocalY");
+        }
     }
 }

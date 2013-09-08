@@ -8,6 +8,8 @@
     <Grid Name="MainGrid">
         <StackPanel Name="MainPanel" Background="Black">
         </StackPanel>
-        <Grid Name="SecondGrid"></Grid>
+        <Canvas Name="ObjectsCanvas">
+            <Rectangle Fill="Orange" />
+        </Canvas>
     </Grid>
 </UserControl>

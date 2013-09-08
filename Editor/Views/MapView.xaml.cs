@@ -39,17 +39,17 @@ namespace Bombardier.Editor.Views
                 MainPanel.Children.Add(rowView);
             }
 
-            SecondGrid.Children.Clear();
+            ObjectsCanvas.Children.Clear();
             foreach (var oVM in viewModel.Objects)
             {
-                SecondGrid.Children.Add(oVM.CreateView());
+                ObjectsCanvas.Children.Add(oVM.CreateView());
             }
         }
 
         void viewModel_ObjectAdded(ViewModels.ObjectViewModel objectVM)
         {
             var view = objectVM.CreateView();
-            SecondGrid.Children.Add(view);
+            ObjectsCanvas.Children.Add(view);
         }
     }
 }

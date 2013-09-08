@@ -28,14 +28,5 @@ namespace Bombardier.Editor.ViewModels
 
             return result;
         }
-
-        public void UpdatePosition(int x, int y)
-        {
-            mapObject.X = x;
-            mapObject.Y = y;
-
-            OnPropertyChanged("LocalX");
-            OnPropertyChanged("LocalY");
-        }
     }
 }
