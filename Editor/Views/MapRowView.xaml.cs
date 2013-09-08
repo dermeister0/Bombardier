@@ -1,4 +1,5 @@
 ﻿using Bombardier.Editor.ViewModels;
+using Bombardier.Editor.Views.Rulers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,11 @@ namespace Bombardier.Editor.Views
             var viewModel = e.NewValue as MapRowViewModel;
 
             MainPanel.Children.Clear();
+
+            var rulerCell = new RulerLeftView();
+            rulerCell.DataContext = viewModel.Cells[0].Y;
+            MainPanel.Children.Add(rulerCell);
+
             for (int x = 0; x < viewModel.Cells.Count; ++x)
             {
                 var cellView = new MapCellView();

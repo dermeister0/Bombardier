@@ -22,9 +22,9 @@ namespace Bombardier.Editor.ViewModels
 
         public MapObjectType ObjectType { get { return mapObject.ObjectType; } }
 
-        public int LocalX { get { return mapObject.X * 50; } }
+        public int LocalX { get { return 25 + mapObject.X * 50; } }
 
-        public int LocalY { get { return mapObject.Y * 50; } }
+        public int LocalY { get { return 25 + mapObject.Y * 50; } }
 
         protected ObjectViewModel(MapObject mapObject)
         {

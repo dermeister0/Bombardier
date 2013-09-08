@@ -55,7 +55,7 @@ namespace Bombardier.Common
         private void CreateObjects()
         {
             Objects = new List<MapObject>();
-            Objects.Add(new MapObject { ObjectType = MapObjectType.Start, X = -1, Y = -1 });
+            Objects.Add(new MapObject { ObjectType = MapObjectType.Start, X = -10, Y = -10 });
         }
 
         public void Upgrade()

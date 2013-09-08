@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bombardier.Editor.Views.Rulers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,16 @@ namespace Bombardier.Editor.Views
             viewModel.ObjectAdded += viewModel_ObjectAdded;
 
             MainPanel.Children.Clear();
+
+            var rulerTop = new RulerTopRowView();
+            for (int x = 0; x < viewModel.GetMap().Width; x++)
+            {
+                var rulerCell = new RulerTopView();
+                rulerCell.DataContext = x;
+                rulerTop.MainPanel.Children.Add(rulerCell);
+            }
+            MainPanel.Children.Add(rulerTop);
+
             for (int y = 0; y < viewModel.Rows.Count; ++y)
             {
                 var rowView = new MapRowView();

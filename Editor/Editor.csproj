@@ -82,6 +82,15 @@
     <Compile Include="Views\MultipleObjects\TurretView.xaml.cs">
       <DependentUpon>TurretView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Rulers\RulerTopRowView.xaml.cs">
+      <DependentUpon>RulerTopRowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rulers\RulerLeftView.xaml.cs">
+      <DependentUpon>RulerLeftView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rulers\RulerTopView.xaml.cs">
+      <DependentUpon>RulerTopView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SingleObjects\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
@@ -115,6 +124,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MultipleObjects\TurretView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rulers\RulerTopRowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rulers\RulerLeftView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rulers\RulerTopView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

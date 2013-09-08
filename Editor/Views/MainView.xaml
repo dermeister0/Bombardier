@@ -84,7 +84,7 @@
             </Ribbon.ContextualTabGroups>
         </Ribbon>
 
-        <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+        <ScrollViewer Name="MainScrollViewer" HorizontalScrollBarVisibility="Auto" Grid.Row="1" Background="#00005A" Margin="4 0 0 0">
             <views:MapView DataContext="{Binding MapVM}">
                 <views:MapView.LayoutTransform>
                     <ScaleTransform ScaleX="{Binding Value, ElementName=ZoomSlider}" ScaleY="{Binding  Value, ElementName=ZoomSlider}" />

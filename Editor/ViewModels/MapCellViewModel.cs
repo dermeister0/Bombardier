@@ -87,5 +87,9 @@ namespace Bombardier.Editor.ViewModels
         {
             this.cell = cell;
         }
+
+        public int X { get { return x; } }
+
+        public int Y { get { return y; } }
     }
 }
