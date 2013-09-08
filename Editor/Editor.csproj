@@ -78,7 +78,6 @@
     <Compile Include="Services\ServiceLocator.cs" />
     <Compile Include="Services\ToolbarService.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\MultipleObjectViewModel.cs" />
     <Compile Include="Views\MultipleObjects\TurretView.xaml.cs">
       <DependentUpon>TurretView.xaml</DependentUpon>
     </Compile>
@@ -97,7 +96,6 @@
     <Compile Include="ViewModels\MapRowViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\ObjectViewModel.cs" />
-    <Compile Include="ViewModels\SingleObjectViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>

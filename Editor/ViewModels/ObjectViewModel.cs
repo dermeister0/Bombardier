@@ -1,4 +1,6 @@
 ﻿using Bombardier.Common;
+using Bombardier.Editor.Views.MultipleObjects;
+using Bombardier.Editor.Views.SingleObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Windows.Controls;
 
 namespace Bombardier.Editor.ViewModels
 {
-    abstract class ObjectViewModel : ViewModelBase
+    class ObjectViewModel : ViewModelBase
     {
         protected MapObject mapObject;
 
@@ -28,7 +30,27 @@ namespace Bombardier.Editor.ViewModels
             this.mapObject = mapObject;
         }
 
-        public abstract UserControl CreateView();
+        public UserControl CreateView()
+        {
+            UserControl result = null;
+
+            switch (mapObject.ObjectType)
+            {
+                case MapObjectType.Start:
+                    result = new StartView();
+                    break;
+                case MapObjectType.Turret:
+                    result = new TurretView();
+                    break;
+                default:
+                    throw new ArgumentException("Unsupported object type: " + mapObject.ObjectType.ToString());
+            }
+
+            if (result != null)
+                result.DataContext = this;
+
+            return result;
+        }
 
         public void UpdatePosition(int x, int y)
         {

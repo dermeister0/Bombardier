@@ -47,10 +47,7 @@ namespace Bombardier.Editor.ViewModels
 
             foreach (var o in map.Objects)
             {
-                if (o.ObjectType == Common.MapObjectType.Start)
-                    Objects.Add(new SingleObjectViewModel(o));
-                else
-                    Objects.Add(new MultipleObjectViewModel(o));
+                Objects.Add(new ObjectViewModel(o));
             }
         }
 
@@ -74,15 +71,13 @@ namespace Bombardier.Editor.ViewModels
         public void SetSingleObjectPosition(Common.MapObjectType objectType, int x, int y)
         {
             var mapObject = Objects.First(o => o.ObjectType == objectType);
-            SingleObjectViewModel singleObject = mapObject as SingleObjectViewModel;
-
-            singleObject.UpdatePosition(x, y);
+            mapObject.UpdatePosition(x, y);
         }
 
         public void AddObject(Common.MapObjectType objectType, int x, int y)
         {
             var mapObject = new MapObject { ObjectType = objectType, X = x, Y = y };
-            MultipleObjectViewModel vm = new MultipleObjectViewModel(mapObject);
+            ObjectViewModel vm = new ObjectViewModel(mapObject);
             Objects.Add(vm);
 
             OnPropertyChanged("Objects");

@@ -6,7 +6,7 @@
              mc:Ignorable="d" Canvas.Left="{Binding LocalX}" Canvas.Top="{Binding LocalY}"
              d:DesignHeight="50" d:DesignWidth="50">
     <Grid Width="50" Height="50">
-        <Path Stroke="BlueViolet" Data="M -25,-25 L -25,25 -15,25 -5,15 -5,10 5,10 5,-10 -5,-10 -5,-15 -15,-25 -25,-25">
+        <Path Stroke="BlueViolet" StrokeThickness="5" Data="M -25,-25 L -25,25 -15,25 -5,15 -5,10 5,10 5,-10 -5,-10 -5,-15 -15,-25 -25,-25">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.5" ScaleY="1.0" />
@@ -14,6 +14,6 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <Rectangle Stroke="BlueViolet" Width="50" Height="50" />
+        <Rectangle Stroke="BlueViolet" StrokeThickness="5" Width="50" Height="50" />
     </Grid>
 </UserControl>
