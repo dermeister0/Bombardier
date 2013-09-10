@@ -220,4 +220,12 @@
     <PostBuildEvent>"$(ProjectDir)..\Minify.cmd"
 </PostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>del $(ProjectDir)*.js
+del $(ProjectDir)Entities\*.js
+del $(ProjectDir)Engine\*.js
+del $(ProjectDir)*.js.map
+del $(ProjectDir)Entities\*.js.map
+del $(ProjectDir)Engine\*.js.map</PreBuildEvent>
+  </PropertyGroup>
 </Project>
