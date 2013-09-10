@@ -124,27 +124,6 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Entities\Game.js.map">
-      <DependentUpon>Game.ts</DependentUpon>
-    </Content>
-    <Content Include="Engine\Viewport.js.map">
-      <DependentUpon>Viewport.ts</DependentUpon>
-    </Content>
-    <Content Include="Entities\Player.js.map">
-      <DependentUpon>Player.ts</DependentUpon>
-    </Content>
-    <Content Include="Entities\Map.js.map">
-      <DependentUpon>Map.ts</DependentUpon>
-    </Content>
-    <Content Include="app.js.map">
-      <DependentUpon>app.ts</DependentUpon>
-    </Content>
-    <Content Include="Engine\Sprite.js.map">
-      <DependentUpon>Sprite.ts</DependentUpon>
-    </Content>
-    <Content Include="Engine\Image.js.map">
-      <DependentUpon>Image.ts</DependentUpon>
-    </Content>
     <None Include="Heavysoft.pubxml" />
     <Content Include="Maps\00.bin" />
     <Content Include="Maps\web.config" />
