@@ -103,7 +103,7 @@
     </Content>
     <TypeScriptCompile Include="Entities\ActorSprite.ts" />
     <TypeScriptCompile Include="Global.ts" />
-    <Content Include="Entities\PlayerSprite.js">
+    <Content Include="Entities\ActorSprite.js">
       <DependentUpon>ActorSprite.ts</DependentUpon>
     </Content>
     <Content Include="Global.js">
