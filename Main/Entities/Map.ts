@@ -118,5 +118,9 @@ module Bombardier.Entities {
 
             return new Engine.Vector2(1, 1);
         }
+
+        public getObjectDefinitions(): any[]{
+            return this._objects;
+        }
     }
 }

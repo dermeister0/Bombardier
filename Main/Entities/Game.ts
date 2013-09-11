@@ -85,6 +85,8 @@ module Bombardier.Entities {
             this._player = new Player(startPosition);
             this._gameObjects.push(this._player);
 
+            this.createObjects();
+
             this._viewport = new Engine.Viewport(startPosition);
         }
 
@@ -149,6 +151,12 @@ module Bombardier.Entities {
         public destroyBrick(brick: Brick): void {
             this._map.clearCell(brick.x, brick.y);
             brick.destroy();
+        }
+
+        private createObjects(): void {
+            var defs = this._map.getObjectDefinitions();
+
+            // @@
         }
     }
 }
