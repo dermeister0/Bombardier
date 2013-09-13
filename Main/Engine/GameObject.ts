@@ -10,7 +10,8 @@ module Bombardier.Engine {
         public mass: number = 0;
         public position: Vector2 = new Vector2;
         public velocity: Vector2 = new Vector2;
-        public size: Size2 = new Size2;
+
+        public screenSize: Size2 = new Size2; // In pixels.
 
         public body: Box2D.Dynamics.b2Body;
 
@@ -28,7 +29,7 @@ module Bombardier.Engine {
         }
 
         public getBoundingRect(): Rect {
-            return Rect.createByCenterAndSize(this.position, this.size);
+            return Rect.createByCenterAndSize(this.position, this.screenSize);
         }
     }
 }

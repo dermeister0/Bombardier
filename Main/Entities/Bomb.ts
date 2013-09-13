@@ -30,7 +30,7 @@ module Bombardier.Entities {
             super();
 
             this.position = new Engine.Vector2(x, y);
-            this.size = { w: Engine.World.metersToPixels(Bomb.BOMB_SIZE), h: Engine.World.metersToPixels(Bomb.BOMB_SIZE) };
+            this.screenSize = { w: Engine.World.metersToPixels(Bomb.BOMB_SIZE), h: Engine.World.metersToPixels(Bomb.BOMB_SIZE) };
             this._direction = direction;
             this._startTime = Date.now();
 
@@ -60,7 +60,7 @@ module Bombardier.Entities {
             var center: Engine.Vector2 = new Engine.Vector2(Engine.World.metersToPixels(this.position.x) - viewport.topLeft.x,
                 Engine.World.metersToPixels(this.position.y) - viewport.topLeft.y);
 
-            Bomb._images[this._direction].draw(context, center.x - this.size.w / 2, center.y - this.size.h / 2);
+            Bomb._images[this._direction].draw(context, center.x - this.screenSize.w / 2, center.y - this.screenSize.h / 2);
 
             if (Global.DEBUG_BOMB_DRAW_SENSOR) {
                 context.strokeStyle = '#ff0000';

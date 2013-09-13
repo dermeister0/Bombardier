@@ -34,8 +34,8 @@ module Bombardier.Entities {
 
             this.position = startPosition.clone();
             
-            this.size.w = Map.TILE_SIZE;
-            this.size.h = Map.TILE_SIZE;
+            this.screenSize.w = Map.TILE_SIZE;
+            this.screenSize.h = Map.TILE_SIZE;
 
             this.mass = 69;
 
@@ -66,8 +66,8 @@ module Bombardier.Entities {
         }
 
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {
-            this._playerSprite.draw(context, Engine.World.metersToPixels(this.position.x) - this.size.w / 2 - viewport.topLeft.x,
-                Engine.World.metersToPixels(this.position.y) - this.size.h / 2 - viewport.topLeft.y);
+            this._playerSprite.draw(context, Engine.World.metersToPixels(this.position.x) - this.screenSize.w / 2 - viewport.topLeft.x,
+                Engine.World.metersToPixels(this.position.y) - this.screenSize.h / 2 - viewport.topLeft.y);
 
             if (Global.DEBUG_PLAYER_DRAW_CONTACTS) {
                 Engine.Debug.drawContacts(this._playerBody.GetContactList(), context, viewport);

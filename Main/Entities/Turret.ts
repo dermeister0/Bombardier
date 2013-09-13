@@ -1,3 +1,5 @@
+/// <reference path="Fireball.ts" />
+
 module Bombardier.Entities {
     import b2Collision = Box2D.Collision;
     import b2Dynamics = Box2D.Dynamics;
@@ -6,6 +8,9 @@ module Bombardier.Entities {
         private static LEFT: number = 0;
 
         private static RIGHT: number = 1;
+
+        private static INTERVAL: number = 3000;
+
 
         private static _turretSprite: Engine.Sprite = null;
 
@@ -20,6 +25,8 @@ module Bombardier.Entities {
         private static _turretShape: b2Collision.Shapes.b2PolygonShape = null;
 
         private static _turretFixtureDef: b2Dynamics.b2FixtureDef = null;
+
+        private _lastFireballTime: number = 0;
 
         public static create(def: ObjectDefinition): Turret {
             var turret: Turret = new Turret(def.x, def.y, def.getProperty("Direction"));
@@ -81,6 +88,14 @@ module Bombardier.Entities {
 
             Turret._turretSprite.draw(context, Engine.World.metersToPixels(this.position.x) - Map.TILE_HALF_SIZE - viewport.topLeft.x,
                 Engine.World.metersToPixels(this.position.y) - Map.TILE_HALF_SIZE - viewport.topLeft.y);
+        }
+
+        public update(): void {
+            if (Date.now() - this._lastFireballTime > Turret.INTERVAL) {
+                Fireball.create(this.position);
+
+                this._lastFireballTime = Date.now();
+            }
         }
     }
 }
