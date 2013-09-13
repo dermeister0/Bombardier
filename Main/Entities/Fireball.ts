@@ -1,3 +1,5 @@
+/// <reference path="../Engine/World.ts" />
+
 module Bombardier.Entities {
     import b2Collision = Box2D.Collision;
     import b2Dynamics = Box2D.Dynamics;
@@ -6,7 +8,7 @@ module Bombardier.Entities {
     export class Fireball extends Engine.GameObject {
         private static RADIUS: number = 0.25;
 
-        private static IMPULSE: number = 50.0;
+        private static IMPULSE: number = 25.0;
 
         private static LIFE_TIME: number = 100000; // 1 second.
 
@@ -80,6 +82,7 @@ module Bombardier.Entities {
             }
 
             this.body.ApplyImpulse(this._impulse, this.body.GetWorldCenter());
+            this.body.ApplyForce(new b2Math.b2Vec2(0, -Engine.World.GRAVITY * this.body.GetMass()), this.body.GetWorldCenter());
 
             this.position = new Engine.Vector2(this.body.GetPosition().x, this.body.GetPosition().y);
         }

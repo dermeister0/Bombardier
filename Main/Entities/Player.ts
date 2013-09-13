@@ -133,7 +133,7 @@ module Bombardier.Entities {
             var shape = new b2Collision.Shapes.b2PolygonShape();
 
             var footFixtureDef = new b2Dynamics.b2FixtureDef();
-            shape.SetAsOrientedBox(0.1, 0.1, new b2Math.b2Vec2(0, 0.84));
+            shape.SetAsOrientedBox(0.2, 0.1, new b2Math.b2Vec2(0, 0.84));
             footFixtureDef.shape = shape;
             footFixtureDef.isSensor = true;
             footFixtureDef.userData = new FixtureUserData;

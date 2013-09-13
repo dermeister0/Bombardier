@@ -7,6 +7,8 @@ module Bombardier.Engine {
     import b2Collision = Box2D.Collision;
 
     export class World {
+        public static GRAVITY: number = 9.8;
+
         private _b2dWorld: b2Dynamics.b2World;
 
         private _b2dDebugDraw: b2Dynamics.b2DebugDraw;
@@ -21,7 +23,7 @@ module Bombardier.Engine {
             this._b2dDebugDraw.SetFillAlpha(0.3);
             this._b2dDebugDraw.SetFlags(b2Dynamics.b2DebugDraw.e_shapeBit | b2Dynamics.b2DebugDraw.e_jointBit);
 
-            this._b2dWorld = new b2Dynamics.b2World(new b2Math.b2Vec2(0, 9.8), true);
+            this._b2dWorld = new b2Dynamics.b2World(new b2Math.b2Vec2(0, World.GRAVITY), true);
             this._b2dWorld.SetDebugDraw(this._b2dDebugDraw);
         }
 
