@@ -30,6 +30,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Engine\Debug.ts" />
     <TypeScriptCompile Include="Engine\IDrawable.ts" />
+    <TypeScriptCompile Include="Entities\Fireball.ts" />
     <TypeScriptCompile Include="Entities\Game.ts" />
     <TypeScriptCompile Include="Engine\Sprite.ts" />
     <TypeScriptCompile Include="Engine\ObjectManager.ts" />
@@ -49,6 +50,9 @@
     </Content>
     <Content Include="Entities\ContactListener.js">
       <DependentUpon>ContactListener.ts</DependentUpon>
+    </Content>
+    <Content Include="Entities\Fireball.js">
+      <DependentUpon>Fireball.ts</DependentUpon>
     </Content>
     <Content Include="Entities\FixtureUserData.js">
       <DependentUpon>FixtureUserData.ts</DependentUpon>

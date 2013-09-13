@@ -21,10 +21,12 @@ module Bombardier.Entities {
 
         private static _turretFixtureDef: b2Dynamics.b2FixtureDef = null;
 
-        public static create(def: ObjectDefinition) {
+        public static create(def: ObjectDefinition): Turret {
             var turret: Turret = new Turret(def.x, def.y, def.getProperty("Direction"));
 
             Game.instance.addGameObject(turret);
+
+            return turret;
         }
 
         constructor(x: number, y: number, direction: string) {

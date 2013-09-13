@@ -79,6 +79,8 @@ module Bombardier.Entities {
 
             this.objectManager.loadImage('turret', 'Images/Turret00.png');
 
+            this.objectManager.loadImage('fireball', 'Images/Fireball00.png');
+
             Bomb.loadContent();
         }
 
