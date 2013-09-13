@@ -28,6 +28,8 @@ module Bombardier.Entities {
 
         private _lastFireballTime: number = 0;
 
+        private static _shapeHalfWidth: number = Map.TILE_HALF_SIZE_IN_METERS / 4;
+
         public static create(def: ObjectDefinition): Turret {
             var turret: Turret = new Turret(def.x, def.y, def.getProperty("Direction"));
 
@@ -57,25 +59,25 @@ module Bombardier.Entities {
                 this._spriteFrame = Turret._rightFrame;
             }
 
-            var shapeHalfWidth = Map.TILE_HALF_SIZE_IN_METERS / 4;
             if (Turret._turretShape === null) {
                 Turret._turretShape = new b2Collision.Shapes.b2PolygonShape();
-                Turret._turretShape.SetAsBox(shapeHalfWidth, Map.TILE_HALF_SIZE_IN_METERS);
+                Turret._turretShape.SetAsBox(Turret._shapeHalfWidth, Map.TILE_HALF_SIZE_IN_METERS);
             }
 
             if (Turret._turretFixtureDef === null) {
                 Turret._turretFixtureDef = new b2Dynamics.b2FixtureDef();
                 Turret._turretFixtureDef.shape = Turret._turretShape;
+                Turret._turretFixtureDef.filter.groupIndex = CollisionGroup.BULLET_AND_TURRET;
             }
 
             var bodyDef = new b2Dynamics.b2BodyDef();
             bodyDef.type = b2Dynamics.b2Body.b2_staticBody;
 
             if (this._direction == Turret.LEFT) {
-                bodyDef.position.Set(this.position.x - Map.TILE_HALF_SIZE_IN_METERS + shapeHalfWidth, this.position.y);
+                bodyDef.position.Set(this.position.x - Map.TILE_HALF_SIZE_IN_METERS + Turret._shapeHalfWidth, this.position.y);
             }
             else {
-                bodyDef.position.Set(this.position.x + Map.TILE_HALF_SIZE_IN_METERS - shapeHalfWidth, this.position.y);
+                bodyDef.position.Set(this.position.x + Map.TILE_HALF_SIZE_IN_METERS - Turret._shapeHalfWidth, this.position.y);
             }            
 
             this.body = Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef);
@@ -92,7 +94,13 @@ module Bombardier.Entities {
 
         public update(): void {
             if (Date.now() - this._lastFireballTime > Turret.INTERVAL) {
-                Fireball.create(this.position);
+                var pos = this.body.GetPosition();
+                if (this._direction == Turret.LEFT) {
+                    Fireball.create(new Engine.Vector2(pos.x + Turret._shapeHalfWidth / 2, pos.y), new Engine.Vector2(1, 0));
+                }
+                else {
+                    Fireball.create(new Engine.Vector2(pos.x - Turret._shapeHalfWidth / 2, pos.y), new Engine.Vector2(-1, 0));
+                }
 
                 this._lastFireballTime = Date.now();
             }

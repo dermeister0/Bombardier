@@ -26,6 +26,9 @@ module Bombardier.Entities {
             else if (userData.type == FixtureUserData.TYPE_BODY_LEFT || userData.type == FixtureUserData.TYPE_BODY_RIGHT) {
                 userData.player.increaseBodyWallContacts(userData.type);
             }
+            else if (userData.type == FixtureUserData.TYPE_BULLET) {
+                Game.instance.removeGameObject(userData.object);
+            }
         }
 
         /**
