@@ -7,6 +7,12 @@
 /// <reference path="../Global.ts" />
 
 module Bombardier.Entities {
+    export class ObjectType {
+        public static START: number = 0;
+
+        public static TURRET: number = 1;
+    }
+
     export class Game {
         private _canvasElement: HTMLCanvasElement;
 
@@ -70,6 +76,8 @@ module Bombardier.Entities {
 
             this.objectManager.loadImage('bomb_left', 'Images/BombLeft.png');
             this.objectManager.loadImage('bomb_right', 'Images/BombRight.png');
+
+            this.objectManager.loadImage('turret', 'Images/Turret00.png');
 
             Bomb.loadContent();
         }
@@ -156,7 +164,12 @@ module Bombardier.Entities {
         private createObjects(): void {
             var defs = this._map.getObjectDefinitions();
 
-            // @@
+            for (var i in defs) {
+                switch (defs[i].objectType) {
+                    case ObjectType.TURRET:
+                        Turret.create(new ObjectDefinition(defs[i]));
+                }
+            }
         }
     }
 }

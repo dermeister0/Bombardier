@@ -110,9 +110,9 @@ module Bombardier.Entities {
 
         public getStartPosition(): Engine.Vector2 {
             for (var i in this._objects) {
-                if (this._objects[i].ObjectType == 0) { // @@
-                    return new Engine.Vector2(this._objects[i].X * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS,
-                        this._objects[i].Y * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS);
+                if (this._objects[i].objectType == ObjectType.START) {
+                    return new Engine.Vector2(this._objects[i].x * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS,
+                        this._objects[i].y * Map.TILE_SIZE_IN_METERS + Map.TILE_HALF_SIZE_IN_METERS);
                 }
             }
 

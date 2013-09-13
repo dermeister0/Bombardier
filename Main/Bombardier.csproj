@@ -97,14 +97,22 @@
     <Content Include="Entities\Map.js">
       <DependentUpon>Map.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Entities\ObjectDefinition.ts" />
     <TypeScriptCompile Include="Entities\Player.ts" />
+    <Content Include="Entities\ObjectDefinition.js">
+      <DependentUpon>ObjectDefinition.ts</DependentUpon>
+    </Content>
     <Content Include="Entities\Player.js">
       <DependentUpon>Player.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="Entities\ActorSprite.ts" />
+    <TypeScriptCompile Include="Entities\Turret.ts" />
     <TypeScriptCompile Include="Global.ts" />
     <Content Include="Entities\ActorSprite.js">
       <DependentUpon>ActorSprite.ts</DependentUpon>
+    </Content>
+    <Content Include="Entities\Turret.js">
+      <DependentUpon>Turret.ts</DependentUpon>
     </Content>
     <Content Include="Global.js">
       <DependentUpon>Global.ts</DependentUpon>

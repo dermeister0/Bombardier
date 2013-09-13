@@ -13,16 +13,16 @@ namespace Bombardier.Common
     [Serializable]
     public class MapObject
     {
-        [DataMember]
+        [DataMember(Name="x")]
         public int X { get; set; }
 
-        [DataMember]
+        [DataMember(Name="y")]
         public int Y { get; set; }
 
-        [DataMember]
+        [DataMember(Name="objectType")]
         public MapObjectType ObjectType { get; set; }
 
-        [DataMember]
+        [DataMember(Name="properties")]
         public Dictionary<string, ObjectProperty> Properties = new Dictionary<string,ObjectProperty>();
     }
 }
