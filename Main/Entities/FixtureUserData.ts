@@ -8,10 +8,17 @@ module Bombardier.Entities {
         static TYPE_BODY_LEFT = 3;
         static TYPE_BODY_RIGHT = 4;
         static TYPE_STONE = 5;
+        static TYPE_METAL_OBJECT = 6; // Turret
 
-        type: number = FixtureUserData.TYPE_UNDEFINED;
+        public type: number = FixtureUserData.TYPE_UNDEFINED;
 
         // Used for foot fixture.
-        player: Player = null;
+        public player: Player = null;
+
+        constructor(type?: number) {
+            if (type !== undefined) {
+                this.type = type;
+            }
+        }
     }
 }
