@@ -13,6 +13,8 @@ module Bombardier.Engine {
 
         public screenSize: Size2 = new Size2; // In pixels.
 
+        public zIndex: number = 0;
+
         public body: Box2D.Dynamics.b2Body;
 
         constructor() {

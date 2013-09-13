@@ -50,9 +50,13 @@ module Bombardier.Entities {
 
             this._map.draw(context2D, this._viewport);
 
-            for (var go in this._gameObjects) {
-                var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
-                gameObject.draw(context2D, this._viewport);
+            for (var zIndex = 0; zIndex < 3; zIndex++) {
+                for (var go in this._gameObjects) {
+                    var gameObject = <Bombardier.Engine.GameObject>(this._gameObjects[go]);
+                    if (gameObject.zIndex == zIndex) {
+                        gameObject.draw(context2D, this._viewport);
+                    }
+                }
             }
 
             this._world.draw(context2D);

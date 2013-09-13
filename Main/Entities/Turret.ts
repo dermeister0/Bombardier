@@ -83,6 +83,8 @@ module Bombardier.Entities {
             this.body = Bombardier.Entities.Game.instance.world.addRigidBody(bodyDef);
             var fixture = this.body.CreateFixture(Turret._turretFixtureDef);
             fixture.SetUserData(new FixtureUserData(FixtureUserData.TYPE_METAL_OBJECT));
+
+            this.zIndex = 2;
         }
 
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport): void {

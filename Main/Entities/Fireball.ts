@@ -65,6 +65,8 @@ module Bombardier.Entities {
 
             this._impulse = new b2Math.b2Vec2(Fireball.IMPULSE * direction.x, 0 * direction.y);
             this._startTime = Date.now();
+
+            this.zIndex = 1;
         }
 
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport): void {
