@@ -47,6 +47,12 @@
             </RibbonTab>
             
             <RibbonTab Header="Objects">
+                <RibbonGroup Header="Select">
+                    <RibbonToggleButton LargeImageSource="{StaticResource SelectIcon}"
+                                        IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Select}"
+                                        Command="{Binding ChangeTool}" CommandParameter="Select" />
+                </RibbonGroup>
+                
                 <RibbonGroup>
                     <RibbonToggleButton LargeImageSource="..\Images\Start.png"
                                         IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Start}"

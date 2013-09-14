@@ -37,5 +37,12 @@
                                  39,21L 24,21 Z M 43,21L 43,30L 52,30L 43,21 Z " Brush="Black" />
             </DrawingImage.Drawing>
         </DrawingImage>
+        
+        <DrawingImage x:Key="SelectIcon">
+            <DrawingImage.Drawing>
+                <GeometryDrawing Geometry="F1 M 28.5,17.4167L 52.25,41.1667L 43.0865,42.6585L 50.817,56.6949L 43.827,60.4115L 
+                                 36.0444,46.289L 28.5,53.8333L 28.5,17.4167 Z " Brush="Black" />
+            </DrawingImage.Drawing>
+        </DrawingImage>
     </Application.Resources>
 </Application>
