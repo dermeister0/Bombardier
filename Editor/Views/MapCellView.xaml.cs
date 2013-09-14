@@ -31,7 +31,25 @@ namespace Bombardier.Editor.Views
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 var viewModel = DataContext as MapCellViewModel;
-                viewModel.CellClickCommand.Execute(null);
+                viewModel.CellPressCommand.Execute(null);
+            }
+        }
+
+        private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Released)
+            {
+                var viewModel = DataContext as MapCellViewModel;
+                viewModel.CellReleaseCommand.Execute(null);
+            }
+        }
+
+        private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                var viewModel = DataContext as MapCellViewModel;
+                viewModel.CellPressCommand.Execute(null);
             }
         }
     }

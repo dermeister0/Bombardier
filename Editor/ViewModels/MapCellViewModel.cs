@@ -15,7 +15,9 @@ namespace Bombardier.Editor.ViewModels
     {
         MapCell cell;
 
-        public ICommand CellClickCommand { get; set; }
+        public ICommand CellPressCommand { get; set; }
+
+        public ICommand CellReleaseCommand { get; set; }
 
         public Brush CellBrush
         {
@@ -41,10 +43,11 @@ namespace Bombardier.Editor.ViewModels
             this.x = x;
             this.y = y;
 
-            CellClickCommand = new DelegateCommand(CellClick_Executed);
+            CellPressCommand = new DelegateCommand(CellPress_Executed);
+            CellReleaseCommand = new DelegateCommand(CellRelease_Executed);
         }
 
-        void CellClick_Executed()
+        void CellPress_Executed()
         {
             var toolbar = ServiceLocator.GetToolbar();
 
@@ -58,6 +61,25 @@ namespace Bombardier.Editor.ViewModels
                 cell = MapCell.Stone;
 
             OnPropertyChanged("CellBrush");
+        }
+
+        public MapCell GetCell()
+        {
+            return cell;
+        }
+
+        public void SetCell(MapCell cell)
+        {
+            this.cell = cell;
+        }
+
+        public int X { get { return x; } }
+
+        public int Y { get { return y; } }
+
+        void CellRelease_Executed()
+        {
+            var toolbar = ServiceLocator.GetToolbar();
 
             if (toolbar.CurrentTool == Tool.Start)
             {
@@ -77,19 +99,5 @@ namespace Bombardier.Editor.ViewModels
                 turret.Properties["Direction"] = "right";
             }
         }
-
-        public MapCell GetCell()
-        {
-            return cell;
-        }
-
-        public void SetCell(MapCell cell)
-        {
-            this.cell = cell;
-        }
-
-        public int X { get { return x; } }
-
-        public int Y { get { return y; } }
     }
 }
