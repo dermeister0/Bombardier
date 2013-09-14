@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace Bombardier.Editor.ViewModels
 {
-    class MainViewModel : ViewModelBase
+    class MainViewModel : ViewModelBase, IToolbar
     {
         public MapViewModel MapVM { get; private set; }
 
@@ -24,15 +24,13 @@ namespace Bombardier.Editor.ViewModels
 
         public ICommand ChangeTool { get; private set; }
 
-        IToolbar toolbarService;
-
-        public Tool CurrentTool { get; private set; }
+        public Tool CurrentTool { get; set; }
 
         public Visibility ObjectToolsVisible { get; private set; }
 
         public MainViewModel()
         {
-            toolbarService = ServiceLocator.GetToolbar();
+            ServiceLocator.InitializeToolbar(this);
 
             FileNewCommand = new DelegateCommand(FileNew_Executed);
             FileOpenCommand = new DelegateCommand<string>(FileOpen_Executed);
@@ -56,7 +54,6 @@ namespace Bombardier.Editor.ViewModels
         void ChangeTool_Executed(string tool)
         {
             Tool toolCode = (Tool)Enum.Parse(typeof(Tool), tool);
-            toolbarService.CurrentTool = toolCode;
 
             CurrentTool = toolCode;
             OnPropertyChanged("CurrentTool");

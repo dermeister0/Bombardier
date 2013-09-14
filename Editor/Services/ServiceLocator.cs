@@ -15,7 +15,7 @@ namespace Bombardier.Editor.Services
         public static IToolbar GetToolbar()
         {
             if (toolbarService == null)
-                toolbarService = new ToolbarService();
+                throw new NullReferenceException("Toolbar service not initialized.");
 
             return toolbarService;
         }
@@ -31,6 +31,11 @@ namespace Bombardier.Editor.Services
         public static void InitializeMap(IMap service)
         {
             mapService = service;
+        }
+
+        public static void InitializeToolbar(IToolbar service)
+        {
+            toolbarService = service;
         }
     }
 }

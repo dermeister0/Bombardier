@@ -10,11 +10,8 @@ namespace Bombardier.Editor
 {
     public class IsCheckedToolConverter : IValueConverter
     {
-        IToolbar toolbarService;
-
         public IsCheckedToolConverter()
         {
-            toolbarService = ServiceLocator.GetToolbar();
         }
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

@@ -77,7 +77,6 @@
     <Compile Include="Services\IMap.cs" />
     <Compile Include="Services\IToolbar.cs" />
     <Compile Include="Services\ServiceLocator.cs" />
-    <Compile Include="Services\ToolbarService.cs" />
     <Compile Include="ViewModels\Gears\TurretViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SelectionViewModel.cs" />
