@@ -23,6 +23,8 @@ namespace Bombardier.Editor.ViewModels
 
         public ObjectViewModel SelectedObject;
 
+        public SelectionViewModel Selection;
+
         public MapViewModel(Bombardier.Common.Map map)
         {
             ServiceLocator.InitializeMap(this);
@@ -51,6 +53,8 @@ namespace Bombardier.Editor.ViewModels
             {
                 Objects.Add(ObjectViewModel.Create(o));
             }
+
+            Selection = new SelectionViewModel();
         }
 
         public Bombardier.Common.Map GetMap()
@@ -99,6 +103,8 @@ namespace Bombardier.Editor.ViewModels
                 if (ovm.IsPointInRect(mouseX, mouseY))
                 {
                     SelectedObject = ovm;
+                    Selection.X = ovm.LocalX;
+                    Selection.Y = ovm.LocalY;
                 }
             }
         }

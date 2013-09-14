@@ -80,6 +80,7 @@
     <Compile Include="Services\ToolbarService.cs" />
     <Compile Include="ViewModels\Gears\TurretViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SelectionViewModel.cs" />
     <Compile Include="Views\MultipleObjects\TurretView.xaml.cs">
       <DependentUpon>TurretView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +92,9 @@
     </Compile>
     <Compile Include="Views\Rulers\RulerTopView.xaml.cs">
       <DependentUpon>RulerTopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectionView.xaml.cs">
+      <DependentUpon>SelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SingleObjects\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
@@ -137,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Rulers\RulerTopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -56,6 +56,10 @@ namespace Bombardier.Editor.Views
             {
                 ObjectsCanvas.Children.Add(oVM.CreateView());
             }
+
+            var selectionView = new SelectionView();
+            selectionView.DataContext = viewModel.Selection;
+            ObjectsCanvas.Children.Add(selectionView);
         }
 
         void viewModel_ObjectAdded(ViewModels.ObjectViewModel objectVM)
