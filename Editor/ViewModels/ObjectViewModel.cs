@@ -77,5 +77,15 @@ namespace Bombardier.Editor.ViewModels
         {
             return x >= LocalX && x <= LocalX + Global.CellSize && y >= LocalY && y <= LocalY + Global.CellSize;
         }
+
+        public bool IsEnabled 
+        { 
+            get { return mapObject.IsEnabled; } 
+            set 
+            { 
+                mapObject.IsEnabled = value;
+                OnPropertyChanged("IsEnabled");
+            } 
+        }
     }
 }

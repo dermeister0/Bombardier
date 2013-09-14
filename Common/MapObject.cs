@@ -24,5 +24,12 @@ namespace Bombardier.Common
 
         [DataMember(Name="properties")]
         public Dictionary<string, ObjectProperty> Properties = new Dictionary<string,ObjectProperty>();
+
+        public bool IsEnabled { get; set; }
+
+        public MapObject()
+        {
+            IsEnabled = true;
+        }
     }
 }

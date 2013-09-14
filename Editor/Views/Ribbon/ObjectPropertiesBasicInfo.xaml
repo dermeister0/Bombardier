@@ -27,6 +27,6 @@
         <TextBlock FontWeight="Bold" Grid.Row="2">Y</TextBlock>
         <TextBlock Text="{Binding Y}" Grid.Row="2" Grid.Column="1" />
 
-        <CheckBox Content="Enabled" Grid.Row="4" Grid.ColumnSpan="2" />
+        <CheckBox Content="Enabled" Grid.Row="4" Grid.ColumnSpan="2" IsChecked="{Binding IsEnabled}" />
     </Grid>
 </UserControl>
