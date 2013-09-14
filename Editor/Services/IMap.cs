@@ -10,6 +10,9 @@ namespace Bombardier.Editor.Services
     interface IMap
     {
         void SetSingleObjectPosition(MapObjectType objectType, int x, int y);
+
         MapObject AddObject(MapObjectType objectType, int x, int y);
+
+        void SelectObject(int mouseX, int mouseY);
     }
 }

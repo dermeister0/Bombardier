@@ -8,7 +8,7 @@
     <Grid Name="MainGrid">
         <StackPanel Name="MainPanel">
         </StackPanel>
-        <Canvas Name="ObjectsCanvas">
+        <Canvas Name="ObjectsCanvas" MouseUp="ObjectsCanvas_MouseUp">
         </Canvas>
     </Grid>
 </UserControl>

@@ -22,9 +22,9 @@ namespace Bombardier.Editor.ViewModels
 
         public MapObjectType ObjectType { get { return mapObject.ObjectType; } }
 
-        public int LocalX { get { return 25 + mapObject.X * 50; } }
+        public int LocalX { get { return Global.RulerSize + mapObject.X * Global.CellSize; } }
 
-        public int LocalY { get { return 25 + mapObject.Y * 50; } }
+        public int LocalY { get { return Global.RulerSize + mapObject.Y * Global.CellSize; } }
 
         protected ObjectViewModel(MapObject mapObject)
         {
@@ -71,6 +71,11 @@ namespace Bombardier.Editor.ViewModels
                 default:
                     return new ObjectViewModel(mapObject);
             }
+        }
+
+        public bool IsPointInRect(int x, int y)
+        {
+            return x >= LocalX && x <= LocalX + Global.CellSize && y >= LocalY && y <= LocalY + Global.CellSize;
         }
     }
 }

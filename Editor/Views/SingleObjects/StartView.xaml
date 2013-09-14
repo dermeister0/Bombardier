@@ -6,7 +6,7 @@
              mc:Ignorable="d" Canvas.Left="{Binding LocalX}" Canvas.Top="{Binding LocalY}"
              d:DesignHeight="50" d:DesignWidth="50">
     <Grid>
-        <Rectangle Width="50" Height="50" Stroke="YellowGreen" StrokeThickness="5" />
+        <Rectangle Width="50" Height="50" Stroke="YellowGreen" StrokeThickness="5" Fill="Transparent" />
         <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="GreenYellow">START</TextBlock>
     </Grid>
 </UserControl>

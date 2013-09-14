@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Global.cs" />
     <Compile Include="IsCheckedToolConverter.cs" />
     <Compile Include="Services\IMap.cs" />
     <Compile Include="Services\IToolbar.cs" />

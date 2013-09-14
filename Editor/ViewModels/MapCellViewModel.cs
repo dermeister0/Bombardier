@@ -80,23 +80,22 @@ namespace Bombardier.Editor.ViewModels
         void CellRelease_Executed()
         {
             var toolbar = ServiceLocator.GetToolbar();
+            var map = ServiceLocator.GetMap();
+            MapObject mapObject;
 
-            if (toolbar.CurrentTool == Tool.Start)
+            switch (toolbar.CurrentTool)
             {
-                var map = ServiceLocator.GetMap();
-                map.SetSingleObjectPosition(MapObjectType.Start, x, y);
-            }
-            else if (toolbar.CurrentTool == Tool.TurretLeft)
-            {
-                var map = ServiceLocator.GetMap();
-                var turret = map.AddObject(MapObjectType.Turret, x, y);
-                turret.Properties["Direction"] = "left";
-            }
-            else if (toolbar.CurrentTool == Tool.TurretRight)
-            {
-                var map = ServiceLocator.GetMap();
-                var turret = map.AddObject(MapObjectType.Turret, x, y);
-                turret.Properties["Direction"] = "right";
+                case Tool.Start:
+                    map.SetSingleObjectPosition(MapObjectType.Start, x, y);
+                    break;
+                case Tool.TurretLeft:
+                    mapObject = map.AddObject(MapObjectType.Turret, x, y);
+                    mapObject.Properties["Direction"] = "left";
+                    break;
+                case Tool.TurretRight:
+                    mapObject = map.AddObject(MapObjectType.Turret, x, y);
+                    mapObject.Properties["Direction"] = "right";
+                    break;
             }
         }
     }

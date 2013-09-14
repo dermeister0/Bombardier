@@ -1,4 +1,5 @@
-﻿using Bombardier.Editor.Views.Rulers;
+﻿using Bombardier.Editor.Services;
+using Bombardier.Editor.Views.Rulers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,17 @@ namespace Bombardier.Editor.Views
         {
             var view = objectVM.CreateView();
             ObjectsCanvas.Children.Add(view);
+        }
+
+        private void ObjectsCanvas_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var toolbar = ServiceLocator.GetToolbar();
+
+            if (toolbar.CurrentTool == Tool.Select)
+            {
+                var map = ServiceLocator.GetMap();
+                map.SelectObject((int)e.GetPosition(ObjectsCanvas).X, (int)e.GetPosition(ObjectsCanvas).Y);
+            }
         }
     }
 }

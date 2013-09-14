@@ -21,6 +21,8 @@ namespace Bombardier.Editor.ViewModels
 
         public event ObjectAddedEventHandler ObjectAdded;
 
+        public ObjectViewModel SelectedObject;
+
         public MapViewModel(Bombardier.Common.Map map)
         {
             ServiceLocator.InitializeMap(this);
@@ -88,6 +90,17 @@ namespace Bombardier.Editor.ViewModels
                 ObjectAdded(vm);
 
             return mapObject;
+        }
+
+        public void SelectObject(int mouseX, int mouseY)
+        {
+            foreach (var ovm in Objects)
+            {
+                if (ovm.IsPointInRect(mouseX, mouseY))
+                {
+                    SelectedObject = ovm;
+                }
+            }
         }
     }
 }
