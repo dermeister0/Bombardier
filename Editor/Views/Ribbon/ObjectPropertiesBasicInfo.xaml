@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Bombardier.Editor.Views.Ribbon.ObjectPropertiesBasicInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="65" d:DesignWidth="300">
+    <Grid Width="70">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock FontWeight="Bold" Grid.Row="0" HorizontalAlignment="Left">Type</TextBlock>
+        <TextBlock Text="{Binding ObjectType}" Grid.Row="0" Grid.Column="1" />
+
+        <TextBlock FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Left">X</TextBlock>
+        <TextBlock Text="{Binding X}" Grid.Row="1" Grid.Column="1" />
+
+        <TextBlock FontWeight="Bold" Grid.Row="2">Y</TextBlock>
+        <TextBlock Text="{Binding Y}" Grid.Row="2" Grid.Column="1" />
+
+        <CheckBox Content="Enabled" Grid.Row="4" Grid.ColumnSpan="2" />
+    </Grid>
+</UserControl>
