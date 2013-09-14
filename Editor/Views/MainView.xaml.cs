@@ -34,14 +34,14 @@ namespace Bombardier.Editor.Views
 
         private void FileSave_Click(object sender, RoutedEventArgs e)
         {
-            var sfd = new SaveFileDialog();
-            sfd.Filter = FileDialogFilter;
+            var viewModel = DataContext as MainViewModel;
+            if (viewModel == null)
+                return;
 
-            if (sfd.ShowDialog() == true)
-            {
-                var viewModel = DataContext as MainViewModel;
-                viewModel.FileSaveCommand.Execute(sfd.FileName);
-            }
+            if (viewModel.FileName != null)
+                viewModel.FileSaveCommand.Execute(viewModel.FileName);
+            else
+                SaveAs();
         }
 
         private void FileOpen_Click(object sender, RoutedEventArgs e)
@@ -54,6 +54,23 @@ namespace Bombardier.Editor.Views
                 var viewModel = DataContext as MainViewModel;
                 viewModel.FileOpenCommand.Execute(ofd.FileName);
             }
+        }
+
+        void SaveAs()
+        {
+            var sfd = new SaveFileDialog();
+            sfd.Filter = FileDialogFilter;
+
+            if (sfd.ShowDialog() == true)
+            {
+                var viewModel = DataContext as MainViewModel;
+                viewModel.FileSaveCommand.Execute(sfd.FileName);
+            }
+        }
+
+        private void FileSaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            SaveAs();
         }
     }
 }

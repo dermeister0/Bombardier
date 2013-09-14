@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Microsoft.Practices.Prism.Commands;
 using Bombardier.Editor.Services;
 using System.Windows;
+using System.IO;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -27,6 +28,19 @@ namespace Bombardier.Editor.ViewModels
         public Tool CurrentTool { get; set; }
 
         public Visibility ObjectToolsVisible { get; private set; }
+
+        string fileName;
+
+        public string FileName
+        {
+            get { return fileName; }
+            private set
+            {
+                fileName = value;
+                OnPropertyChanged("FileName");
+                OnPropertyChanged("Title");
+            }
+        }
 
         public MainViewModel()
         {
@@ -51,6 +65,8 @@ namespace Bombardier.Editor.ViewModels
         {
             MapVM = new MapViewModel(new Bombardier.Common.Map(30, 30));
             OnPropertyChanged("MapVM");
+
+            FileName = null;
         }
 
         void ChangeTool_Executed(string tool)
@@ -73,6 +89,8 @@ namespace Bombardier.Editor.ViewModels
             Bombardier.Common.Map map = Bombardier.Common.MapSerialization.LoadMap(fileName);
             MapVM = new MapViewModel(map);
             OnPropertyChanged("MapVM");
+
+            FileName = fileName;
         }
 
         void FileExit_Executed()
@@ -95,6 +113,16 @@ namespace Bombardier.Editor.ViewModels
                 else
                     ObjectToolsVisible = Visibility.Hidden;
                 OnPropertyChanged("ObjectToolsVisible");
+            }
+        }
+
+        public string Title
+        {
+            get
+            {
+                string file = Path.GetFileName(FileName) ?? "New map";
+
+                return file + " - Bombardier Editor";
             }
         }
     }
