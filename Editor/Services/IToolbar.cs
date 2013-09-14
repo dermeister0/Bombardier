@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bombardier.Editor.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,7 @@ namespace Bombardier.Editor.Services
     interface IToolbar
     {
         Tool CurrentTool { get; set; }
+
+        ObjectViewModel SelectedObject { get; set; }
     }
 }

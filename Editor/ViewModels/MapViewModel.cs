@@ -105,6 +105,9 @@ namespace Bombardier.Editor.ViewModels
                     SelectedObject = ovm;
                     Selection.X = ovm.LocalX;
                     Selection.Y = ovm.LocalY;
+
+                    var toolbar = ServiceLocator.GetToolbar();
+                    toolbar.SelectedObject = SelectedObject;
                 }
             }
         }

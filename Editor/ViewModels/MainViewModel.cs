@@ -43,6 +43,8 @@ namespace Bombardier.Editor.ViewModels
             OnPropertyChanged("MapVM");
 
             ChangeTool.Execute("Clear");
+
+            ObjectToolsVisible = Visibility.Hidden;
         }
 
         void FileNew_Executed()
@@ -57,6 +59,8 @@ namespace Bombardier.Editor.ViewModels
 
             CurrentTool = toolCode;
             OnPropertyChanged("CurrentTool");
+
+            SelectedObject = null;
         }
 
         void FileSave_Executed(string fileName)
@@ -74,6 +78,24 @@ namespace Bombardier.Editor.ViewModels
         void FileExit_Executed()
         {
             App.Current.MainWindow.Close();
+        }
+
+        ObjectViewModel selectedObject;
+
+        public ObjectViewModel SelectedObject
+        {
+            get { return selectedObject; }
+            set
+            {
+                selectedObject = value;
+                OnPropertyChanged("SelectedObject");
+
+                if (selectedObject != null)
+                    ObjectToolsVisible = Visibility.Visible;
+                else
+                    ObjectToolsVisible = Visibility.Hidden;
+                OnPropertyChanged("ObjectToolsVisible");
+            }
         }
     }
 }
