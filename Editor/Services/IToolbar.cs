@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Editor.Services
 {
-    enum Tool { Clear, Bricks00, Stones00, Start, TurretLeft, TurretRight, Select }
+    enum Tool { Clear, Bricks00, Stones00, Start, TurretLeft, TurretRight, Select, Door }
 
     interface IToolbar
     {

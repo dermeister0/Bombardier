@@ -1,7 +1,9 @@
 ﻿using Bombardier.Common;
 using Bombardier.Editor.ViewModels.Gears;
+using Bombardier.Editor.ViewModels.Walls;
 using Bombardier.Editor.Views.MultipleObjects;
 using Bombardier.Editor.Views.SingleObjects;
+using Bombardier.Editor.Views.Walls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +45,9 @@ namespace Bombardier.Editor.ViewModels
                 case MapObjectType.Turret:
                     result = new TurretView();
                     break;
+                case MapObjectType.Door:
+                    result = new DoorView();
+                    break;
                 default:
                     throw new ArgumentException("Unsupported object type: " + mapObject.ObjectType.ToString());
             }
@@ -68,6 +73,8 @@ namespace Bombardier.Editor.ViewModels
             {
                 case MapObjectType.Turret:
                     return new TurretViewModel(mapObject);
+                case MapObjectType.Door:
+                    return new DoorViewModel(mapObject);
                 default:
                     return new ObjectViewModel(mapObject);
             }

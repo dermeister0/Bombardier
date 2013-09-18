@@ -96,6 +96,9 @@ namespace Bombardier.Editor.ViewModels
                     mapObject = map.AddObject(MapObjectType.Turret, x, y);
                     mapObject.Properties["Direction"] = "right";
                     break;
+                case Tool.Door:
+                    mapObject = map.AddObject(MapObjectType.Door, x, y);
+                    break;
             }
         }
     }

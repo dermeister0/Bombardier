@@ -80,6 +80,7 @@
     <Compile Include="ViewModels\Gears\TurretViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SelectionViewModel.cs" />
+    <Compile Include="ViewModels\Walls\DoorViewModel.cs" />
     <Compile Include="Views\MultipleObjects\TurretView.xaml.cs">
       <DependentUpon>TurretView.xaml</DependentUpon>
     </Compile>
@@ -100,6 +101,9 @@
     </Compile>
     <Compile Include="Views\SingleObjects\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Walls\DoorView.xaml.cs">
+      <DependentUpon>DoorView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SingleObjects\StartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Walls\DoorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +230,9 @@
   <ItemGroup>
     <Resource Include="Images\TurretLeft.png" />
     <Resource Include="Images\TurretRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Door00.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

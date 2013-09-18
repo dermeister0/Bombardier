@@ -69,6 +69,12 @@
                                         IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=TurretRight}"
                                         Command="{Binding ChangeTool}" CommandParameter="TurretRight" />
                 </RibbonGroup>
+                
+                <RibbonGroup Header="Door">
+                    <RibbonToggleButton LargeImageSource="..\Images\Door00.png"
+                                        IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Door}"
+                                        Command="{Binding ChangeTool}" CommandParameter="Door" />
+                </RibbonGroup>
             </RibbonTab>
 
             <RibbonTab Header="View">

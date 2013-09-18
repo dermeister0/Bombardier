@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Bombardier.Editor.Views.Walls.DoorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Canvas.Left="{Binding LocalX}" Canvas.Top="{Binding LocalY}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Width="50" Height="50">
+        <Rectangle Width="50" Height="50" Stroke="Chocolate" StrokeThickness="5" Fill="Transparent" />
+        <Rectangle Width="10" Height="50" Stroke="Chocolate" StrokeThickness="2" />
+    </Grid>
+</UserControl>
