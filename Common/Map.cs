@@ -24,6 +24,7 @@ namespace Bombardier.Common
         public int Width
         {
             get { return width; }
+            private set { } // For WCF.
         }
 
         int height;
@@ -32,6 +33,7 @@ namespace Bombardier.Common
         public int Height
         {
             get { return height; }
+            private set { } // For WCF.
         }
 
         [DataMember]
