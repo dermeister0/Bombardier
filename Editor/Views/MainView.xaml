@@ -42,7 +42,7 @@
             
             <RibbonTab Header="Map">
                 <RibbonGroup>
-                    <RibbonButton Label="Resize" />
+                    <RibbonButton Label="Resize" Command="{Binding MapResizeCommand}" />
                 </RibbonGroup>
             </RibbonTab>
 

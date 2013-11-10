@@ -9,6 +9,7 @@ using Bombardier.Editor.Services;
 using System.Windows;
 using System.IO;
 using Bombardier.Editor.Models;
+using Bombardier.Editor.Views.Dialogs;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -25,6 +26,8 @@ namespace Bombardier.Editor.ViewModels
         public ICommand FileExitCommand { get; private set; }
 
         public ICommand FileOpenRecentCommand { get; private set; }
+
+        public ICommand MapResizeCommand { get; private set; }
 
         public ICommand ChangeTool { get; private set; }
 
@@ -62,6 +65,8 @@ namespace Bombardier.Editor.ViewModels
             ChangeTool = new DelegateCommand<string>(ChangeTool_Executed);
 
             SaveSettingsCommand = new DelegateCommand(SaveSettings_Executed);
+
+            MapResizeCommand = new DelegateCommand(MapResize_Executed);
 
             MapVM = new MapViewModel(new Bombardier.Common.Map(0, 0));
             OnPropertyChanged("MapVM");
@@ -161,6 +166,12 @@ namespace Bombardier.Editor.ViewModels
         {
             Properties.Settings.Default.RecentFiles = RecentFiles;
             Properties.Settings.Default.Save();
+        }
+
+        void MapResize_Executed()
+        {
+            ResizeMapView view = new ResizeMapView();
+            view.ShowDialog();
         }
     }
 }
