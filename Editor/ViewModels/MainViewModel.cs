@@ -8,6 +8,7 @@ using Microsoft.Practices.Prism.Commands;
 using Bombardier.Editor.Services;
 using System.Windows;
 using System.IO;
+using Bombardier.Editor.Models;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -33,7 +34,7 @@ namespace Bombardier.Editor.ViewModels
 
         string fileName;
 
-        public List<string> RecentFiles { get; private set; }
+        public RecentMapsCollection RecentFiles { get; private set; }
 
         public string FileName
         {
@@ -65,7 +66,7 @@ namespace Bombardier.Editor.ViewModels
 
             ObjectToolsVisible = Visibility.Hidden;
 
-            RecentFiles = new List<string>();
+            RecentFiles = new RecentMapsCollection();
         }
 
         void FileNew_Executed()
@@ -89,6 +90,7 @@ namespace Bombardier.Editor.ViewModels
         void FileSave_Executed(string fileName)
         {
             Bombardier.Common.MapSerialization.SaveMap(MapVM.GetMap(), fileName);
+            RecentFiles.Add(fileName);
         }
 
         void FileOpen_Executed(string fileName)
@@ -98,6 +100,7 @@ namespace Bombardier.Editor.ViewModels
             OnPropertyChanged("MapVM");
 
             FileName = fileName;
+            RecentFiles.Add(fileName);
         }
 
         void FileExit_Executed()

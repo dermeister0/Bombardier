@@ -39,8 +39,25 @@
                     </RibbonApplicationMenu.AuxiliaryPaneContent>
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
+            
+            <RibbonTab Header="Map">
+                <RibbonGroup>
+                    <RibbonButton Label="Resize" />
+                </RibbonGroup>
+            </RibbonTab>
 
-            <RibbonTab Header="Brushes">
+            <RibbonTab Header="View">
+                <RibbonGroup Header="Zoom">
+                    <Slider Name="ZoomSlider" Value="0.5"
+                            Minimum="0.2" Maximum="1.0"
+                            SmallChange="0.05" LargeChange="0.1"
+                            TickFrequency="0.1" TickPlacement="TopLeft"
+                            Orientation="Vertical" Height="65" />
+                </RibbonGroup>
+            </RibbonTab>            
+
+            
+            <RibbonTab Header="Brushes" IsSelected="True">
                 <RibbonGroup>
                     <RibbonToggleButton LargeImageSource="..\Images\Clear.png" Label="Clear"
                                         IsChecked="{Binding CurrentTool, Converter={StaticResource IsCheckedToolConverter}, ConverterParameter=Clear}"
@@ -89,15 +106,6 @@
                 </RibbonGroup>
             </RibbonTab>
 
-            <RibbonTab Header="View">
-                <RibbonGroup Header="Zoom">
-                    <Slider Name="ZoomSlider" Value="0.5"
-                            Minimum="0.2" Maximum="1.0"
-                            SmallChange="0.05" LargeChange="0.1"
-                            TickFrequency="0.1" TickPlacement="TopLeft"
-                            Orientation="Vertical" Height="65" />
-                </RibbonGroup>
-            </RibbonTab>
 
             <RibbonTab Header="Properties" ContextualTabGroupHeader="Object Tools">
                 <RibbonGroup Header="Basic Info">
