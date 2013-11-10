@@ -14,9 +14,12 @@ namespace Bombardier.Editor.ViewModels.Dialogs
     {
         public ICommand OKCommand { get; private set; }
 
-        public ResizeMapViewModel()
+        MapViewModel oldMap;
+
+        public ResizeMapViewModel(MapViewModel oldMap)
         {
             OKCommand = new DelegateCommand(OK_Executed);
+            this.oldMap = oldMap;
         }
 
         void OK_Executed()

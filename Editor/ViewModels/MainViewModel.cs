@@ -172,7 +172,7 @@ namespace Bombardier.Editor.ViewModels
         void MapResize_Executed()
         {
             ResizeMapView view = new ResizeMapView();
-            ResizeMapViewModel viewModel = new ResizeMapViewModel();
+            ResizeMapViewModel viewModel = new ResizeMapViewModel(MapVM);
             view.DataContext = viewModel;
             view.ShowDialog();
         }
