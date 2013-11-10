@@ -28,6 +28,8 @@ namespace Bombardier.Editor.ViewModels
 
         public ICommand ChangeTool { get; private set; }
 
+        public ICommand SaveSettingsCommand { get;private set; }
+
         public Tool CurrentTool { get; set; }
 
         public Visibility ObjectToolsVisible { get; private set; }
@@ -59,6 +61,8 @@ namespace Bombardier.Editor.ViewModels
 
             ChangeTool = new DelegateCommand<string>(ChangeTool_Executed);
 
+            SaveSettingsCommand = new DelegateCommand(SaveSettings_Executed);
+
             MapVM = new MapViewModel(new Bombardier.Common.Map(0, 0));
             OnPropertyChanged("MapVM");
 
@@ -66,7 +70,9 @@ namespace Bombardier.Editor.ViewModels
 
             ObjectToolsVisible = Visibility.Hidden;
 
-            RecentFiles = new RecentMapsCollection();
+            RecentFiles = Properties.Settings.Default.RecentFiles;
+            if (RecentFiles == null)
+                RecentFiles = new RecentMapsCollection();
         }
 
         void FileNew_Executed()
@@ -95,16 +101,26 @@ namespace Bombardier.Editor.ViewModels
 
         void FileOpen_Executed(string fileName)
         {
-            Bombardier.Common.Map map = Bombardier.Common.MapSerialization.LoadMap(fileName);
-            MapVM = new MapViewModel(map);
-            OnPropertyChanged("MapVM");
+            if (File.Exists(fileName))
+            {
+                Bombardier.Common.Map map = Bombardier.Common.MapSerialization.LoadMap(fileName);
+                MapVM = new MapViewModel(map);
+                OnPropertyChanged("MapVM");
 
-            FileName = fileName;
-            RecentFiles.Add(fileName);
+                FileName = fileName;
+                RecentFiles.Add(fileName);
+            }
+            else
+            {
+                MessageBox.Show(String.Format("File not found: {0}", fileName), "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                RecentFiles.Remove(fileName);
+            }
         }
 
         void FileExit_Executed()
         {
+            SaveSettings_Executed();
+
             App.Current.MainWindow.Close();
         }
 
@@ -139,6 +155,12 @@ namespace Bombardier.Editor.ViewModels
         void FileOpenRecent_Executed(string fileName)
         {
             FileOpen_Executed(fileName);
+        }
+
+        void SaveSettings_Executed()
+        {
+            Properties.Settings.Default.RecentFiles = RecentFiles;
+            Properties.Settings.Default.Save();
         }
     }
 }

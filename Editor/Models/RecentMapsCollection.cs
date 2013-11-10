@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Editor.Models
 {
-    class RecentMapsCollection : IEnumerable<string>, INotifyCollectionChanged
+    public class RecentMapsCollection : IEnumerable<string>, INotifyCollectionChanged
     {
         List<string> recentMaps = new List<string>();
 
@@ -19,6 +19,14 @@ namespace Bombardier.Editor.Models
 
             while (recentMaps.Count > 10)
                 recentMaps.RemoveAt(0);
+
+            if (CollectionChanged != null)
+                CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        }
+
+        public void Remove(string fileName)
+        {
+            recentMaps.Remove(fileName);
 
             if (CollectionChanged != null)
                 CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));

@@ -72,5 +72,16 @@ namespace Bombardier.Editor.Views
         {
             SaveAs();
         }
+
+        private void RibbonWindow_Closed(object sender, EventArgs e)
+        {
+            var viewModel = DataContext as MainViewModel;
+            viewModel.SaveSettingsCommand.Execute(null);
+        }
+
+        private void RibbonWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // @@ TODO: Ask user about file saving.
+        }
     }
 }
