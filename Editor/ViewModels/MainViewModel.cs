@@ -10,6 +10,7 @@ using System.Windows;
 using System.IO;
 using Bombardier.Editor.Models;
 using Bombardier.Editor.Views.Dialogs;
+using Bombardier.Editor.ViewModels.Dialogs;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -171,6 +172,8 @@ namespace Bombardier.Editor.ViewModels
         void MapResize_Executed()
         {
             ResizeMapView view = new ResizeMapView();
+            ResizeMapViewModel viewModel = new ResizeMapViewModel();
+            view.DataContext = viewModel;
             view.ShowDialog();
         }
     }

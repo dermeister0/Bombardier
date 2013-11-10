@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.Prism.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,13 @@ namespace Bombardier.Editor.Services
 
         static IMap mapService;
 
+        static IEventAggregator eventAggregator = new EventAggregator();
+
         public static IToolbar GetToolbar()
         {
             if (toolbarService == null)
                 throw new NullReferenceException("Toolbar service not initialized.");
-
+            
             return toolbarService;
         }
 
@@ -36,6 +39,11 @@ namespace Bombardier.Editor.Services
         public static void InitializeToolbar(IToolbar service)
         {
             toolbarService = service;
+        }
+
+        public static IEventAggregator GetEventAggregator()
+        {
+            return eventAggregator;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Bombardier.Editor.Services;
+using Bombardier.Editor.Support;
+using Bombardier.Editor.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,14 @@ namespace Bombardier.Editor.Views.Dialogs
         public ResizeMapView()
         {
             InitializeComponent();
+
+            ServiceLocator.GetEventAggregator().GetEvent<CloseWindowEvent>().Subscribe(OnClose);
+        }
+
+        void OnClose(ViewModelBase viewModel)
+        {
+            if (viewModel == DataContext)
+                Close();
         }
     }
 }
