@@ -16,7 +16,7 @@ namespace Bombardier.Editor
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return String.Compare(value.ToString(), parameter.ToString()) == 0;
+            return String.Compare(value.ToString(), parameter.ToString(), StringComparison.OrdinalIgnoreCase) == 0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

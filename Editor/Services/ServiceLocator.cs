@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Prism.Events;
+﻿using Bombardier.Editor.Support;
+using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Bombardier.Editor.Services
         public static IToolbar GetToolbar()
         {
             if (toolbarService == null)
-                throw new NullReferenceException("Toolbar service not initialized.");
+                throw new GeneralException("Toolbar service not initialized.");
             
             return toolbarService;
         }
@@ -26,7 +27,7 @@ namespace Bombardier.Editor.Services
         public static IMap GetMap()
         {
             if (mapService == null)
-                throw new NullReferenceException("Map service not initialized.");
+                throw new GeneralException("Map service not initialized.");
 
             return mapService;
         }

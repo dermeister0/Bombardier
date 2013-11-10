@@ -36,6 +36,12 @@
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Bombardier.Common.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
@@ -83,6 +89,7 @@
     <Compile Include="Services\ServiceLocator.cs" />
     <Compile Include="Support\CloseWindowEvent.cs" />
     <Compile Include="Support\CompositePresentationEvent.cs" />
+    <Compile Include="Support\GeneralException.cs" />
     <Compile Include="Support\UnitConverter.cs" />
     <Compile Include="ViewModels\Dialogs\ResizeMapViewModel.cs" />
     <Compile Include="ViewModels\Gears\TurretViewModel.cs" />
@@ -209,6 +216,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Bombardier.Common.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

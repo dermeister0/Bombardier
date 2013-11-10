@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Editor
 {
-    class Global
+    static class Global
     {
         public const int CellSize = 50;
 

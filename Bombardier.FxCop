@@ -22,7 +22,7 @@
  </ProjectOptions>
  <Targets>
   <Target Name="$(ProjectDir)/Editor/bin/Debug/Bombardier.Common.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/Editor/bin/Debug/Bombardier.Editor.exe" Analyze="False" AnalyzeAllChildren="False" />
+  <Target Name="$(ProjectDir)/Editor/bin/Debug/Bombardier.Editor.exe" Analyze="True" AnalyzeAllChildren="True" />
  </Targets>
  <Rules>
   <RuleFiles>
@@ -210,13 +210,689 @@
      </Module>
     </Modules>
    </Target>
+   <Target Name="$(ProjectDir)/Editor/bin/Debug/Bombardier.Editor.exe">
+    <Modules>
+     <Module Name="bombardier.editor.exe">
+      <Namespaces>
+       <Namespace Name="Bombardier.Editor.Support">
+        <Types>
+         <Type Name="CloseWindowEvent">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Created="2013-11-10 13:03:58Z">
+            <Issue>
+             <Item>'CloseWindowEvent'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="CompositePresentationEvent">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Created="2013-11-10 13:03:58Z">
+            <Issue>
+             <Item>'CompositePresentationEvent'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.ViewModels">
+        <Types>
+         <Type Name="MainViewModel">
+          <Members>
+           <Member Name="#FileExitCommand">
+            <Accessors>
+             <Accessor Name="#get_FileExitCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MainViewModel.FileExitCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#FileNewCommand">
+            <Accessors>
+             <Accessor Name="#get_FileNewCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MainViewModel.FileNewCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#FileOpenRecentCommand">
+            <Accessors>
+             <Accessor Name="#get_FileOpenRecentCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MainViewModel.FileOpenRecentCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#MapResizeCommand">
+            <Accessors>
+             <Accessor Name="#get_MapResizeCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MainViewModel.MapResizeCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#ObjectToolsVisible">
+            <Accessors>
+             <Accessor Name="#get_ObjectToolsVisible()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MainViewModel.ObjectToolsVisible.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Title">
+            <Accessors>
+             <Accessor Name="#get_Title()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MainViewModel.Title.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MapCellViewModel">
+          <Members>
+           <Member Name="#CellBrush">
+            <Accessors>
+             <Accessor Name="#get_CellBrush()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MapCellViewModel.CellBrush.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#X">
+            <Accessors>
+             <Accessor Name="#get_X()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'MapCellViewModel.X.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ObjectViewModel">
+          <Members>
+           <Member Name="#IsEnabled">
+            <Accessors>
+             <Accessor Name="#get_IsEnabled()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'ObjectViewModel.IsEnabled.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_IsEnabled(System.Boolean)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'ObjectViewModel.IsEnabled.set(bool)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#X">
+            <Accessors>
+             <Accessor Name="#get_X()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'ObjectViewModel.X.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Y">
+            <Accessors>
+             <Accessor Name="#get_Y()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'ObjectViewModel.Y.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SelectionViewModel">
+          <Members>
+           <Member Name="#Height">
+            <Accessors>
+             <Accessor Name="#get_Height()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'SelectionViewModel.Height.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Height(System.Int32)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'SelectionViewModel.Height.set(int)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Width">
+            <Accessors>
+             <Accessor Name="#get_Width()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'SelectionViewModel.Width.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Width(System.Int32)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'SelectionViewModel.Width.set(int)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#X">
+            <Accessors>
+             <Accessor Name="#get_X()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'SelectionViewModel.X.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Y">
+            <Accessors>
+             <Accessor Name="#get_Y()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'SelectionViewModel.Y.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.ViewModels.Dialogs">
+        <Types>
+         <Type Name="ResizeMapViewModel">
+          <Members>
+           <Member Name="#OKCommand">
+            <Accessors>
+             <Accessor Name="#get_OKCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'ResizeMapViewModel.OKCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#oldMap">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'ResizeMapViewModel.oldMap'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.ViewModels.Gears">
+        <Types>
+         <Type Name="TurretViewModel">
+          <Members>
+           <Member Name="#Rotation">
+            <Accessors>
+             <Accessor Name="#get_Rotation()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+                <Issue>
+                 <Item>'TurretViewModel.Rotation.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.Views">
+        <Types>
+         <Type Name="MainView">
+          <Members>
+           <Member Name="#_CreateDelegate(System.Type,System.String)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'MainView._CreateDelegate(Type, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#MainScrollViewer">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'MainView.MainScrollViewer'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue Name="Parameter">
+               <Item>'target'</Item>
+               <Item>'MainView'</Item>
+               <Item>'MainView.IComponentConnector.Connect(int, object)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Issue Name="Parameter">
+               <Item>'target'</Item>
+               <Item>'RibbonApplicationMenuItem'</Item>
+               <Item>'MainView.IComponentConnector.Connect(int, object)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Issue Name="Parameter">
+               <Item>'target'</Item>
+               <Item>'RibbonApplicationMenuItem'</Item>
+               <Item>'MainView.IComponentConnector.Connect(int, object)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'MainView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ZoomSlider">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'MainView.ZoomSlider'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MapCellView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue Name="Parameter">
+               <Item>'target'</Item>
+               <Item>'MapCellView'</Item>
+               <Item>'MapCellView.IComponentConnector.Connect(int, object)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+              <Issue Name="Parameter">
+               <Item>'target'</Item>
+               <Item>'MapCellView'</Item>
+               <Item>'MapCellView.IComponentConnector.Connect(int, object)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'MapCellView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MapRowView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'MapRowView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MapView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'MapView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SelectionView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'SelectionView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.Views.Dialogs">
+        <Types>
+         <Type Name="ResizeMapView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'ResizeMapView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.Views.MultipleObjects">
+        <Types>
+         <Type Name="TurretView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'TurretView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.Views.Ribbon">
+        <Types>
+         <Type Name="ObjectPropertiesBasicInfo">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'ObjectPropertiesBasicInfo'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.Views.Rulers">
+        <Types>
+         <Type Name="RulerLeftView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'RulerLeftView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RulerTopRowView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'RulerTopRowView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RulerTopView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'RulerTopView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.Views.SingleObjects">
+        <Types>
+         <Type Name="StartView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'StartView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Bombardier.Editor.Views.Walls">
+        <Types>
+         <Type Name="DoorView">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Excluded" Created="2013-11-10 13:03:58Z">
+              <Issue>
+               <Item>'DoorView'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="Der">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
   </Targets>
+  <Notes>
+   <User Name="Der">
+    <Note Id="0" Modified="2013-11-10 13:10:50Z">WPF</Note>
+   </User>
+  </Notes>
   <Rules>
    <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
     <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
    </Rule>
+   <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+    <Resolution Name="Default">{0} is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+    <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+    <Resolution Name="Parameter">{0}, a parameter, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   </Rule>
    <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
     <Resolution Name="MemberMoreMeaningfulName">Consider providing a more meaningful name than member name {0}.</Resolution>
+   </Rule>
+   <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+    <Resolution Name="Default">Make {0} sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of {1} and is visible to derived classes.</Resolution>
    </Rule>
    <Rule TypeName="OperatorOverloadsHaveNamedAlternates" Category="Microsoft.Usage" CheckId="CA2225">
     <Resolution Name="Multiple">Provide a method named '{0}' or '{1}' as an alternate for operator {2}.</Resolution>

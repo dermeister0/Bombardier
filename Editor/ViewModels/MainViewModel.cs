@@ -11,6 +11,7 @@ using System.IO;
 using Bombardier.Editor.Models;
 using Bombardier.Editor.Views.Dialogs;
 using Bombardier.Editor.ViewModels.Dialogs;
+using System.Globalization;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -118,7 +119,8 @@ namespace Bombardier.Editor.ViewModels
             }
             else
             {
-                MessageBox.Show(String.Format("File not found: {0}", fileName), "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(String.Format(CultureInfo.CurrentCulture, "File not found: {0}", fileName),
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 RecentFiles.Remove(fileName);
             }
         }
