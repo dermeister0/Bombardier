@@ -43,6 +43,8 @@ namespace Bombardier.Editor.ViewModels
 
         public RecentMapsCollection RecentFiles { get; private set; }
 
+        public string SelectedRecentMap { get; set; }
+
         public string FileName
         {
             get { return fileName; }
@@ -172,6 +174,8 @@ namespace Bombardier.Editor.ViewModels
         void FileOpenRecent_Executed(string fileName)
         {
             FileOpen_Executed(fileName);
+            SelectedRecentMap = null;
+            OnPropertyChanged("SelectedRecentMap");
         }
 
         void SaveSettings_Executed()

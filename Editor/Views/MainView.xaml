@@ -26,7 +26,7 @@
                     </RibbonApplicationMenu.FooterPaneContent>
 
                     <RibbonApplicationMenu.AuxiliaryPaneContent>
-                        <RibbonGallery CanUserFilter="False" Command="{Binding FileOpenRecentCommand}"
+                        <RibbonGallery CanUserFilter="False" Command="{Binding FileOpenRecentCommand}" SelectedItem="{Binding SelectedRecentMap}"
                           ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <RibbonGalleryCategory Header="Recent Maps" ItemsSource="{Binding RecentFiles}">
                                 <RibbonGalleryCategory.ItemsPanel>
