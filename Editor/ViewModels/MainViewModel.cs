@@ -110,8 +110,16 @@ namespace Bombardier.Editor.ViewModels
         {
             if (File.Exists(fileName))
             {
-                Bombardier.Common.Map map = Bombardier.Common.MapSerialization.LoadMap(fileName);
-                MapVM = new MapViewModel(map);
+                try
+                {
+                    Bombardier.Common.Map map = Bombardier.Common.MapSerialization.LoadMap(fileName);
+                    MapVM = new MapViewModel(map);
+                }
+                catch
+                {
+                    // @@
+                    MessageBox.Show("Failed to load map.");
+                }
                 OnPropertyChanged("MapVM");
 
                 FileName = fileName;
@@ -119,6 +127,7 @@ namespace Bombardier.Editor.ViewModels
             }
             else
             {
+                // @@
                 MessageBox.Show(String.Format(CultureInfo.CurrentCulture, "File not found: {0}", fileName),
                     "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 RecentFiles.Remove(fileName);

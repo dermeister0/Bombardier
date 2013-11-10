@@ -13,7 +13,7 @@ namespace Bombardier.Common
     [Serializable]
     public class Map
     {
-        public const int CurrentFormat = 3;
+        public const int CurrentFormat = 4;
 
         [DataMember]
         public int Format { get; private set; }
@@ -86,6 +86,10 @@ namespace Bombardier.Common
             {
                 foreach (var o in Objects)
                     o.IsEnabled = true;
+            }
+            else if (Format == 3)
+            {
+                Objects = new Collection<MapObject>();
             }
 
             Format = CurrentFormat;
