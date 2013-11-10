@@ -3,7 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:Bombardier.Editor.Views"
         xmlns:ribbonViews="clr-namespace:Bombardier.Editor.Views.Ribbon"
-        Title="{Binding Title}" Height="350" Width="525" Icon="..\Images\Icon32.png" Closed="RibbonWindow_Closed" Closing="RibbonWindow_Closing">
+        xmlns:support="clr-namespace:Bombardier.Editor.Support"
+        Title="{Binding Title}" Icon="..\Images\Icon32.png" Closed="RibbonWindow_Closed" Closing="RibbonWindow_Closing"
+        Top="{support:SettingBinding MainWindowTop}" Left="{support:SettingBinding MainWindowLeft}"
+        Width="{support:SettingBinding MainWindowWidth}" Height="{support:SettingBinding MainWindowHeight}"
+        WindowState="{support:SettingBinding MainWindowState}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

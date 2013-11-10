@@ -90,6 +90,7 @@
     <Compile Include="Support\CloseWindowEvent.cs" />
     <Compile Include="Support\CompositePresentationEvent.cs" />
     <Compile Include="Support\GeneralException.cs" />
+    <Compile Include="Support\SettingBindingExtension.cs" />
     <Compile Include="Support\UnitConverter.cs" />
     <Compile Include="ViewModels\Dialogs\ResizeMapViewModel.cs" />
     <Compile Include="ViewModels\Gears\TurretViewModel.cs" />
