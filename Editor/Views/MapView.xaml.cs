@@ -81,8 +81,9 @@ namespace Bombardier.Editor.Views
         private void MainGrid_MouseMove(object sender, MouseEventArgs e)
         {
             var viewModel = DataContext as MapViewModel;
+            var toolbar = ServiceLocator.GetToolbar();
 
-            if (e.LeftButton == MouseButtonState.Pressed && viewModel.SelectedObject != null)
+            if (e.LeftButton == MouseButtonState.Pressed && viewModel.SelectedObject != null && toolbar.CurrentTool == Tool.Select)
             {
                 if (!viewModel.MoveMode)
                 {
