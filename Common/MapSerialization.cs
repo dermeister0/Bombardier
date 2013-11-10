@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Common
 {
-    public class MapSerialization
+    public static class MapSerialization
     {
         public static Map LoadMap(string fileName)
         {

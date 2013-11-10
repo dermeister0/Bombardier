@@ -22,14 +22,15 @@ namespace Bombardier.Common
         [DataMember(Name="objectType")]
         public MapObjectType ObjectType { get; set; }
 
-        [DataMember(Name="properties")]
-        public Dictionary<string, ObjectProperty> Properties = new Dictionary<string,ObjectProperty>();
+        [DataMember(Name = "properties")]
+        public Dictionary<string, ObjectProperty> Properties { get; private set; }
 
         public bool IsEnabled { get; set; }
 
         public MapObject()
         {
             IsEnabled = true;
+            Properties = new Dictionary<string,ObjectProperty>();
         }
     }
 }

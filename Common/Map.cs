@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
@@ -17,24 +18,34 @@ namespace Bombardier.Common
         [DataMember]
         public int Format { get; private set; }
 
-        [DataMember]
-        public readonly int Width;
+        int width;
 
         [DataMember]
-        public readonly int Height;
+        public int Width
+        {
+            get { return width; }
+        }
+
+        int height;
 
         [DataMember]
-        public readonly MapCell[][] Cells;
+        public int Height
+        {
+            get { return height; }
+        }
 
         [DataMember]
-        public List<MapObject> Objects { get; private set; }
+        public MapCell[][] Cells { get; private set; }
+
+        [DataMember]
+        public Collection<MapObject> Objects { get; private set; }
         
         public Map(int width, int height)
         {
             Format = CurrentFormat;
 
-            Width = width;
-            Height = height;
+            this.width = width;
+            this.height = height;
 
             Cells = new MapCell[height][];
             for (int i = 0; i < Height; ++i)
@@ -54,7 +65,7 @@ namespace Bombardier.Common
 
         private void CreateObjects()
         {
-            Objects = new List<MapObject>();
+            Objects = new Collection<MapObject>();
             Objects.Add(new MapObject { ObjectType = MapObjectType.Start, X = -10, Y = -10 });
         }
 
@@ -67,8 +78,9 @@ namespace Bombardier.Common
             }
             else if (Format == 1)
             {
-                foreach (var o in Objects)
-                    o.Properties = new Dictionary<string, ObjectProperty>();
+                // 11/10/2013 Not used more.
+                //foreach (var o in Objects)
+                //    o.Properties = new Dictionary<string, ObjectProperty>();
             }
             else if (Format == 2)
             {
