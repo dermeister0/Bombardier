@@ -23,6 +23,8 @@ namespace Bombardier.Editor.ViewModels
 
         public ICommand FileExitCommand { get; private set; }
 
+        public ICommand FileOpenRecentCommand { get; private set; }
+
         public ICommand ChangeTool { get; private set; }
 
         public Tool CurrentTool { get; set; }
@@ -30,6 +32,8 @@ namespace Bombardier.Editor.ViewModels
         public Visibility ObjectToolsVisible { get; private set; }
 
         string fileName;
+
+        public List<string> RecentFiles { get; private set; }
 
         public string FileName
         {
@@ -50,6 +54,7 @@ namespace Bombardier.Editor.ViewModels
             FileOpenCommand = new DelegateCommand<string>(FileOpen_Executed);
             FileSaveCommand = new DelegateCommand<string>(FileSave_Executed);
             FileExitCommand = new DelegateCommand(FileExit_Executed);
+            FileOpenRecentCommand = new DelegateCommand<string>(FileOpenRecent_Executed);
 
             ChangeTool = new DelegateCommand<string>(ChangeTool_Executed);
 
@@ -59,6 +64,8 @@ namespace Bombardier.Editor.ViewModels
             ChangeTool.Execute("Clear");
 
             ObjectToolsVisible = Visibility.Hidden;
+
+            RecentFiles = new List<string>();
         }
 
         void FileNew_Executed()
@@ -124,6 +131,11 @@ namespace Bombardier.Editor.ViewModels
 
                 return file + " - Bombardier Editor";
             }
+        }
+
+        void FileOpenRecent_Executed(string fileName)
+        {
+            FileOpen_Executed(fileName);
         }
     }
 }
