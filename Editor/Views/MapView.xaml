@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" DataContextChanged="UserControl_DataContextChanged">
-    <Grid Name="MainGrid">
+    <Grid Name="MainGrid" MouseLeftButtonUp="MainGrid_MouseLeftButtonUp" MouseMove="MainGrid_MouseMove"
+          MouseLeftButtonDown="MainGrid_MouseLeftButtonDown">
         <StackPanel Name="MainPanel">
         </StackPanel>
-        <Canvas Name="ObjectsCanvas" MouseUp="ObjectsCanvas_MouseUp">
+        <Canvas Name="ObjectsCanvas">
         </Canvas>
     </Grid>
 </UserControl>

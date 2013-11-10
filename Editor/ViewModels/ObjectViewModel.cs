@@ -1,4 +1,5 @@
 ﻿using Bombardier.Common;
+using Bombardier.Editor.Support;
 using Bombardier.Editor.ViewModels.Gears;
 using Bombardier.Editor.ViewModels.Walls;
 using Bombardier.Editor.Views.MultipleObjects;
@@ -24,9 +25,9 @@ namespace Bombardier.Editor.ViewModels
 
         public MapObjectType ObjectType { get { return mapObject.ObjectType; } }
 
-        public int LocalX { get { return Global.RulerSize + mapObject.X * Global.CellSize; } }
+        public int LocalX { get { return UnitConverter.MapXToLocal(mapObject.X); } }
 
-        public int LocalY { get { return Global.RulerSize + mapObject.Y * Global.CellSize; } }
+        public int LocalY { get { return UnitConverter.MapYToLocal(mapObject.Y); } }
 
         protected ObjectViewModel(MapObject mapObject)
         {

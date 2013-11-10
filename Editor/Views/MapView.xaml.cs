@@ -1,4 +1,6 @@
 ﻿using Bombardier.Editor.Services;
+using Bombardier.Editor.Support;
+using Bombardier.Editor.ViewModels;
 using Bombardier.Editor.Views.Rulers;
 using System;
 using System.Collections.Generic;
@@ -68,7 +70,35 @@ namespace Bombardier.Editor.Views
             ObjectsCanvas.Children.Add(view);
         }
 
-        private void ObjectsCanvas_MouseUp(object sender, MouseButtonEventArgs e)
+        private void MainGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var viewModel = DataContext as MapViewModel;
+
+            Cursor = Cursors.Arrow;
+            viewModel.MoveMode = false;
+        }
+
+        private void MainGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            var viewModel = DataContext as MapViewModel;
+
+            if (e.LeftButton == MouseButtonState.Pressed && viewModel.SelectedObject != null)
+            {
+                if (!viewModel.MoveMode)
+                {
+                    viewModel.MoveMode = true;
+                    Cursor = Cursors.SizeAll;
+                }
+
+                var mousePoint = e.GetPosition(ObjectsCanvas);
+                viewModel.SelectedObject.UpdatePosition(UnitConverter.MouseXToMap((int)mousePoint.X),
+                    UnitConverter.MouseYToMap((int)mousePoint.Y));
+
+                viewModel.UpdateSelection(viewModel.SelectedObject);
+            }
+        }
+
+        private void MainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var toolbar = ServiceLocator.GetToolbar();
 

@@ -25,6 +25,8 @@ namespace Bombardier.Editor.ViewModels
 
         public SelectionViewModel Selection;
 
+        public bool MoveMode { get; set; }
+
         public MapViewModel(Bombardier.Common.Map map)
         {
             ServiceLocator.InitializeMap(this);
@@ -98,18 +100,32 @@ namespace Bombardier.Editor.ViewModels
 
         public void SelectObject(int mouseX, int mouseY)
         {
+            SelectedObject = null;
+            
             foreach (var ovm in Objects)
             {
                 if (ovm.IsPointInRect(mouseX, mouseY))
                 {
                     SelectedObject = ovm;
-                    Selection.X = ovm.LocalX;
-                    Selection.Y = ovm.LocalY;
-
-                    var toolbar = ServiceLocator.GetToolbar();
-                    toolbar.SelectedObject = SelectedObject;
+                    break;
                 }
             }
+
+            var toolbar = ServiceLocator.GetToolbar();
+            toolbar.SelectedObject = SelectedObject;
+
+            UpdateSelection(SelectedObject);
+        }
+
+        public void UpdateSelection(ObjectViewModel ovm)
+        {
+            if (ovm != null)
+            {
+                Selection.X = ovm.LocalX;
+                Selection.Y = ovm.LocalY;
+            }
+            else
+                Selection.Clear();
         }
     }
 }
