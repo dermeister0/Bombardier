@@ -99,6 +99,9 @@ namespace Bombardier.Editor.ViewModels
                 case Tool.Door:
                     mapObject = map.AddObject(MapObjectType.Door, x, y);
                     break;
+                case Tool.Button:
+                    mapObject = map.AddObject(MapObjectType.Button, x, y);
+                    break;
             }
         }
     }

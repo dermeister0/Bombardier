@@ -4,6 +4,7 @@ using Bombardier.Editor.ViewModels.Gears;
 using Bombardier.Editor.ViewModels.Walls;
 using Bombardier.Editor.Views.MultipleObjects;
 using Bombardier.Editor.Views.SingleObjects;
+using Bombardier.Editor.Views.Triggers;
 using Bombardier.Editor.Views.Walls;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,9 @@ namespace Bombardier.Editor.ViewModels
                     break;
                 case MapObjectType.Door:
                     result = new DoorView();
+                    break;
+                case MapObjectType.Button:
+                    result = new ButtonView();
                     break;
                 default:
                     throw new ArgumentException("Unsupported object type: " + mapObject.ObjectType.ToString());

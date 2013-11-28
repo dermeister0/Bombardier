@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bombardier.Common
 {
-    public enum MapObjectType { Start, Turret, Door };
+    public enum MapObjectType { Start, Turret, Door, Button };
 
     [DataContract]
     [Serializable]

@@ -124,6 +124,9 @@
     <Compile Include="Views\SingleObjects\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Triggers\ButtonView.xaml.cs">
+      <DependentUpon>ButtonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Walls\DoorView.xaml.cs">
       <DependentUpon>DoorView.xaml</DependentUpon>
     </Compile>
@@ -185,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SingleObjects\StartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Triggers\ButtonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -260,6 +267,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Door00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
