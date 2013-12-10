@@ -86,8 +86,10 @@ module Bombardier.Entities {
                     }
 
                     var tile = this._mapTiles[this._cells[y][x]];
-                    tile.draw(context, canvasBegin.x + (x - mapBegin.x) * Map.TILE_SIZE,
-                         canvasBegin.y + (y - mapBegin.y) * Map.TILE_SIZE);
+                    
+                    // We use 65x65 sprites for 64x64 cells. This allows to hide joints between sprites.
+                    tile.draw(context, canvasBegin.x + (x - mapBegin.x) * Map.TILE_SIZE - 0.5,
+                        canvasBegin.y + (y - mapBegin.y) * Map.TILE_SIZE - 0.5);
                 }
             }
         }
