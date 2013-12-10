@@ -89,6 +89,8 @@ module Bombardier.Entities {
 
             this.objectManager.loadImage('button', 'Images/Button00.png');
 
+            this.objectManager.loadImage('door', 'Images/Door00.png');
+
             Bomb.loadContent();
         }
 
@@ -175,12 +177,17 @@ module Bombardier.Entities {
             var defs = this._map.getObjectDefinitions();
 
             for (var i in defs) {
+                var objDef = new ObjectDefinition(defs[i]);
+
                 switch (defs[i].objectType) {
                     case ObjectType.TURRET:
-                        Turret.create(new ObjectDefinition(defs[i]));
+                        Turret.create(objDef);
+                        break;
+                    case ObjectType.DOOR:
+                        Door.create(objDef);
                         break;
                     case ObjectType.BUTTON:
-                        Button.create(new ObjectDefinition(defs[i]));
+                        Button.create(objDef);
                         break;
                 }
             }
