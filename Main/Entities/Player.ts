@@ -63,6 +63,8 @@ module Bombardier.Entities {
             this.createSensors();
 
             this._bombsCount = 10;
+
+            this.zIndex = 1;
         }
 
         public draw(context: CanvasRenderingContext2D, viewport: Engine.Viewport) {

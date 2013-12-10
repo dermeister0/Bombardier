@@ -11,6 +11,8 @@ module Bombardier.Entities {
         public static START: number = 0;
 
         public static TURRET: number = 1;
+        public static DOOR: number = 2;
+        public static BUTTON: number = 3;
     }
 
     export class Game {
@@ -84,6 +86,8 @@ module Bombardier.Entities {
             this.objectManager.loadImage('turret', 'Images/Turret00.png');
 
             this.objectManager.loadImage('fireball', 'Images/Fireball00.png');
+
+            this.objectManager.loadImage('button', 'Images/Button00.png');
 
             Bomb.loadContent();
         }
@@ -174,6 +178,10 @@ module Bombardier.Entities {
                 switch (defs[i].objectType) {
                     case ObjectType.TURRET:
                         Turret.create(new ObjectDefinition(defs[i]));
+                        break;
+                    case ObjectType.BUTTON:
+                        Button.create(new ObjectDefinition(defs[i]));
+                        break;
                 }
             }
         }
