@@ -34,10 +34,13 @@ namespace Bombardier.Editor.ViewModels
 
         public List<Event> Events { get; set; }
 
+        public List<ObjectAction> Actions { get; set; }
+
         protected ObjectViewModel(MapObject mapObject)
         {
             this.mapObject = mapObject;
             Events = new List<Event>();
+            Actions = new List<ObjectAction>();
         }
 
         public UserControl CreateView()

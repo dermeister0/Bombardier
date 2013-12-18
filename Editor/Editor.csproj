@@ -86,6 +86,7 @@
     </ApplicationDefinition>
     <Compile Include="Global.cs" />
     <Compile Include="IsCheckedToolConverter.cs" />
+    <Compile Include="Models\ObjectAction.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\RecentMapsCollection.cs" />
     <Compile Include="Services\IMap.cs" />
