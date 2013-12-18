@@ -111,6 +111,9 @@
     <Compile Include="Views\Ribbon\ObjectPropertiesBasicInfo.xaml.cs">
       <DependentUpon>ObjectPropertiesBasicInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Ribbon\ObjectPropertiesEvents.xaml.cs">
+      <DependentUpon>ObjectPropertiesEvents.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Rulers\RulerTopRowView.xaml.cs">
       <DependentUpon>RulerTopRowView.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Ribbon\ObjectPropertiesBasicInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ribbon\ObjectPropertiesEvents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

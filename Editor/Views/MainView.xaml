@@ -121,6 +121,9 @@
                 <RibbonGroup Header="Basic Info">
                     <ribbonViews:ObjectPropertiesBasicInfo DataContext="{Binding SelectedObject}" />
                 </RibbonGroup>
+                <RibbonGroup Header="Events">
+                    <ribbonViews:ObjectPropertiesEvents DataContext="{Binding SelectedObject}" />
+                </RibbonGroup>
             </RibbonTab>
             
             <Ribbon.ContextualTabGroups>

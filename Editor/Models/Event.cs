@@ -10,7 +10,7 @@ namespace Bombardier.Editor.Models
     {
         public readonly int Code;
 
-        public readonly string Name;
+        public string Name { get; private set; }
 
         public Event(int code, string name)
         {
