@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Bombardier.Editor.Models;
+using Bombardier.Editor.ViewModels.Triggers;
 
 namespace Bombardier.Editor.ViewModels
 {
@@ -30,9 +32,12 @@ namespace Bombardier.Editor.ViewModels
 
         public int LocalY { get { return UnitConverter.MapYToLocal(mapObject.Y); } }
 
+        public List<Event> Events { get; set; }
+
         protected ObjectViewModel(MapObject mapObject)
         {
             this.mapObject = mapObject;
+            Events = new List<Event>();
         }
 
         public UserControl CreateView()
@@ -80,6 +85,8 @@ namespace Bombardier.Editor.ViewModels
                     return new TurretViewModel(mapObject);
                 case MapObjectType.Door:
                     return new DoorViewModel(mapObject);
+                case MapObjectType.Button:
+                    return new ButtonViewModel(mapObject);
                 default:
                     return new ObjectViewModel(mapObject);
             }

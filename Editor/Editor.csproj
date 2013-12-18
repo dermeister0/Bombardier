@@ -86,6 +86,7 @@
     </ApplicationDefinition>
     <Compile Include="Global.cs" />
     <Compile Include="IsCheckedToolConverter.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\RecentMapsCollection.cs" />
     <Compile Include="Services\IMap.cs" />
     <Compile Include="Services\IToolbar.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="ViewModels\Gears\TurretViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SelectionViewModel.cs" />
+    <Compile Include="ViewModels\Triggers\ButtonViewModel.cs" />
     <Compile Include="ViewModels\Walls\DoorViewModel.cs" />
     <Compile Include="Views\Dialogs\ResizeMapView.xaml.cs">
       <DependentUpon>ResizeMapView.xaml</DependentUpon>
