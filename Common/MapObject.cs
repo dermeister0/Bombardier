@@ -13,6 +13,9 @@ namespace Bombardier.Common
     [Serializable]
     public class MapObject
     {
+        [DataMember(Name = "id")]
+        public int Id { get; set; }
+
         [DataMember(Name="x")]
         public int X { get; set; }
 
@@ -27,10 +30,13 @@ namespace Bombardier.Common
 
         public bool IsEnabled { get; set; }
 
+        public List<Trigger> Triggers { get; private set; }
+
         public MapObject()
         {
             IsEnabled = true;
             Properties = new Dictionary<string,ObjectProperty>();
+            Triggers = new List<Trigger>();
         }
     }
 }
