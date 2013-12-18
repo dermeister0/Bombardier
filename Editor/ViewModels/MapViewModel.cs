@@ -84,7 +84,7 @@ namespace Bombardier.Editor.ViewModels
 
         public MapObject AddObject(Common.MapObjectType objectType, int x, int y)
         {
-            var mapObject = new MapObject { ObjectType = objectType, X = x, Y = y };
+            var mapObject = new MapObject { ObjectType = objectType, X = x, Y = y, Id = map.GetNextId() };
             map.Objects.Add(mapObject);
 
             ObjectViewModel vm = ObjectViewModel.Create(mapObject);

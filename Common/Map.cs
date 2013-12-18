@@ -13,7 +13,7 @@ namespace Bombardier.Common
     [Serializable]
     public class Map
     {
-        public const int CurrentFormat = 4;
+        public const int CurrentFormat = 5;
 
         [DataMember]
         public int Format { get; private set; }
@@ -41,6 +41,8 @@ namespace Bombardier.Common
 
         [DataMember]
         public Collection<MapObject> Objects { get; private set; }
+
+        int idSequence;
         
         public Map(int width, int height)
         {
@@ -93,8 +95,24 @@ namespace Bombardier.Common
             {
                 Objects = new Collection<MapObject>();
             }
+            else if (Format == 4)
+            {
+                if (idSequence == 0)
+                    idSequence = 1;
+
+                foreach (var o in Objects)
+                {
+                    if (o.Id == 0)
+                        o.Id = GetNextId();
+                }
+            }
 
             Format = CurrentFormat;
+        }
+
+        public int GetNextId()
+        {
+            return idSequence++;
         }
     }
 }
