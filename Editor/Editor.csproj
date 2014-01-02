@@ -103,6 +103,9 @@
     <Compile Include="ViewModels\SelectionViewModel.cs" />
     <Compile Include="ViewModels\Triggers\ButtonViewModel.cs" />
     <Compile Include="ViewModels\Walls\DoorViewModel.cs" />
+    <Compile Include="Views\Dialogs\EditEventView.xaml.cs">
+      <DependentUpon>EditEventView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dialogs\ResizeMapView.xaml.cs">
       <DependentUpon>ResizeMapView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
     <Compile Include="Views\Walls\DoorView.xaml.cs">
       <DependentUpon>DoorView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Dialogs\EditEventView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Dialogs\ResizeMapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

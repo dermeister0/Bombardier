@@ -7,7 +7,7 @@ module Bombardier.Engine {
     import b2Collision = Box2D.Collision;
 
     export class World {
-        public static GRAVITY: number = 9.8;
+        public static GRAVITY: number = 9.8 * 2;
 
         private _b2dWorld: b2Dynamics.b2World;
 

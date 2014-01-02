@@ -85,7 +85,7 @@ module Bombardier.Entities {
 
             // Jump.
             if (Bombardier.Engine.Input.IsKeyDown(Bombardier.Engine.Input.KEY_W) && this._footContacts > 0 && this._jumpTimeout <= 0) {
-                this._playerBody.ApplyImpulse(new b2Math.b2Vec2(0, -7.5 * this._playerBody.GetMass()), this._playerBody.GetWorldCenter());
+                this._playerBody.ApplyImpulse(new b2Math.b2Vec2(0, -Global.UNIT_INITIAL_VELOCITY * 2 * this._playerBody.GetMass()), this._playerBody.GetWorldCenter());
                 this._jumpTimeout = 15;
             }
 
